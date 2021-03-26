@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/relSub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp">
+
+      <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+          android:id="@+id/dayTxt"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textColor="@color/black"
+          android:layout_marginLeft="3dp"
+          android:text="Sunday" />
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dayTxt"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/dialoguebottomcurve"
+            android:layout_marginBottom="10dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_social_media"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:layout_above="@+id/btnLinear"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="4dp"
+                android:scrollbars="vertical" />
+
+
+        </RelativeLayout>
+
+</RelativeLayout>
+</RelativeLayout>

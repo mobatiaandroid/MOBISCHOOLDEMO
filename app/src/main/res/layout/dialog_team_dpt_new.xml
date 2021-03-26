@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/shape_circle_black"
+        app:layout_constraintBottom_toBottomOf="@+id/dateTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dateTxt" />
+
+    <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+        android:id="@+id/dateTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+
+        android:text="TextView"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView14"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+        android:id="@+id/placeTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="TextView"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/dateTxt" />
+
+    <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+        android:id="@+id/timeTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dateTxt"
+        app:layout_constraintStart_toStartOf="@+id/dateTxt"
+        app:layout_constraintTop_toBottomOf="@+id/dateTxt" />
+
+    <ImageView
+        android:id="@+id/addicon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/addicon1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/placeTxt"
+        app:layout_constraintTop_toBottomOf="@+id/placeTxt" />
+
+    <ImageView
+        android:id="@+id/removeicon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/addicon"
+        app:layout_constraintStart_toEndOf="@+id/addicon"
+        app:layout_constraintTop_toBottomOf="@+id/placeTxt"
+        android:src="@drawable/minimize1" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

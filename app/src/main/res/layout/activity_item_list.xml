@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <RelativeLayout
+        android:id="@+id/relativeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dateRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@+id/relativeHeader"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:overScrollMode="never"
+        android:scrollbars="horizontal"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoryRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@+id/dateRecycler"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:overScrollMode="never"
+        android:scrollbars="horizontal"/>
+    <TextView
+        android:id="@+id/chooseCategoryTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/categoryRecycler"
+        android:text="Choose Category"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoryListRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@+id/chooseCategoryTxt"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:overScrollMode="never"
+        android:scrollbars="horizontal"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemListRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/categoryListRecycler"
+        android:layout_above="@+id/viewOrderLinear"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:overScrollMode="never"
+        android:scrollbars="horizontal"/>
+
+<LinearLayout
+    android:id="@+id/viewOrderLinear"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:layout_alignParentBottom="true"
+    android:orientation="horizontal"
+    android:background="@drawable/view_oreder_bg">
+
+</LinearLayout>
+</RelativeLayout>
+
+    <!--et_amount-->

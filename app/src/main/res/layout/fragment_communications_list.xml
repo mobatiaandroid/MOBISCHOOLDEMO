@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+  <!--  <com.mobatia.naisapp.manager.CustomFontDJ5TextWhite
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/split_bg"
+        android:gravity="center"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:text="Title"
+        android:textColor="@color/white"
+        android:textSize="17dp" />
+-->
+    <include
+        android:id="@+id/includeRel"
+        layout="@layout/header_bar_fragment"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/includeRel"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <ImageView
+            android:id="@+id/bannerImagePager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="30"
+            android:background="@drawable/default_banner"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="70"
+    android:orientation="vertical">
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+            android:id="@+id/descriptionTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="12dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:visibility="visible" />
+        <ListView
+            android:id="@+id/mListView"
+            style="@style/ListStyleBlackTextTransparentSelector"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+
+            />
+
+</LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background">
+            <ImageView
+                android:id="@+id/infoCalendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/infobanner_calendar"
+                android:visibility="visible"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/grey"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+        android:id="@+id/houseNameTextView"
+        style="@style/textstyleblack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Red"
+        android:gravity="center_horizontal"
+        android:singleLine="true" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true">
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/busLocation"
+    android:src="@drawable/locationnew"
+/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/callIconBusRoute"
+                android:visibility="gone"
+                android:src="@drawable/callicon"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_participant"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:scrollbars="vertical" />
+
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlackBold
+            android:id="@+id/itemDateTxt"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:text="No Items in your cart"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:visibility="visible"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cartItemRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:scrollbars="vertical"
+        android:background="@color/white"
+        android:layout_below="@+id/itemDateTxt"
+        android:layout_marginTop="2dp"
+        />
+
+
+</RelativeLayout>

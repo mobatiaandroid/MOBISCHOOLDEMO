@@ -1,0 +1,6 @@
+include ':payment-sdk-core'
+include ':payment-sdk-samsungpay'
+include ':payment-sdk'
+include ':app'
+include ':ijkplayer-java'
+include ':giraffeplayer'

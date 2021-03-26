@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:id="@+id/relSub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp" >
+        <ImageView
+            android:id="@+id/iconImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:background="@drawable/alerticon_image" />
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+            android:id="@+id/listTxtTitle"
+            style="@style/textstyleblackNopadding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iconImg"
+            android:layout_toLeftOf="@+id/statusLayout"
+            android:singleLine="true" />
+
+        <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+            android:id="@+id/listTxtDate"
+            style="@style/textstyleblackNopaddingSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/grey"
+            android:layout_below="@+id/listTxtTitle"
+            android:layout_toRightOf="@+id/iconImg"
+            android:layout_toLeftOf="@+id/statusLayout"
+            android:singleLine="true" />
+
+        <include
+            android:id="@+id/statusLayout"
+            layout="@layout/layout_updated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/arrowImg"
+            android:visibility="visible" />
+        <ImageView
+            android:id="@+id/arrowImg"
+            android:layout_width="20dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/arrow" />
+    </RelativeLayout>
+
+</RelativeLayout>
+
+
+<!--  <include
+            android:id="@+id/statusLayout"
+            layout="@layout/layout_updated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/arrowImg"
+            android:visibility="visible" />-->

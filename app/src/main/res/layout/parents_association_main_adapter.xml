@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+>
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100"
+        android:orientation="vertical"
+        android:background="@color/parents_association_titleclr">
+        <com.mobatia.naisapp.manager.CustomFontBoldWithoutColor
+            android:id="@+id/eventName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:text="hjhj"
+            />
+        <com.mobatia.naisapp.manager.CustomFontSansProTextWhite
+            android:id="@+id/eventDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:text="hjhj"
+            />
+    <!--    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:orientation="horizontal">
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+            android:id="@+id/eventName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="17sp"
+            android:text="hjhj"
+            />
+        </LinearLayout>-->
+<!--
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:orientation="horizontal">
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+            android:id="@+id/eventDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:text="hjhj"
+            />
+        </LinearLayout>
+-->
+
+    </LinearLayout>
+    <!--<View
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="1dp"/>-->
+    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+        android:id="@+id/selectItemTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:text="Select the item you would like to volunteer for "
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mRecyclerViewItemName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        android:background="@color/white"/>
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/grey"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_height="1dp"/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mRecyclerViewItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        android:background="@color/white"/>
+    <com.mobatia.naisapp.manager.CustomFontSansProTextBoldWithoutColor
+        android:id="@+id/notAvailableTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:textColor="@color/light_grey"
+        android:text="No time slots available "
+        />
+
+</RelativeLayout>
+</LinearLayout>

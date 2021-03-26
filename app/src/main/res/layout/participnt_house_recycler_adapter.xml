@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal">
+    <LinearLayout
+        android:id="@+id/linearProfile"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/studentImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:siBorderWidth="1dp"
+            app:siBorderColor="#A0DAE5"
+            android:src="@drawable/student"/>
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+            android:id="@+id/studentNameTextView"
+            style="@style/textstyleblack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Red"
+            android:gravity="center_horizontal"
+            android:singleLine="true" />
+
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/studentInfoImg"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+       android:layout_alignRight="@+id/linearProfile"
+        android:src="@drawable/participatingsmallicon"/>
+
+</RelativeLayout>

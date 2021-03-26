@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/relativeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
+
+    <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+        android:id="@+id/textViewCCAaItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeHeader"
+        android:text="CCA Review"
+        android:layout_toLeftOf="@+id/editCcca"
+        android:layout_marginLeft="5dp"
+        android:textColor="#ff000000"
+        android:textSize="16sp" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textViewCCAaItem"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:id="@+id/editCcca"
+        >
+        <ImageView
+            android:id="@+id/editImg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/edit_new"/>
+        <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_below="@+id/editImg"/>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_cca"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textViewCCAaItem"
+        android:layout_marginBottom="5dp"
+        android:layout_above="@+id/messageTxt"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:overScrollMode="never"
+        android:scrollbars="vertical" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/messageTxt"
+        android:layout_above="@+id/submitBtn"
+        android:layout_alignParentBottom="true"
+       android:background="@color/cal_row_4" >
+        <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+            android:id="@+id/msgTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="14dp"
+            android:textColor="@color/white"
+            android:text="Your options are submitted &amp; waiting for approval" />
+    </RelativeLayout>
+
+</RelativeLayout>

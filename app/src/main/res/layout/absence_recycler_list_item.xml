@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/term_button_bg"
+    android:layout_marginBottom="5dp"
+    android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listBackGround"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="7dp"
+    android:background="@color/list_bg">
+
+    <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+        android:id="@+id/listDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center|left"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:text="12/05/2017-13/05/2017"
+        android:textColor="@color/white"
+        android:layout_toLeftOf="@+id/listStatus"
+        android:textSize="15sp" />
+    <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+        android:id="@+id/listStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:singleLine="true"
+        android:layout_toLeftOf="@+id/arrowImg"
+        android:text="Pending"
+
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+       android:layout_marginLeft="5dp"
+       android:layout_marginRight="10dp"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/arrowImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/arrow_list" />
+
+</RelativeLayout>
+
+</RelativeLayout>

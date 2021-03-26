@@ -1,0 +1,318 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:weightSum="100"
+     >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="40">
+        <!--<ImageView-->
+            <!--android:id="@+id/bannerImage"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/banner" />-->
+        <com.mobatia.naisapp.manager.NonSwipeableViewPager
+            android:id="@+id/bannerImagePager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+           />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rlHome"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="60"
+        android:background="@drawable/menubg"
+        android:layout_below="@+id/bannerImage"
+         >
+
+        <LinearLayout
+            android:id="@+id/lnrOne"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical"
+            android:gravity="top">
+
+            <RelativeLayout
+                android:id="@+id/relOne"
+                android:layout_width="@dimen/home_button_reg_long_width"
+                android:layout_height="@dimen/home_button_reg_long_height"
+                android:layout_marginTop="10dp"
+                android:background="@color/transparent" >
+
+                <TextView
+                    android:id="@+id/relTxtOne"
+                    style="@style/textstyleHomebutton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/relImgOne"
+                    android:gravity="center"
+                    android:maxLines="2" />
+
+                <ImageView
+                    android:id="@+id/relImgOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relTwo"
+                android:layout_width="@dimen/home_button_reg_long_width"
+                android:layout_height="@dimen/home_button_reg_long_height"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/transparent" >
+
+                <TextView
+                    android:id="@+id/relTxtTwo"
+                    style="@style/textstyleHomebutton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/relImgTwo"
+                    android:gravity="center" />
+
+                <ImageView
+                    android:id="@+id/relImgTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/lnrOneThree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/relThree"
+                    android:layout_width="@dimen/home_button_reg_short_width"
+                    android:layout_height="@dimen/home_button_reg_short_height"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:background="@color/transparent" >
+
+                    <TextView
+                        android:id="@+id/relTxtThree"
+                        style="@style/textstyleHomebutton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+
+                        android:layout_below="@+id/relImgThree"
+                        android:maxLines="2" />
+
+                    <ImageView
+                        android:id="@+id/relImgThree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relFour"
+                    android:layout_width="@dimen/home_button_reg_short_width"
+                    android:layout_height="@dimen/home_button_reg_short_height"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/transparent" >
+
+                    <TextView
+                        android:id="@+id/relTxtFour"
+                        style="@style/textstyleHomebutton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+
+                        android:layout_below="@+id/relImgFour"
+                        android:maxLines="2" />
+
+                    <ImageView
+                        android:id="@+id/relImgFour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnrTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical"
+            android:gravity="top">
+
+            <LinearLayout
+                android:id="@+id/lnrTwoOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/relFive"
+                    android:layout_width="@dimen/home_button_reg_short_width"
+                    android:layout_height="@dimen/home_button_reg_short_height"
+                    android:layout_marginRight="1dp"
+                    android:background="@color/transparent" >
+
+                    <TextView
+                        android:id="@+id/relTxtFive"
+                        style="@style/textstyleHomebutton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/relImgFive"
+                        android:layout_alignParentBottom="true"
+
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:maxLines="2" />
+
+                    <ImageView
+                        android:id="@+id/relImgFive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relSix"
+                    android:layout_width="@dimen/home_button_reg_short_width"
+                    android:layout_height="@dimen/home_button_reg_short_height"
+                    android:layout_marginLeft="1dp"
+                    android:background="@color/transparent" >
+
+                    <TextView
+                        android:id="@+id/relTxtSix"
+                        style="@style/textstyleHomebutton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/relImgSix"
+
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:maxLines="2" />
+
+                    <ImageView
+                        android:id="@+id/relImgSix"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnrTwoTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/relSeven"
+                    android:layout_width="@dimen/home_button_reg_short_width"
+                    android:layout_height="@dimen/home_button_reg_short_height"
+                    android:layout_marginRight="1dp"
+                    android:background="@color/transparent" >
+
+                    <TextView
+                        android:id="@+id/relTxtSeven"
+                        style="@style/textstyleHomebutton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:layout_below="@+id/relImgSeven"
+                        android:maxLines="2" />
+
+                    <ImageView
+                        android:id="@+id/relImgSeven"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relEight"
+                    android:layout_width="@dimen/home_button_reg_short_width"
+                    android:layout_height="@dimen/home_button_reg_short_height"
+                    android:layout_marginLeft="1dp"
+                    android:background="@color/transparent" >
+
+                    <TextView
+                        android:id="@+id/relTxtEight"
+                        style="@style/textstyleHomebutton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="5dp"
+
+                        android:layout_below="@+id/relImgEight"
+                        android:gravity="center"
+                        android:maxLines="2" />
+
+                    <ImageView
+                        android:id="@+id/relImgEight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/relNine"
+                android:layout_width="@dimen/home_button_reg_long_width"
+                android:layout_height="@dimen/home_button_reg_long_height"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="right"
+                android:background="@color/transparent" >
+
+                <TextView
+                    android:id="@+id/relTxtNine"
+                    style="@style/textstyleHomebutton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/relImgNine"
+                    android:gravity="center"
+                    android:maxLines="2" />
+
+                <ImageView
+                    android:id="@+id/relImgNine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

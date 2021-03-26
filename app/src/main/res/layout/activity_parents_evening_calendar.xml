@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+    <RelativeLayout
+        android:id="@+id/relativeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeHeader"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+            android:id="@+id/listTxtClass"
+            style="@style/textstyleblack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Select a date:"
+            android:singleLine="true" />
+
+        <RelativeLayout
+            android:id="@+id/relativeBody"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_above="@+id/appointmentDateTV"
+            android:layout_below="@+id/listTxtClass"
+            android:layout_height="wrap_content" >
+
+            <com.mobatia.naisapp.calender.ExtendedCalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"/>
+        </RelativeLayout>
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+            android:id="@+id/appointmentDateTV"
+            style="@style/textstyleblack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/continueImageView"
+            android:layout_margin="10dp"
+            android:visibility="invisible"
+            android:gravity="center_horizontal"
+            android:text=""
+            />
+<ImageView
+    android:id="@+id/continueImageView"
+    android:layout_width="45dp"
+    android:layout_height="45dp"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:layout_margin="10dp"
+    android:visibility="invisible"
+    android:src="@drawable/continueiconbluetime"/>
+    </RelativeLayout>
+
+</RelativeLayout>

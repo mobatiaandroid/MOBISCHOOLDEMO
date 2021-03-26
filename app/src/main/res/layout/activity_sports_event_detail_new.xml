@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+    <RelativeLayout
+        android:id="@+id/relativeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        />
+    <ScrollView
+        android:id="@+id/mScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:layout_below="@+id/relativeHeader">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                android:id="@+id/select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center"
+                android:text="Select your child:"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp" />
+            <LinearLayout
+                android:id="@+id/studentSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/event_spinnerbg"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.github.siyamed.shapeimageview.CircularImageView
+                    android:id="@+id/imagicon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/boy"
+                    app:siBorderColor="#A0DAE5"
+                    app:siBorderWidth="1dp" />
+
+                <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                    android:id="@+id/studentName"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="80"
+                    android:gravity="left|center"
+                    android:paddingLeft="10dp"
+                    android:text="Select a child"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|center"
+                    android:layout_weight="12"
+                    android:src="@drawable/arrowdownnew"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp">
+                <com.mobatia.naisapp.manager.CustomFontBoldWithoutColor
+                    android:id="@+id/eventTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/statusButtonslayout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:weightSum="90"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
+                <com.mobatia.naisapp.manager.CustomButtonFontSansButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="45"
+                    android:id="@+id/goingBtn"
+                    android:background="@drawable/event_status_selectbg"
+                    android:layout_marginRight="5dp"
+                    android:text="ATTENDING"
+                    android:textColor="@color/white"/>
+                <com.mobatia.naisapp.manager.CustomButtonFontSansButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="45"
+                    android:id="@+id/notGoingBtn"
+                    android:background="@drawable/event_status_selectbg"
+                    android:layout_marginRight="5dp"
+                    android:text="NOT ATTENDING"
+                    android:textColor="@color/white"/>
+                <com.mobatia.naisapp.manager.CustomButtonFontSansButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="30"
+                    android:id="@+id/notSureBtn"
+                    android:visibility="gone"
+                    android:background="@drawable/event_status_selectbg"
+                    android:text="NOT SURE"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="100"
+                android:orientation="horizontal">
+                <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                    android:id="@+id/startDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="80"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:id="@+id/addTocalendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="20"
+                    android:src="@drawable/addtocalendar"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="100">
+
+                <LinearLayout
+                    android:id="@+id/venueLinear"
+                    android:layout_width="0dp"
+                    android:layout_weight="75"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                     android:layout_marginLeft="10dp" >
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="25"
+                        android:textSize="16sp"
+                        android:textColor="@color/split_bg"
+                        android:text="Venue"/>
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text=":"
+                        android:textSize="16sp"
+
+                        android:textColor="@color/split_bg"
+
+                        android:gravity="center"/>
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+                        android:id="@+id/venueTxt"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:singleLine="false"
+                        android:textSize="16sp"
+
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/split_bg"
+                        android:layout_weight="70"/>
+
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/goToLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/location_event_detail"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/meetPointLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_margin="5dp"
+                    android:weightSum="100">
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="45"
+                        android:layout_marginLeft="5dp"
+                        android:text="Meeting Point"/>
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="10"
+                        android:text=":"
+                        android:gravity="center"/>
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:id="@+id/meetPointTxt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="45"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/meetTimeLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_margin="5dp"
+
+                    android:weightSum="100">
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="45"
+                        android:layout_marginLeft="5dp"
+
+                        android:text="Meeting Time"/>
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="10"
+                        android:text=":"
+                        android:gravity="center"/>
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:id="@+id/meetTimeTxt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="45"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/fixtureStartLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_margin="5dp"
+
+                    android:weightSum="100">
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="45"
+                        android:layout_marginLeft="5dp"
+
+                        android:text="Fixture Start"/>
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="10"
+                        android:text=":"
+                        android:gravity="center"/>
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:id="@+id/fixtureStartTxt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="45"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/fixtureEndLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_margin="5dp"
+
+                    android:weightSum="100">
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="45"
+                        android:layout_marginLeft="5dp"
+
+                        android:text="Fixture End"/>
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="10"
+                        android:text=":"
+                        android:gravity="center"/>
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:id="@+id/fixtureEndTxt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="45"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/schoolArrivalLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_margin="5dp"
+
+                    android:weightSum="100">
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="45"
+                        android:layout_marginLeft="5dp"
+                        android:text="Arrival NAS Dubai"/>
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="10"
+                        android:text=":"
+                        android:gravity="center"/>
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                        android:id="@+id/schoolArrivalTxt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="45"/>
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/pickUpLinear"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:weightSum="90"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
+                <com.mobatia.naisapp.manager.CustomButtonFontSansButton
+                    android:id="@+id/pickUpAtVenue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="45"
+                    android:background="@drawable/curve_filled_light_grey_sports"
+                    android:layout_marginRight="5dp"
+                    android:text="Pick Up at Venue"
+                    android:textColor="@color/white"/>
+                <com.mobatia.naisapp.manager.CustomButtonFontSansButton
+                    android:id="@+id/pickUpSchool"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="45"
+                    android:background="@drawable/curve_filled_light_grey_sports"
+                    android:layout_marginRight="5dp"
+                    android:text="Pick Up at NAS Dubai"
+                    android:textColor="@color/white"/>
+                <com.mobatia.naisapp.manager.CustomButtonFontSansButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="30"
+                    android:visibility="gone"
+                    android:background="@drawable/event_status_selectbg"
+                    android:text="Pick Up at NAS Dubai"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+
+                android:weightSum="100">
+                <RelativeLayout
+                    android:id="@+id/relativeParticipants"
+                    android:layout_width="0dp"
+                    android:layout_weight="80"
+                    android:layout_height="40dp"
+                    android:visibility="visible"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/edittext_bg"
+                    android:layout_marginBottom="10dp">
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+                        android:id="@+id/busroutes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:gravity="center|left"
+                        android:paddingLeft="8dp"
+                        android:text="PARTICIPANTS"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/participants"/>
+
+                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/sendMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="18"
+                    android:layout_marginLeft="8dp"
+                    android:layout_gravity="right"
+                    android:src="@drawable/mailnew"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/relativePickupdelivery"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_bg"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+                <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+                    android:id="@+id/pickupdelevery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:gravity="center|left"
+                    android:paddingLeft="8dp"
+                    android:text="PICK UP AND DROP OFF DETAILS"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/pickupanddeliverydetails"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/notesLinear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="5dp">
+                <com.mobatia.naisapp.manager.CustomFontSansProTextBlackBold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Notes"/>
+                <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

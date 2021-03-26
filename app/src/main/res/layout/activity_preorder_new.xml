@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/relativeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+        android:id="@+id/select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="left|center"
+        android:text="Select your child:"
+        android:textSize="16sp"
+        android:layout_below="@+id/relativeHeader"/>
+
+    <LinearLayout
+        android:id="@+id/studentSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/event_spinnerbg"
+        android:gravity="center"
+        android:layout_below="@+id/select"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/imagicon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/boy"
+            app:siBorderColor="#A0DAE5"
+            app:siBorderWidth="1dp" />
+
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+            android:id="@+id/studentName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="80"
+            android:gravity="left|center"
+            android:paddingLeft="10dp"
+            android:text="Select a child"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right|center"
+            android:layout_weight="12"
+            android:src="@drawable/arrowdownnew"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/studentSpinner"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="5dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="100">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:src="@drawable/lunch_box_banner"
+                android:id="@+id/bannerImage"
+                android:layout_weight="50"/>
+            <RelativeLayout
+                android:id="@+id/addOrderRelative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sportsbtngreen"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:layout_marginLeft="10dp">
+
+                <ImageView
+                    android:id="@+id/addOrderImg"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6dp"
+                    android:src="@drawable/add_order" />
+
+                <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/addOrderImg"
+                    android:layout_centerHorizontal="true"
+                    android:text="Add Orders"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/addOrderRelative"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/myOrderRelative"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:background="@drawable/sportsbtnorange">
+
+                    <ImageView
+                        android:id="@+id/myOrderImg"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="6dp"
+                        android:src="@drawable/my_order" />
+
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/myOrderImg"
+                        android:layout_centerHorizontal="true"
+                        android:text="My Orders"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/orderHistoryRelative"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:background="@drawable/sportsbtnblue">
+
+                    <ImageView
+                        android:id="@+id/orderHistoryImg"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="6dp"
+                        android:src="@drawable/order_history" />
+
+                    <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/orderHistoryImg"
+                        android:layout_centerHorizontal="true"
+                        android:text="Order History"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <Button
+     android:id="@+id/cartBtn"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignParentBottom="true"
+     android:text="Cart"
+        android:visibility="gone"/>
+
+</RelativeLayout>

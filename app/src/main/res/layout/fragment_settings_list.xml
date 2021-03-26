@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.mobatia.naisapp.manager.CustomFontDJ5TextWhite
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/split_bg"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="Title"
+        android:textColor="@color/white"
+        android:textSize="17dp" />
+    <ListView
+        android:id="@+id/mSettingsListView"
+        style="@style/ListStyleBlackTextTransparentSelector"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+    android:layout_below="@+id/titleTextView" />
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@+id/titleTextView"-->
+        <!--android:orientation="vertical"-->
+        <!--android:weightSum="100">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/bannerImageView"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="40"-->
+            <!--android:background="@drawable/aboutbanner" />-->
+
+        <!--<ListView-->
+            <!--android:id="@+id/mAboutUsListView"-->
+            <!--style="@style/ListStyleBlackTextTransparentSelector"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_weight="60" />-->
+    <!--</LinearLayout>-->
+    <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+        android:id="@+id/versionText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="V:4.7"
+        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textColor="@color/grey"/>
+</RelativeLayout>

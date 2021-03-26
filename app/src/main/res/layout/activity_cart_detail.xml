@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/relativeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dateRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:scrollbars="vertical"
+            android:background="@color/white"
+            android:layout_below="@+id/relativeHeader"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_above="@+id/itemLinear"
+
+            />
+    <LinearLayout
+        android:id="@+id/itemLinear"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/curved_top_rec"
+        android:weightSum="50">
+        <com.mobatia.naisapp.manager.CustomFontBoldWithoutColor
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="15"
+            android:text="Proceed"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:gravity="center_vertical" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="35"
+            android:orientation="horizontal"
+            android:gravity="right"
+            android:weightSum="30">
+            <com.mobatia.naisapp.manager.CustomFontBoldWithoutColor
+                android:id="@+id/itemTxt"
+                android:layout_width="0dp"
+                android:layout_weight="15"
+                android:textColor="@color/white"
+                android:layout_height="match_parent"
+                android:text="13 items"
+                android:textSize="16sp"
+                android:gravity="center"/>
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+            <com.mobatia.naisapp.manager.CustomFontBoldWithoutColor
+                android:id="@+id/amountTxt"
+                android:layout_width="0dp"
+                android:layout_weight="15"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:layout_height="match_parent"
+                android:text="209 AED"
+                android:gravity="center"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.mobatia.naisapp.manager.CustomFontSansProTextBlackBold
+        android:id="@+id/noItemTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="No Items in your cart"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:visibility="gone"/>
+</RelativeLayout>

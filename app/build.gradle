@@ -1,0 +1,105 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion '29.0.3'
+
+    defaultConfig {
+        applicationId "com.mobatia.naisapp"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 25
+        versionName "4.7"
+        multiDexEnabled true
+        generatedDensities = []
+    }
+
+    configurations {
+        cleanedAnnotations
+        compile.exclude group: 'org.jetbrains' , module:'annotations'
+    }
+    lintOptions {
+        checkReleaseBuilds false
+    }
+// This is handled for you by the 2.0+ Gradle Plugin
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
+    }
+    dexOptions {
+        javaMaxHeapSize "4g" //specify the heap size for the dex process
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    android {
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+    packagingOptions {
+        exclude 'project.properties'
+        exclude 'META-INF/INDEX.LIST'
+    }
+}
+
+dependencies {
+    implementation project(path: ':payment-sdk-core')
+    implementation project(path: ':payment-sdk')
+    implementation project(path: ':payment-sdk-samsungpay')
+    def room_version = "1.1.1"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.0'
+    implementation 'androidx.fragment:fragment:1.2.5'
+    implementation 'com.google.firebase:firebase-core:10.2.1'
+    implementation 'com.google.firebase:firebase-messaging:10.2.1'
+    implementation 'com.google.android.gms:play-services:10.2.1'
+    implementation 'com.mcxiaoke.volley:library:1.0.15'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'me.leolin:ShortcutBadger:1.1.21@aar'
+    implementation 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
+    //    compile 'com.github.florent37:singledateandtimepicker:1.1.5'
+    // RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.google.android.material:material:1.2.0-alpha01'
+    // CardView
+    implementation 'gun0912.ted:tedpermission:2.1.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    //    implementation 'org.jsoup:jsoup:1.10.3'
+    implementation project(':ijkplayer-java')
+    implementation project(':giraffeplayer')
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
+//    implementation 'com.linkedin.dexmaker:dexmaker-mockito:2.2.0'
+    androidTestImplementation "org.mockito:mockito-android:2.25.0"
+//    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    implementation 'com.github.barteksc:android-pdf-viewer:3.1.0-beta.1'
+
+    implementation group: 'com.itextpdf', name: 'itextpdf', version: '5.0.6'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    // number of items button
+    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
+    implementation 'androidx.room:room-runtime:2.0.0'
+    implementation 'com.applandeo:material-calendar-view:1.7.0'
+    annotationProcessor 'androidx.room:room-compiler:2.0.0'
+    testImplementation 'androidx.room:room-testing:2.0.0'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+apply plugin: 'com.google.gms.google-services'
+repositories {
+    mavenCentral()
+}

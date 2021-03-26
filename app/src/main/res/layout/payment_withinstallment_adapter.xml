@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:id="@+id/installmentLinear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="80"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:gravity="center_vertical"
+        android:visibility="visible">
+        <LinearLayout
+            android:id="@+id/mainInstallLinear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="20"
+            android:weightSum="20"
+            android:visibility="gone">
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                android:id="@+id/installmentTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NAS DUBAI"
+                android:textSize="14dp"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:visibility="gone" />
+            <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+                android:id="@+id/dateTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tetsd"
+                android:gravity="top"
+                android:textColor="@color/Grey_700"
+                android:textSize="8dp"
+                android:singleLine="true"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlackBold
+            android:id="@+id/totalInstallTxt"
+            style="@style/textstyleblack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="NAS DUBAI"
+            android:textSize="18sp"
+            android:visibility="visible" />
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="20"
+          android:orientation="horizontal">
+          <com.mobatia.naisapp.manager.CustomFontSansProTextBlackBold
+              android:id="@+id/amountInstallTxt"
+              style="@style/textstyleblack"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:textSize="18sp" />
+          <com.mobatia.naisapp.manager.CustomFontSansProTextBlackBold
+              android:id="@+id/aedTxtInstall"
+              style="@style/textstyleblack"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="AED"
+              android:layout_marginLeft="2dp"
+              android:gravity="center"
+              android:textSize="14sp" />
+      </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addCal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:visibility="visible"
+            android:layout_weight="20">
+
+        <ImageView
+            android:id="@+id/imagicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add_calendar"
+            android:layout_gravity="center"
+            />
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBoldWithoutColor
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to calendar"
+                android:textSize="8sp"
+                android:textColor="@color/event_list_bg"
+               android:layout_gravity="center"/>
+        </LinearLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="20"
+    android:gravity="right"
+    android:orientation="horizontal">
+        <com.mobatia.naisapp.manager.CustomButtonFontSansButton
+            android:id="@+id/paybuttonInstall"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:text="PAY"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:background="@color/rel_two"
+            android:gravity="center"
+            android:visibility="visible"
+            android:layout_gravity="center_vertical"/>
+       <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+        android:id="@+id/paidTxt"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:text="Paid"
+        android:textSize="18sp"
+           android:gravity="center"
+        android:visibility="gone"
+        android:layout_gravity="center_vertical"/>
+        <ImageView
+            android:id="@+id/checked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:src="@drawable/yyyy"/>
+</LinearLayout>
+</LinearLayout>
+    <LinearLayout
+        android:id="@+id/totalLinear"
+        android:layout_below="@+id/mListView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="10dp"
+        android:weightSum="90"
+        android:visibility="gone">
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlackBold
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:textAllCaps="true"
+            android:layout_weight="30"
+            android:textSize="18dp"
+            android:layout_gravity="center_vertical" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="30"
+            android:orientation="horizontal">
+
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBlackBold
+                android:id="@+id/totalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:textSize="20dp" />
+
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBlackBold
+                android:id="@+id/aedTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="AED"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/paidImg"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:src="@drawable/paid"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="30"/>
+        <com.mobatia.naisapp.manager.CustomButtonFontSansButton
+            android:id="@+id/payTotalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:visibility="visible"
+            android:background="@color/rel_two"
+            android:text="PAY"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="30"/>
+    </LinearLayout>
+</RelativeLayout>

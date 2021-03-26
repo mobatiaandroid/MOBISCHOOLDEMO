@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/relSub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" >
+        <LinearLayout
+            android:id="@+id/fistLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/dayTxt"
+            android:weightSum="100">
+
+            <ImageView
+                android:id="@+id/circleImg"
+                android:layout_width="8dp"
+                android:layout_height="10dp"
+                android:layout_weight="5"
+                android:layout_marginTop="7dp"
+                android:src="@drawable/shape_circle_black"/>
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                android:gravity="center"
+                android:id="@+id/dateTxt"
+                android:layout_width="0dp"
+                android:layout_weight="35"
+                android:layout_height="wrap_content"
+                android:text="03-JUN-2018"
+                />
+              <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                  android:id="@+id/timeTxt"
+                  android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="10.00 AM "
+            android:gravity="center"
+                  android:layout_weight="25"
+            android:layout_marginLeft="5dp"/>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="35">
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                android:id="@+id/placeTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Nas Plain Ground"
+                android:gravity="center"
+                />
+                <ImageView
+                    android:id="@+id/addicon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignLeft="@+id/placeTxt"
+                    android:layout_below="@+id/placeTxt"
+                    android:src="@drawable/addicon1"
+                    />
+                <ImageView
+                    android:id="@+id/removeicon"
+                    android:gravity="center"
+                    android:layout_below="@+id/placeTxt"
+                     android:layout_toRightOf="@+id/addicon"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/minimize1"
+
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

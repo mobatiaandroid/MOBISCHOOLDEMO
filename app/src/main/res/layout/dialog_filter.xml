@@ -1,0 +1,268 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="420dp"
+
+    >
+
+    <RelativeLayout
+        android:id="@+id/r"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <ImageView
+            android:id="@+id/a"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/dialoguetopcurve"
+            android:gravity="center"
+            android:scaleType="fitCenter" />
+
+        <ImageView
+            android:id="@+id/b"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:scaleType="fitCenter" />
+
+        <ImageView
+            android:id="@+id/iconImageView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+
+            android:scaleType="fitCenter"
+            android:background="@drawable/filter_popup" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/r"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/dialoguebottomcurve">
+
+
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+
+            android:id="@+id/alertHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:text="FILTER"
+            android:textColor="#ff000000"
+            android:textSize="18sp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottomLinearBar"
+            android:layout_marginBottom="5dp"
+
+            android:layout_below="@+id/alertHead">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/clearButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/rounded_rec_reset"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="Reset"
+                    android:paddingTop="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+
+                    android:id="@+id/childTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="4dp"
+                    android:gravity="center"
+
+                    android:text="Child"
+                    android:textColor="#ff000000" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/filterRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/childTextView"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+                <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+
+                    android:id="@+id/teamTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_below="@+id/filterRecyclerView"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="4dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:text="Team"
+                    android:textColor="#ff000000" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/teamFilterRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/teamTextView"
+                    android:layout_marginLeft="20dp"
+                    android:visibility="gone"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+
+                <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+
+                    android:id="@+id/dayTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_below="@+id/teamFilterRecyclerView"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginBottom="5dp"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:text="Day"
+                    android:textColor="#ff000000" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/dayFilterRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dayTextView"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="gone"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+
+                <com.mobatia.naisapp.manager.CustomFontSansProTextBlackSemiBold
+
+                    android:id="@+id/dateTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_below="@+id/dayFilterRecyclerView"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="4dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:text="Date"
+                    android:textColor="#ff000000" />
+
+                <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:hint="select date"
+                    android:textSize="15sp"
+                    android:paddingLeft="10dp"
+                    android:visibility="gone"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColorHint="@color/dark_grey1"
+                    android:textColor="@color/black"
+                    android:id="@+id/selectDate"
+                    android:layout_below="@+id/dateTextView"
+
+                    android:singleLine="true"
+                    android:gravity="left|center_vertical"
+                    android:imeOptions="actionNext"
+                    />
+
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+        <LinearLayout
+            android:id="@+id/bottomLinearBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:weightSum="100">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="20dp"
+
+                    android:layout_weight="50">
+                    <Button
+                        android:id="@+id/btn_Ok"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/button"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="Apply"
+android:textAllCaps="false"
+                        android:textColor="#ffffffff" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="20dp"
+
+                    android:layout_weight="50">
+                    <Button
+                        android:id="@+id/btn_Cancel"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/buttonred_new"
+                        android:text="Cancel"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffffff" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

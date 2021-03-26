@@ -1,0 +1,6 @@
+# Project exclude paths
+/.gradle/
+/payment-sdk/build/
+/payment-sdk/build/intermediates/javac/debug/classes/
+/payment-sdk-core/build/
+/payment-sdk-core/build/intermediates/javac/debug/classes/

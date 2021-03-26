@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <RelativeLayout
+        android:id="@+id/relativeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeHeader"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+<!--
+        <com.mobatia.naisapp.manager.NonSwipeableViewPager
+            android:id="@+id/bannerImageViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="30"
+            android:background="@drawable/default_banner" />
+-->
+        <ImageView
+            android:id="@+id/bannerImageViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="30"
+            android:background="@drawable/default_banner" />
+
+        <LinearLayout
+            android:id="@+id/mLinearLayout"
+            style="@style/ListStyleBlackTextTransparentSelector"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            android:layout_weight="70">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/facebookButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:background="@drawable/facebook"/>
+                <ImageView
+                    android:id="@+id/twitterButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/twitter"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/instagramButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/instagram"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

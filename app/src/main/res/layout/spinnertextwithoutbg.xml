@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mobatia.naisapp.manager.CustomFontSansProTextWhite
+    android:textColor="@color/white"
+    android:layout_width="match_parent"
+    android:singleLine="true"
+    android:gravity="center"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:textSize="13sp"
+    android:text="Iteggfddm"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

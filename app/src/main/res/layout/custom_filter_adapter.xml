@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layoutDirection="ltr"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/titleRelative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/avatarImageView"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:siBorderWidth="1dp"
+            app:siBorderColor="#A0DAE5"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            />
+
+        <!--
+                <com.mobatia.naisapp.manager.AvatarView
+                    android:id="@+id/avatarImageView"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:padding="8dp"
+
+                    app:avtv_fit_text_length="2"
+                    app:avtv_random_fill_color="false"
+                    app:avtv_text=""
+                    app:avtv_text_size="20sp" />
+        -->
+
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+            android:id="@+id/typeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/checkBoxFilter"
+            android:layout_toRightOf="@+id/avatarImageView"
+            android:singleLine="true"
+            android:text="IBC"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/checkBoxFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:button="@drawable/checkbox_selector"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#AEAEAE" />
+
+
+</LinearLayout>
+
+    <!--
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layoutDirection="ltr"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <RelativeLayout
+            android:id="@+id/titleRelative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <com.mobatia.naisapp.manager.AvatarView
+                android:id="@+id/avatarImageView"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:padding="8dp"
+                android:visibility="gone"
+                app:avtv_fit_text_length="2"
+                app:avtv_random_fill_color="false"
+                app:avtv_text="IB"
+                app:avtv_text_size="20sp" />
+
+            <TextView
+                android:id="@+id/typeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@+id/checkBoxFilter"
+                android:singleLine="true"
+                android:text="IBC"
+                android:textColor="@color/grey"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/checkBoxFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:button="@drawable/checkbox_selector"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="#AEAEAE" />
+
+
+    </LinearLayout>
+    -->

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+    <RelativeLayout
+        android:id="@+id/relativeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relativeHeader"
+            android:orientation="vertical"
+            >
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                android:id="@+id/select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center"
+                android:text="Select your child:"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp" />
+            <LinearLayout
+                android:id="@+id/studentSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:background="@drawable/event_spinnerbg"
+                android:weightSum="100"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp">
+                <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                    android:id="@+id/studentName"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="80"
+                    android:gravity="left|center"
+                    android:paddingLeft="10dp"
+                    android:text="Select a child"
+                    android:textSize="16sp"
+                    />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="8"
+                    android:layout_height="match_parent"
+                    ></View>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="12"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|center"
+                    android:src="@drawable/arrowdownnew"
+                    android:visibility="visible"/>
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:scrollbars="vertical"
+                android:background="@color/white"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+        </LinearLayout>
+    </RelativeLayout>

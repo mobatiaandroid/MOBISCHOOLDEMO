@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relMain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/popup"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/closeSearch"
+        style="@style/textstyleWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/sign_mail"
+        android:text="@string/close" />
+
+    <ListView
+        android:id="@+id/dialogList"
+        style="@style/ListStyleBlackText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/closeSearch"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:padding="10dp" >
+    </ListView>
+
+</RelativeLayout>

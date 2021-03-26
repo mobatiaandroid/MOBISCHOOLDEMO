@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="1dp"
+        card_view:cardUseCompatPadding="true"
+        app:cardBackgroundColor="@color/white"
+        card_view:cardCornerRadius="1dp">
+
+        <RelativeLayout
+            android:id="@+id/gridClickRelative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:paddingLeft="2dp"
+             android:paddingRight="2dp"
+             android:paddingTop="2dp"
+             android:paddingBottom="2dp"
+            android:gravity="center"
+            android:background="@drawable/time_curved_rel_layout"
+            android:orientation="vertical">
+
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/mLinearLayout"
+                android:text="" />
+            <LinearLayout
+                android:id="@+id/mLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:orientation="horizontal">
+                <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                    android:id="@+id/timeFrom"
+                    style="@style/textstyleblackSlot2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="01:00am" />
+
+
+                <com.mobatia.naisapp.manager.CustomFontSansProTextBoldWithoutColor
+                    android:id="@+id/textViewTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text=" - " />
+
+                <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                    android:id="@+id/timeTo"
+                    style="@style/textstyleblackSlot2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="01:00 pm" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

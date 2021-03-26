@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/relativeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/imageViewSlotInfo"
+        android:layout_below="@+id/relativeHeader"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+            android:id="@+id/dateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+
+            android:singleLine="true"
+            android:text="Select a date:"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:weightSum="100">
+
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                android:id="@+id/listTxtClass"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="20"
+                android:singleLine="true"
+                android:text="Student   :"
+                android:textSize="15sp" />
+
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBlackBold
+                android:id="@+id/studentNameTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="80"
+                android:text="Select a date:"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:weightSum="100">
+
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                android:id="@+id/studentClass"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="20"
+                android:singleLine="true"
+                android:text="Class        :"
+                android:textSize="15sp" />
+
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBlackBold
+                android:id="@+id/studentClassTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="80"
+                android:singleLine="true"
+                android:text="Select a date:"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/staffLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:weightSum="100">
+
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                android:id="@+id/staff"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="20"
+                android:singleLine="true"
+                android:text="Staff           :" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="80">
+
+                <com.mobatia.naisapp.manager.CustomFontSansProTextBlackBold
+                    android:id="@+id/staffTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/cancelTextView"
+                    android:text="Select a date:"
+                    android:textSize="15sp" />
+
+                <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+                    android:id="@+id/cancelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/slotcancelbyuser_curved_rel_layout"
+                    android:gravity="center"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="25dp"
+                    android:paddingTop="2dp"
+                    android:singleLine="true"
+                    android:text="Cancel"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/vpmlBtn"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Click here for VPM Link"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:background="@drawable/button_blue"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+                android:id="@+id/choose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:singleLine="true"
+                android:text="Choose a time slot" />
+
+            <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+                android:id="@+id/reviewConfirmTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/slotbookedbyuser_curved_rel_layout"
+                android:gravity="center"
+                android:paddingBottom="3dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="3dp"
+                android:layout_marginTop="5dp"
+                android:singleLine="true"
+                android:text="REVIEW &amp; CONFIRM"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_alloted_time"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:overScrollMode="never"
+            android:scrollbars="vertical" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/infoRoomImg"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/relativeHeader"
+        android:src="@drawable/infoicon_new" />
+
+    <ImageView
+        android:id="@+id/imageViewSlotInfo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/infoforparentseveningslot" />
+</RelativeLayout>
