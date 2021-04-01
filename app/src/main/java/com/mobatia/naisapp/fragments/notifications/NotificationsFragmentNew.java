@@ -627,7 +627,8 @@ public class NotificationsFragmentNew extends Fragment implements
             final VolleyWrapper manager = new VolleyWrapper(URL_GET_CLEAR_NOTIFICATION_BADGE);
             String[] name = new String[]{JTAG_ACCESSTOKEN,"users_id"};
             String[] value = new String[]{PreferenceManager.getAccessToken(mContext),PreferenceManager.getUserId(mContext)};
-            manager.getResponsePOST(mContext, 14, name, value, new VolleyWrapper.ResponseListener() {
+            manager.getResponsePOST(mContext, 14, name, value, new VolleyWrapper.ResponseListener()
+            {
 
                 @Override
                 public void responseSuccess(String successResponse) {

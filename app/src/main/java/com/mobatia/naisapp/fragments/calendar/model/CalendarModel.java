@@ -70,6 +70,15 @@ public class CalendarModel implements Serializable {
     String yearDate;
     String dayStringDate;
     String dayDate;
+    String vpml;
+
+    public String getVpml() {
+        return vpml;
+    }
+
+    public void setVpml(String vpml) {
+        this.vpml = vpml;
+    }
 
     public String getStartTime() {
         return startTime;

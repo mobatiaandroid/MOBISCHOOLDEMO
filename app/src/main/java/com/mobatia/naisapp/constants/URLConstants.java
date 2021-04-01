@@ -14,16 +14,16 @@ public interface URLConstants {
 //	public String POST_APITOKENURL="http://mobatia.in/naisV4.1/oauth/access_token";
 //	public String URL_HEAD = "http://mobatia.in/naisV4.1/api/";
 
-// 	public String POST_APITOKENURL="http://beta.mobatia.in:81/naisV4.1/oauth/access_token";
-//	public String URL_HEAD = "http://beta.mobatia.in:81/naisV4.1/api/";
+ 	public String POST_APITOKENURL="http://beta.mobatia.in:81/naisV4.1/oauth/access_token";
+	public String URL_HEAD = "http://beta.mobatia.in:81/naisV4.1/api/";
 
 	//New Live RDS Test
 //	public String POST_APITOKENURL="https://cms.nasdubai.ae/naisRDS/oauth/access_token";
 //	public String URL_HEAD = "https://cms.nasdubai.ae/naisRDS/api/";
 
 //	//New Live Phase 4
-	public String POST_APITOKENURL="https://cms.nasdubai.ae/nais/oauth/access_token";
-	public String URL_HEAD = "https://cms.nasdubai.ae/nais/api/";
+//	public String POST_APITOKENURL="https://cms.nasdubai.ae/nais/oauth/access_token";
+//	public String URL_HEAD = "https://cms.nasdubai.ae/nais/api/";
 
 	//Mobicare NAS below//
 
@@ -159,7 +159,9 @@ public interface URLConstants {
 	public String URL_CANTEEN_PREORDER = URL_HEAD +"canteen_preorder";
 	public String URL_PAYMENT_TOKEN = URL_HEAD +"network_payment_gateway_access_token";
 	public String URL_PAYMENT_TOKEN_FOR_FEE = URL_HEAD +"network_payment_gateway_access_token_for_fee_payment";
-	public String URL_CREATE_PAYMENT = URL_HEAD +"network_payment_gateway_creating_an_order";
+	//public String URL_CREATE_PAYMENT = URL_HEAD +"network_payment_gateway_creating_an_order";
+//	public String URL_CREATE_PAYMENT = URL_HEAD +"canteen_wallet_order";
+	public String URL_CREATE_PAYMENT = URL_HEAD +"canteen_wallet_order";
 	public String URL_CREATE_PAYMENT_FEE = URL_HEAD +"network_payment_gateway_creating_an_order_for_fee_payment";
 	public String URL_CREATE_PAYMENT_RETRIVE_FEE = URL_HEAD +"network_payment_gateway_retrieve_order_details_for_fee_payment";
 	public String URL_CANTEEN_STAFF_WALLET = URL_HEAD +"staff_wallet_details";

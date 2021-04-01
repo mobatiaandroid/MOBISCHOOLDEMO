@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -155,16 +156,16 @@ public class CalendarFragmentListAdapter extends BaseAdapter implements NASCalen
 
                 }
                 if ( calendarModels.get(mPosition).getEventModels().get(position).getIsAllDay().equalsIgnoreCase("1")) {
-                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), "All Day Event", calendarModels.get(mPosition).getEventModels(),position) ;
+                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), "All Day Event", calendarModels.get(mPosition).getEventModels(),position,mContext) ;
 
                 } else if (!(calendarModels.get(mPosition).getEventModels().get(position).getStartTime().equalsIgnoreCase("")) && !(calendarModels.get(mPosition).getEventModels().get(position).getEndTime().equalsIgnoreCase(""))){
-                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), calendarModels.get(mPosition).getEventModels().get(position).getStartTime() + " - " + calendarModels.get(mPosition).getEventModels().get(position).getEndTime(),calendarModels.get(mPosition).getEventModels(),position) ;
+                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), calendarModels.get(mPosition).getEventModels().get(position).getStartTime() + " - " + calendarModels.get(mPosition).getEventModels().get(position).getEndTime(),calendarModels.get(mPosition).getEventModels(),position,mContext) ;
 
                 }else if (!(calendarModels.get(mPosition).getEventModels().get(position).getStartTime().equalsIgnoreCase(""))){
-                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), calendarModels.get(mPosition).getEventModels().get(position).getStartTime(),calendarModels.get(mPosition).getEventModels(),position) ;
+                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), calendarModels.get(mPosition).getEventModels().get(position).getStartTime(),calendarModels.get(mPosition).getEventModels(),position,mContext) ;
 
                 }else if (!(calendarModels.get(mPosition).getEventModels().get(position).getEndTime().equalsIgnoreCase(""))){
-                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), calendarModels.get(mPosition).getEventModels().get(position).getEndTime(),calendarModels.get(mPosition).getEventModels(),position) ;
+                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), calendarModels.get(mPosition).getEventModels().get(position).getEndTime(),calendarModels.get(mPosition).getEventModels(),position,mContext) ;
 
                 }
             }
@@ -253,7 +254,7 @@ public class CalendarFragmentListAdapter extends BaseAdapter implements NASCalen
 //        listView.setLayoutParams(params);
     }
 
-    private void showCalendarEvent(String eventNameStr, String eventDateStr, String eventTypeStr, final ArrayList<CalendarModel> mCalendarEventModels, final int eventPosition) {
+    private void showCalendarEvent(String eventNameStr, String eventDateStr, String eventTypeStr, final ArrayList<CalendarModel> mCalendarEventModels, final int eventPosition, Context mContext) {
 
         // set the custom dialog components - edit text, button
         TextView eventDate = (TextView) HomeListAppCompatActivity.dialogCal.findViewById(R.id.eventDate);
@@ -266,8 +267,16 @@ public class CalendarFragmentListAdapter extends BaseAdapter implements NASCalen
                 .findViewById(R.id.deleteCalendar);
         Button addToCalendar = (Button) HomeListAppCompatActivity.dialogCal
                 .findViewById(R.id.addToCalendar);
+        Button linkBtn = (Button) HomeListAppCompatActivity.dialogCal.findViewById(R.id.linkBtn);
         Button dismiss = (Button) HomeListAppCompatActivity.dialogCal.findViewById(R.id.dismiss);
-
+        if (mCalendarEventModels.get(eventPosition).getVpml().equalsIgnoreCase(""))
+        {
+            linkBtn.setVisibility(View.GONE);
+        }
+        else
+        {
+            linkBtn.setVisibility(View.VISIBLE);
+        }
         // if button is clicked, close the custom dialog
         deleteCalendar.setOnClickListener(new View.OnClickListener() {
                                               @Override
@@ -432,6 +441,19 @@ public class CalendarFragmentListAdapter extends BaseAdapter implements NASCalen
                                        @Override
                                        public void onClick(View v) {
                                            notifyDataSetChanged();
+                                           HomeListAppCompatActivity.dialogCal.dismiss();
+                                       }
+                                   }
+
+        );
+        linkBtn.setOnClickListener(new View.OnClickListener()
+
+                                   {
+                                       @Override
+                                       public void onClick(View v) {
+                                           Uri uri = Uri.parse(mCalendarEventModels.get(eventPosition).getVpml());
+                                           Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                                           mContext.startActivity(intent);
                                            HomeListAppCompatActivity.dialogCal.dismiss();
                                        }
                                    }

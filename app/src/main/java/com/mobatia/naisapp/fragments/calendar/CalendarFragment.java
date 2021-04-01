@@ -642,6 +642,7 @@ public class CalendarFragment extends Fragment implements
                                             e.printStackTrace();
                                         }
                                         model.setEvent(detJsonObject.optString("title"));
+                                        model.setVpml(detJsonObject.optString("vpml"));
                                         eventModels.add(model);
                                     }
                                     calendarModel.setEventModels(eventModels);

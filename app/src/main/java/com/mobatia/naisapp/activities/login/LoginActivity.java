@@ -11,7 +11,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,6 +30,7 @@ import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.mobatia.naisapp.BuildConfig;
 import com.mobatia.naisapp.R;
 import com.mobatia.naisapp.activities.home.HomeListActivity;
 import com.mobatia.naisapp.activities.home.HomeListAppCompatActivity;
@@ -66,13 +69,9 @@ public class LoginActivity extends Activity implements OnTouchListener,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-//		Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(this,
-//				LoginActivity.class));
 		mContext = this;
 		PreferenceManager.setStaffId(mContext,"");
 		initialiseUI();
-		/*AppUtils.hideKeyboardOnTouchOutside(loginMain, mContext,
-				mUserNameEdtTxt);*/
 		setListeners();
 	}
 
@@ -205,20 +204,14 @@ public class LoginActivity extends Activity implements OnTouchListener,
 			// login button
 			AppUtils.hideKeyboard(mContext, mPasswordEdtTxt);
 			// guest user button
-			/*PreferenceManager.setUserName(mContext, "Rijo");
-			Intent homeIntent = new Intent(mContext, HomeListActivity.class);
-			startActivity(homeIntent);*/
 
 			if(mUserNameEdtTxt.getText().toString().trim().equalsIgnoreCase("")){
-				//AppUtils.setErrorForEditText(mUserNameEdtTxt,getString(R.string.mandatory_field));
 				AppUtils.showDialogAlertDismiss((Activity) mContext, getString(R.string.alert_heading), getString(R.string.enter_email), R.drawable.exclamationicon, R.drawable.round);
 
 			}else if(!AppUtils.isValidEmail(mUserNameEdtTxt.getText().toString())){
-				//AppUtils.setErrorForEditText(mUserNameEdtTxt,getString(R.string.mandatory_field));
 				AppUtils.showDialogAlertDismiss((Activity) mContext, getString(R.string.alert_heading), getString(R.string.enter_valid_email), R.drawable.exclamationicon, R.drawable.round);
 
 			}else if(mPasswordEdtTxt.getText().toString().equalsIgnoreCase("")){
-				//AppUtils.setErrorForEditText(mPasswordEdtTxt,getString(R.string.mandatory_field));
 				AppUtils.showDialogAlertDismiss((Activity) mContext, getString(R.string.alert_heading), getString(R.string.enter_password), R.drawable.exclamationicon, R.drawable.round);
 
 			}else{
@@ -691,11 +684,16 @@ public class LoginActivity extends Activity implements OnTouchListener,
 	}
 
 	private void LoginApiCall(String URL) {
+		String deviceBrand = android.os.Build.MANUFACTURER;
+		String deviceModel = Build.MODEL;
+		String osVersion = android.os.Build.VERSION.RELEASE;
+		String devicename=deviceBrand+" "+deviceModel+" "+osVersion;
+		String version= BuildConfig.VERSION_NAME;
+		String androidId = Settings.Secure.getString(mContext.getContentResolver(),
+				Settings.Secure.ANDROID_ID);
 		VolleyWrapper volleyWrapper=new VolleyWrapper(URL);
-		String[] name={"access_token","email","password","deviceid","devicetype"};
-		String[] value={PreferenceManager.getAccessToken(mContext),mUserNameEdtTxt.getText().toString(),mPasswordEdtTxt.getText().toString(), FirebaseInstanceId.getInstance().getToken(),"2"};
-
-		//String[] value={PreferenceManager.getAccessToken(mContext),mStaffList.get(pos).getStaffEmail(),JTAG_USERS_ID_VALUE,text_dialog.getText().toString(),text_content.getText().toString()};
+		String[] name={"access_token","email","password","deviceid","devicetype","device_name","app_version","device_identifier"};
+		String[] value={PreferenceManager.getAccessToken(mContext),mUserNameEdtTxt.getText().toString(),mPasswordEdtTxt.getText().toString(), FirebaseInstanceId.getInstance().getToken(),"2",devicename,version,androidId};
 		volleyWrapper.getResponsePOST(mContext, 11, name, value, new VolleyWrapper.ResponseListener() {
 			@Override
 			public void responseSuccess(String successResponse) {
@@ -707,14 +705,12 @@ public class LoginActivity extends Activity implements OnTouchListener,
 						JSONObject secobj = obj.getJSONObject(JTAG_RESPONSE);
 						String status_code = secobj.getString(JTAG_STATUSCODE);
 						if (status_code.equalsIgnoreCase("303")) {
-							//for(int i=0;i<responseArray.length();i++){
 								JSONObject respObj= secobj.getJSONObject(JTAG_RESPONSE_ARRAY);
 								PreferenceManager.setUserId(mContext, respObj.optString(JTAG_USER_ID));
 								PreferenceManager.setUserType(mContext,"1");
-							PreferenceManager.setUserEmail(mContext,mUserNameEdtTxt.getText().toString());
-							System.out.println("user id---"+PreferenceManager.getUserId(mContext));
-							//}
-							showDialogSignUpAlert((Activity) mContext, "Success", getString(R.string.login_success_alert), R.drawable.tick, R.drawable.round);
+							    PreferenceManager.setUserEmail(mContext,mUserNameEdtTxt.getText().toString());
+							    System.out.println("user id---"+PreferenceManager.getUserId(mContext));
+							    showDialogSignUpAlert((Activity) mContext, "Success", getString(R.string.login_success_alert), R.drawable.tick, R.drawable.round);
 
 						}else if(status_code.equalsIgnoreCase("301")){
 							AppUtils.showDialogAlertDismiss((Activity) mContext, getString(R.string.error_heading),getString(R.string.missing_parameter), R.drawable.infoicon, R.drawable.round);

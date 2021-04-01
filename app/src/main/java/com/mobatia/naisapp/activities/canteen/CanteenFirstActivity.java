@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -24,6 +25,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mobatia.naisapp.BuildConfig;
 import com.mobatia.naisapp.R;
 import com.mobatia.naisapp.activities.canteen_new.PreOrderActivity;
 import com.mobatia.naisapp.activities.home.HomeListAppCompatActivity;
@@ -92,6 +94,7 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
     String canteen_response="";
     String Error="";
     String topup_limit="";
+    String order_id="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,7 +152,7 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
             }
         });
 
-        getPaymentToken();
+        //getPaymentToken();
 
         btn_history.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -231,7 +234,6 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
                                         break;
                                     }
                                 }
-                                System.out.println("first non zero digit at : " +firstNonZeroAt);
                                 char [] newArray = Arrays.copyOfRange(array, firstNonZeroAt,arrayLength);
                                 String resultString = new String(newArray);
                                 System.out.println("amount removed zero"+resultString);
@@ -244,7 +246,10 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
                                 intent.putExtra("amount",resultString);
                                 amount.getText().clear();
 //                        startActivity(intent);
-                                CallForPayment(payment_amount);
+                                order_id="";
+                                merchantOrderReference="";
+                              //  CallForPayment(payment_amount);
+                                CallForPayment(payAmount,stud_id);
                             }
 
                         }
@@ -644,19 +649,20 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
     }
 
 
-    private void CallForPayment(String amount)
+    private void CallForPayment(String amount,String studentID)
     {
+        String deviceBrand = android.os.Build.MANUFACTURER;
+        String deviceModel = Build.MODEL;
+        String osVersion = android.os.Build.VERSION.RELEASE;
+        String devicename=deviceBrand+" "+deviceModel+" "+osVersion;
+        String version= BuildConfig.VERSION_NAME;
         Long tsLong = System.currentTimeMillis()/1000;
         String ts = tsLong.toString();
-         merchantOrderReference=PreferenceManager.getCanteenStudentId(mContext)+ts;
+
         VolleyWrapper volleyWrapper = new VolleyWrapper(URLConstants.URL_CREATE_PAYMENT);
-        String[] name = {"access_token", "amount","merchantOrderReference","firstName","lastName","address1","city","countryCode","emailAddress"};
-        String[] value = {PaymentToken, amount,merchantOrderReference,PreferenceManager.getCanteenStudentName(mContext),"","NAS DUBAI","DUBAI","UAE",PreferenceManager.getUserEmail(mContext)};
-        System.out.println("payment Access_token"+PaymentToken);
-        System.out.println("payment amount"+amount);
-        System.out.println("payment merchantOrderReference"+merchantOrderReference);
-        System.out.println("payment firstName"+PreferenceManager.getCanteenStudentName(mContext));
-        System.out.println("payment emailAddress"+PreferenceManager.getUserEmail(mContext));
+        String[] name = {"access_token","users_id","student_id","amount","device_type","device_name","app_version"};
+        String[] value = {PreferenceManager.getAccessToken(mContext),PreferenceManager.getUserId(mContext),studentID,amount,"2",devicename,version};
+        Log.e("LOG CANTEEN PAY",studentID+"  "+amount);
         volleyWrapper.getResponsePOST(mContext, 11, name, value, new VolleyWrapper.ResponseListener() {
             @Override
             public void responseSuccess(String successResponse) {
@@ -670,7 +676,9 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
                         if (status_code.equalsIgnoreCase("303"))
                         {
 
+                            order_id = secobj.getString("order_id");
                             OrderRef = secobj.getString("order_reference");
+                            merchantOrderReference = secobj.getString("merchantOrderReference");
                             PayUrl = secobj.getString("order_paypage_url");
                             AuthUrl = secobj.getString("authorization");
                             String Code = PayUrl.split("=")[1];
@@ -696,7 +704,7 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
                             public void tokenrenewed() {
                             }
                         });
-                        CallForPayment(amount);
+                        CallForPayment(amount,studentID);
 
                     } else if (response_code.equalsIgnoreCase("401")) {
                         AppUtils.getToken(mContext, new AppUtils.GetTokenSuccess() {
@@ -704,7 +712,7 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
                             public void tokenrenewed() {
                             }
                         });
-                        CallForPayment(amount);
+                        CallForPayment(amount,studentID);
 
                     } else if (response_code.equalsIgnoreCase("402")) {
                         AppUtils.getToken(mContext, new AppUtils.GetTokenSuccess() {
@@ -712,7 +720,7 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
                             public void tokenrenewed() {
                             }
                         });
-                        CallForPayment(amount);
+                        CallForPayment(amount,studentID);
 
                     } else {
                         /*CustomDialog dialog = new CustomDialog(mContext, getResources().getString(R.string.common_error)
@@ -746,15 +754,11 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
             Toast.makeText(mActivity, "transaction cancelled", Toast.LENGTH_SHORT).show();
         } else {
             if (requestCode == 0) {
-
-//            Log.d("response",data.getStringExtra("jsonResponse"));
-//            String jsonObject=data.getStringExtra("jsonResponse");
-//            Log.v("jsonResponse",jsonObject);
-
                 CardPaymentData cardPaymentData = CardPaymentData.getFromIntent(data);
                 Log.d("PAYMM",String.valueOf(cardPaymentData.getCode()));
                 Log.d("PAYMM",String.valueOf(cardPaymentData.getReason()));
-                if (cardPaymentData.getCode() == 2) {
+                if (cardPaymentData.getCode() == 2)
+                {
                     String JSONData = "{\"details\":[{"+"\"student_id\":\""+PreferenceManager.getCanteenStudentId(mContext)+"\"," +
                             "\"users_id\":\""+PreferenceManager.getUserId(mContext)+"\"," +
                             "\"amount\":\""+payAmount+"\"," +
@@ -763,7 +767,6 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
                     CallWalletSubmission(JSONData);
 
 
-//                Log.d("reason",cardPaymentData.getReason());
 
                 } else {
                     Toast.makeText(mContext, "Transaction failed", Toast.LENGTH_SHORT).show();
@@ -794,9 +797,15 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
     }
 
     private void CallWalletSubmission(String data) {
+        String deviceBrand = android.os.Build.MANUFACTURER;
+        String deviceModel = Build.MODEL;
+        String osVersion = android.os.Build.VERSION.RELEASE;
+        String devicename=deviceBrand+" "+deviceModel+" "+osVersion;
+        //  int versionCode= BuildConfig.VERSION_NAME;
+        String version= BuildConfig.VERSION_NAME;
         VolleyWrapper volleyWrapper = new VolleyWrapper(URL_CANTEEN_WALLET_SUBMISSION);
-        String[] name = {"access_token","data"};
-        String[] value = {PreferenceManager.getAccessToken(mContext),data};
+        String[] name = {"access_token","users_id","student_id","order_id","device_type","device_name","app_version"};
+        String[] value = {PreferenceManager.getAccessToken(mContext),PreferenceManager.getUserId(mContext),stud_id,order_id,"2",devicename,version};
         volleyWrapper.getResponsePOST(mContext, 11, name, value, new VolleyWrapper.ResponseListener() {
             @Override
             public void responseSuccess(String successResponse) {
@@ -829,15 +838,17 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
                             }
                             else
                             {
-                                if (canteen_response.equalsIgnoreCase("Error"))
-                                {
-                                    String errorMessage=Error;
-                                    Toast.makeText(mContext, errorMessage, Toast.LENGTH_SHORT).show();
-                                }
-                                else
-                                {
-                                    Toast.makeText(mContext, "Cannot continue please try again later", Toast.LENGTH_SHORT).show();
-                                }
+                                String errorMessage=Error;
+                                Toast.makeText(mContext, errorMessage, Toast.LENGTH_SHORT).show();
+//                                if (canteen_response.equalsIgnoreCase("Error"))
+//                                {
+//                                    String errorMessage=Error;
+//                                    Toast.makeText(mContext, errorMessage, Toast.LENGTH_SHORT).show();
+//                                }
+//                                else
+//                                {
+//                                    Toast.makeText(mContext, "Cannot continue please try again later", Toast.LENGTH_SHORT).show();
+//                                }
 
                             }
 

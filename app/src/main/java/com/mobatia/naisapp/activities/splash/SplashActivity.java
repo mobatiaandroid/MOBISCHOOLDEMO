@@ -35,27 +35,11 @@ public class SplashActivity extends Activity implements
 
     private Context mContext;
 
-//    String[] permissions = new String[]{
-//            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-//            Manifest.permission.READ_EXTERNAL_STORAGE,
-//            Manifest.permission.READ_CALENDAR
-//            , Manifest.permission.WRITE_CALENDAR ,
-//            Manifest.permission.CALL_PHONE,
-//            Manifest.permission.ACCESS_FINE_LOCATION};
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-//        Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(this,
-//                SplashActivity.class));
         mContext = this;
-//        goToNextView();
-
-        // push notification service call
-        /*if (WissPreferenceManager.getDeviceGCMID(mContext).equals("")
-                || WissPreferenceManager.getProfileID(mContext).equals("")) {*/
         if (AppUtils.checkInternet(mContext)) {
             AppUtils.postInitParams(mContext, new AppUtils.GetAccessTokenInterface() {
                 @Override
@@ -63,64 +47,11 @@ public class SplashActivity extends Activity implements
                 }
             });
             goToNextView();
-
-//            if (Build.VERSION.SDK_INT < 23) {
-//                //Do not need to check the permission
-//                goToNextView();
-//
-//            } else {
-//
-//                if (hasPermissions(mContext, permissions)) {
-//                    goToNextView();
-//
-//                } else {
-//                    ActivityCompat.requestPermissions(this, permissions, 100);
-//                }
-//            }
         }else{
             AppUtils.showDialogAlertDismiss((Activity)mContext,"Network Error",getString(R.string.no_internet),R.drawable.nonetworkicon,R.drawable.roundred);
 
         }
-
-        //}
-
     }
-
-/*private  boolean checkAndRequestPermissions() {
-int permissionSendMessage = ContextCompat.checkSelfPermission(this,
-Manifest.permission.CAMERA);
-int locationPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
-List<String> listPermissionsNeeded = new ArrayList<>();
-if (locationPermission != PackageManager.PERMISSION_GRANTED) {
-listPermissionsNeeded.add(Manifest.permission.ACCESS_FINE_LOCATION);
-}
-if (permissionSendMessage != PackageManager.PERMISSION_GRANTED) {
-listPermissionsNeeded.add(Manifest.permission.CAMERA);
-}
-if (!listPermissionsNeeded.isEmpty()) {
-ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]), REQUEST_ID_MULTIPLE_PERMISSIONS);
-return false;
-}
-return true;
-}*/
-
-/*private boolean checkAndRequestPermissions() {
-int result;
-List<String> listPermissionsNeeded = new ArrayList<>();
-for (String p:permissions) {
-result = ContextCompat.checkSelfPermission(mContext,p);
-if (result != PackageManager.PERMISSION_GRANTED) {
-listPermissionsNeeded.add(p);
-}
-}
-if (!listPermissionsNeeded.isEmpty()) {
-ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),REQUEST_ID_MULTIPLE_PERMISSIONS );
-return false;
-}else{
-goToNextView();
-}
-return true;
-}*/
 
     public static boolean hasPermissions(Context context, String... permissions) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
@@ -225,11 +156,10 @@ return true;
                 if (perms.get(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED && perms.get(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
                         && perms.get(Manifest.permission.READ_CALENDAR) == PackageManager.PERMISSION_GRANTED && perms.get(Manifest.permission.WRITE_CALENDAR) == PackageManager.PERMISSION_GRANTED && perms.get(Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED
                         &&perms.get(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED&& (grantResults.length > 0)) {
-// All Permissions Granted
+                 // All Permissions Granted
                     goToNextView();
-
-
-                } else {
+                }
+                else {
 
                     ActivityCompat.requestPermissions(this, permissions, 100);
 
