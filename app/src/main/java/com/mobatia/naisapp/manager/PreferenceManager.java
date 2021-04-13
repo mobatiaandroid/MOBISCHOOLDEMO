@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.mobatia.naisapp.R;
 import com.mobatia.naisapp.constants.NaisTabConstants;
+import com.mobatia.naisapp.fragments.parents_evening.model.StudentModel;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -3126,6 +3127,26 @@ public class PreferenceManager implements NaisTabConstants {
                 Context.MODE_PRIVATE);
         staff_only = prefs.getString("staff_only", "0");
         return staff_only;
+    }
+
+
+    public static void  setStudentArrayList(ArrayList<StudentModel> list, Context context){
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        editor.putString("student_list", json);
+        editor.apply();     // This line is IMPORTANT !!!
+    }
+
+    public static ArrayList<StudentModel> getStudentArrayList(Context context){
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
+                Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = prefs.getString("student_list", null);
+        Type type = new TypeToken<ArrayList<StudentModel>>() {}.getType();
+        return gson.fromJson(json, type);
     }
 }
 

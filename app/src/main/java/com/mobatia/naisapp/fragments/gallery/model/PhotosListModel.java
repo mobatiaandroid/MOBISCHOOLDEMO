@@ -10,17 +10,6 @@ public class PhotosListModel implements Serializable {
   String photoId,photoUrl;
   String title;
     String itemImageurl;
-
-    public ArrayList<PhotosListModel> getmPhotosUrlArrayList() {
-        return mPhotosUrlArrayList;
-    }
-
-    public void setmPhotosUrlArrayList(ArrayList<PhotosListModel> mPhotosUrlArrayList) {
-        this.mPhotosUrlArrayList = mPhotosUrlArrayList;
-    }
-
-    ArrayList<PhotosListModel>mPhotosUrlArrayList;
-
     public String getDescription() {
         return description;
     }

@@ -43,6 +43,8 @@ public class EventsAdapter extends BaseAdapter implements NASCalendarConstants {
     LayoutInflater minfalter;
     ViewHolder viewHolder;
     private int mnthId;
+    boolean isRead;
+
 
     public EventsAdapter(Context mContext, ArrayList<CalendarModel> calendarModels) {
         this.mContext = mContext;
@@ -55,11 +57,12 @@ public class EventsAdapter extends BaseAdapter implements NASCalendarConstants {
         this.colors = colors;
     }
 
-    public EventsAdapter(Context mContext, ArrayList<CalendarModel> calendarModels, int colors, int mPosition) {
+    public EventsAdapter(Context mContext, ArrayList<CalendarModel> calendarModels, int colors, int mPosition,boolean isRead) {
         this.mContext = mContext;
         this.calendarModels = calendarModels;
         this.colors = colors;
         this.mPosition = mPosition;
+        this.isRead = isRead;
     }
 
     @Override
@@ -98,22 +101,30 @@ public class EventsAdapter extends BaseAdapter implements NASCalendarConstants {
         viewHolder.eventTime.setTextColor(colors);
         viewHolder.eventName.setTextColor(colors);
         viewHolder.eventName.setText(calendarModels.get(position).getEvent());
-        if(calendarModels.get(position).getStatus().equalsIgnoreCase("0"))
-        {
-            viewHolder.statusImg.setVisibility(View.VISIBLE);
-
-            viewHolder.statusImg.setImageResource(R.drawable.shape_circle_red);
-        }
-        else if(calendarModels.get(position).getStatus().equalsIgnoreCase("1"))
+        if (isRead)
         {
             viewHolder.statusImg.setVisibility(View.INVISIBLE);
         }
-        else if(calendarModels.get(position).getStatus().equalsIgnoreCase("2"))
+        else
         {
-            viewHolder.statusImg.setVisibility(View.VISIBLE);
+            if(calendarModels.get(position).getStatus().equalsIgnoreCase("0"))
+            {
+                viewHolder.statusImg.setVisibility(View.VISIBLE);
 
-            viewHolder.statusImg.setImageResource(R.drawable.shape_circle_orange);
+                viewHolder.statusImg.setImageResource(R.drawable.shape_circle_red);
+            }
+            else if(calendarModels.get(position).getStatus().equalsIgnoreCase("1"))
+            {
+                viewHolder.statusImg.setVisibility(View.INVISIBLE);
+            }
+            else if(calendarModels.get(position).getStatus().equalsIgnoreCase("2"))
+            {
+                viewHolder.statusImg.setVisibility(View.VISIBLE);
+
+                viewHolder.statusImg.setImageResource(R.drawable.shape_circle_orange);
+            }
         }
+
         if(calendarModels.get(position).getIsAllDay().equalsIgnoreCase("1") )
         {
             viewHolder.eventTime.setText("All Day Event");

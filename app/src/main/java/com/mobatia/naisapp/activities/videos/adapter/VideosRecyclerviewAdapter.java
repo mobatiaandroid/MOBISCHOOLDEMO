@@ -15,6 +15,7 @@ import com.mobatia.naisapp.R;
 import com.mobatia.naisapp.activities.videos.model.VideosListModel;
 import com.mobatia.naisapp.manager.AppUtils;
 import com.mobatia.naisapp.manager.MyBounceInterpolator;
+import com.mobatia.naisapp.recyclerviewmanager.OnBottomReachedListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class VideosRecyclerviewAdapter extends RecyclerView.Adapter<VideosRecycl
     private Context mContext;
     private ArrayList<VideosListModel> mVideosModelArrayList;
     String video_id="-1";
-
+    OnBottomReachedListener onBottomReachedListener;
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView photoImageView;
         TextView videoDescription;
@@ -54,7 +55,10 @@ public class VideosRecyclerviewAdapter extends RecyclerView.Adapter<VideosRecycl
         this.mVideosModelArrayList = mPhotosList;
         this.video_id = video_id;
     }
+    public void setOnBottomReachedListener(OnBottomReachedListener onBottomReachedListener){
 
+        this.onBottomReachedListener = onBottomReachedListener;
+    }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
@@ -65,6 +69,11 @@ public class VideosRecyclerviewAdapter extends RecyclerView.Adapter<VideosRecycl
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
+        if (position == mVideosModelArrayList.size() - 1){
+
+            onBottomReachedListener.onBottomReached(position);
+
+        }
         holder.videoTitle.setText(mVideosModelArrayList.get(position).getTitle());
         holder.videoDescription.setText(mVideosModelArrayList.get(position).getDescription());
         if (!mVideosModelArrayList.get(position).getImage_url().equalsIgnoreCase("")) {

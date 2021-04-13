@@ -14,6 +14,7 @@ import com.mobatia.naisapp.R;
 import com.mobatia.naisapp.fragments.gallery.model.PhotosListModel;
 import com.mobatia.naisapp.manager.AppUtils;
 import com.mobatia.naisapp.manager.MyBounceInterpolator;
+import com.mobatia.naisapp.recyclerviewmanager.OnBottomReachedListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class PhotosViewRecyclerviewAdapter extends RecyclerView.Adapter<PhotosVi
     private Context mContext;
     private ArrayList<PhotosListModel> mPhotosModelArrayList;
     String photo_id="-1";
-
+    OnBottomReachedListener onBottomReachedListener;
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView photoImageView;
 //        TextView photoDescription;
@@ -52,7 +53,10 @@ public class PhotosViewRecyclerviewAdapter extends RecyclerView.Adapter<PhotosVi
         this.mPhotosModelArrayList = mPhotosList;
         this.photo_id = photo_id;
     }
+    public void setOnBottomReachedListener(OnBottomReachedListener onBottomReachedListener){
 
+        this.onBottomReachedListener = onBottomReachedListener;
+    }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
@@ -63,6 +67,11 @@ public class PhotosViewRecyclerviewAdapter extends RecyclerView.Adapter<PhotosVi
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
+        if (position == mPhotosModelArrayList.size() - 1){
+
+            onBottomReachedListener.onBottomReached(position);
+
+        }
 //        holder.photoTitle.setText(mPhotosModelArrayList.get(position).getTitle());
 //        holder.photoDescription.setText(mPhotosModelArrayList.get(position).getDescription());
         if (!mPhotosModelArrayList.get(position).getPhotoUrl().equalsIgnoreCase("")) {

@@ -59,6 +59,7 @@ public class CalendarFragmentListSportsAdapter extends BaseAdapter implements NA
     ViewHolder viewHolder;
     private int mnthId;
     EventsAdapter calendarFragmentListAdapter;
+    boolean isRead=false;
 
     public CalendarFragmentListSportsAdapter(Context mContext, ArrayList<CalendarModel> calendarModels, ArrayList<CalendarModel> eventModels) {
         this.mContext = mContext;
@@ -119,7 +120,8 @@ public class CalendarFragmentListSportsAdapter extends BaseAdapter implements NA
         //for(int i=0;i<2;i++){
         // loadSubItems();
         // }
-         calendarFragmentListAdapter = new EventsAdapter(mContext, calendarModels.get(mPosition).getEventModels(), colors, mPosition);
+        isRead=false;
+         calendarFragmentListAdapter = new EventsAdapter(mContext, calendarModels.get(mPosition).getEventModels(), colors, mPosition,isRead);
         viewHolder.eventsListView.setAdapter(calendarFragmentListAdapter);
         viewHolder.eventsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -243,6 +245,7 @@ public class CalendarFragmentListSportsAdapter extends BaseAdapter implements NA
         TextView eventDate = (TextView) dialog.findViewById(R.id.eventDate);
         TextView eventName = (TextView) dialog.findViewById(R.id.eventName);
         TextView eventType = (TextView) dialog.findViewById(R.id.eventType);
+        TextView linkBtn = (Button) dialog.findViewById(R.id.linkBtn);
         eventName.setText(eventNameStr);
         eventDate.setText(eventDateStr);
         eventType.setText("("+eventTypeStr+")");
@@ -251,7 +254,7 @@ public class CalendarFragmentListSportsAdapter extends BaseAdapter implements NA
         Button addToCalendar = (Button) dialog
                 .findViewById(R.id.addToCalendar);
         Button dismiss = (Button) dialog.findViewById(R.id.dismiss);
-
+        linkBtn.setVisibility(View.GONE);
         // if button is clicked, close the custom dialog
         deleteCalendar.setOnClickListener(new View.OnClickListener() {
                                               @Override

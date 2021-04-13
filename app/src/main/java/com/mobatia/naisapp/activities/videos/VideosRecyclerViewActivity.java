@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.mobatia.naisapp.R;
+import com.mobatia.naisapp.activities.photos.adapter.PhotosRecyclerviewAdapter;
 import com.mobatia.naisapp.activities.videos.adapter.VideosRecyclerviewAdapter;
 import com.mobatia.naisapp.activities.videos.model.VideosListModel;
 import com.mobatia.naisapp.constants.JSONConstants;
@@ -25,6 +26,7 @@ import com.mobatia.naisapp.manager.HeaderManager;
 import com.mobatia.naisapp.manager.PreferenceManager;
 import com.mobatia.naisapp.recyclerviewmanager.DividerItemDecoration;
 import com.mobatia.naisapp.recyclerviewmanager.ItemOffsetDecoration;
+import com.mobatia.naisapp.recyclerviewmanager.OnBottomReachedListener;
 import com.mobatia.naisapp.recyclerviewmanager.RecyclerItemListener;
 import com.mobatia.naisapp.volleywrappermanager.VolleyWrapper;
 
@@ -49,6 +51,10 @@ public class VideosRecyclerViewActivity extends Activity implements URLConstants
     RecyclerView.LayoutManager recyclerViewLayoutManager;
     Bundle extras;
     String video_id="-1";
+    String scrollTo="";
+    String apiID="";
+    boolean isFromBottom=false;
+    int notificationSize=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +62,11 @@ public class VideosRecyclerViewActivity extends Activity implements URLConstants
         mContext = this;
         initUI();
         if (AppUtils.isNetworkConnected(mContext)) {
-            photosListApiCall();
+            mVideoModelArrayList = new ArrayList<VideosListModel>();
+            scrollTo="";
+            apiID="";
+            isFromBottom=false;
+            photosListApiCall(apiID,scrollTo);
         } else {
             AppUtils.showDialogAlertDismiss((Activity) mContext, "Network Error", getString(R.string.no_internet), R.drawable.nonetworkicon, R.drawable.roundred);
         }
@@ -106,18 +116,7 @@ public class VideosRecyclerViewActivity extends Activity implements URLConstants
                 }));
 
 
-//        LinearLayoutManager llm = new LinearLayoutManager(this);
-//        llm.setOrientation(LinearLayoutManager.HORIZONTAL);
-//        recycler_view_photos.setLayoutManager(llm);
 
-//        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                photosListApiCall();
-//                // Refresh items
-//                refreshItems();
-//            }
-//        });
 
 
     }
@@ -192,11 +191,11 @@ public class VideosRecyclerViewActivity extends Activity implements URLConstants
 
 
 
-    private void photosListApiCall() {
+    private void photosListApiCall(String id,String scrollto) {
         try {
-            mVideoModelArrayList = new ArrayList<VideosListModel>();
-            String[] name = {NAME_ACCESS_TOKEN};
-            String[] values = {PreferenceManager.getAccessToken(mContext)};
+            notificationSize=0;
+            String[] name = {NAME_ACCESS_TOKEN,"page_from","scroll_to"};
+            String[] values = {PreferenceManager.getAccessToken(mContext),id,scrollto};
             final VolleyWrapper manager = new VolleyWrapper(URL_GET_VIDEOS_LIST);
             manager.getResponsePOST(mContext, 11, name, values,
                     new VolleyWrapper.ResponseListener() {
@@ -213,7 +212,8 @@ public class VideosRecyclerViewActivity extends Activity implements URLConstants
                                         String statusCode = responseObject.getString(JTAG_STATUSCODE);
                                         if (statusCode.equalsIgnoreCase(STATUS_SUCCESS)) {
 
-                                            JSONArray data = responseObject.optJSONArray(JTAG_RESPONSE_DATA_ARRAY);
+                                            JSONArray data = responseObject.optJSONArray("videos");
+                                            notificationSize=data.length();
                                             for (int i = 0; i < data.length(); i++) {
                                                 JSONObject imageDetail = data.optJSONObject(i);
                                                 VideosListModel mPhotosModel = new VideosListModel();
@@ -226,8 +226,47 @@ public class VideosRecyclerViewActivity extends Activity implements URLConstants
                                                 mVideoModelArrayList.add(mPhotosModel);
                                             }
 //                                            mVideoRecyclerviewAdapter = new VideosRecyclerviewAdapter(mContext, mVideoModelArrayList);
-                                            mVideoRecyclerviewAdapter = new VideosRecyclerviewAdapter(mContext, mVideoModelArrayList,video_id);
-                                            recycler_view_photos.setAdapter(mVideoRecyclerviewAdapter);
+//                                            mVideoRecyclerviewAdapter = new VideosRecyclerviewAdapter(mContext, mVideoModelArrayList,video_id);
+//                                            recycler_view_photos.setAdapter(mVideoRecyclerviewAdapter);
+
+                                            if (mVideoModelArrayList.size()>0)
+                                            {
+                                                mVideoRecyclerviewAdapter = new VideosRecyclerviewAdapter(mContext, mVideoModelArrayList,video_id);
+                                                recycler_view_photos.setAdapter(mVideoRecyclerviewAdapter);
+                                                if (isFromBottom)
+                                                {
+                                                    recycler_view_photos.scrollToPosition(mVideoModelArrayList.size()-notificationSize-2);
+                                                }
+                                                else
+                                                {
+                                                    recycler_view_photos.scrollToPosition(0);
+                                                }
+
+
+                                                mVideoRecyclerviewAdapter.setOnBottomReachedListener(new OnBottomReachedListener()
+                                                {
+                                                    @Override
+                                                    public void onBottomReached(int position) {
+                                                        System.out.println("reachedbottom");
+                                                        isFromBottom=true;
+                                                        scrollTo="old";
+                                                        int listSize=mVideoModelArrayList.size();
+                                                        apiID=mVideoModelArrayList.get(listSize-1).getVideoId();
+                                                        System.out.println("Page From Value"+apiID);
+                                                        if (notificationSize==15)
+                                                        {
+                                                            if (AppUtils.isNetworkConnected(mContext)) {
+                                                                photosListApiCall(apiID,scrollTo);
+                                                            } else {
+                                                                AppUtils.showDialogAlertDismiss((Activity) mContext, "Network Error", getString(R.string.no_internet), R.drawable.nonetworkicon, R.drawable.roundred);
+                                                            }
+                                                        }
+
+
+                                                    }
+                                                });
+                                            }
+
                                         } else if (statusCode.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_EXPIRED) ||
                                                 statusCode.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_MISSING)) {
                                             AppUtils.postInitParam(mContext, new AppUtils.GetAccessTokenInterface() {
@@ -235,7 +274,7 @@ public class VideosRecyclerViewActivity extends Activity implements URLConstants
                                                 public void getAccessToken() {
                                                 }
                                             });
-                                            photosListApiCall();
+                                            photosListApiCall(id,scrollto);
 
                                         } else {
                                             Toast.makeText(VideosRecyclerViewActivity.this, "Status Failure:" + rootObject.getString("Status"), Toast.LENGTH_SHORT).show();
@@ -250,7 +289,7 @@ public class VideosRecyclerViewActivity extends Activity implements URLConstants
                                             public void getAccessToken() {
                                             }
                                         });
-                                        photosListApiCall();
+                                        photosListApiCall(id,scrollto);
 
                                     } else {
                                         AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);

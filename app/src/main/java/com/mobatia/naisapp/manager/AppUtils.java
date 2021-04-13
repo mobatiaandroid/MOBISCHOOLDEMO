@@ -48,6 +48,7 @@ import com.mobatia.naisapp.constants.JSONConstants;
 import com.mobatia.naisapp.constants.NameValueConstants;
 import com.mobatia.naisapp.constants.StatusConstants;
 import com.mobatia.naisapp.constants.URLConstants;
+import com.mobatia.naisapp.fragments.parents_evening.model.StudentModel;
 import com.mobatia.naisapp.volleywrappermanager.VolleyWrapper;
 
 import org.json.JSONArray;
@@ -61,6 +62,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -1214,6 +1216,8 @@ return versionName;
 						if (status_code.equalsIgnoreCase("303")) {
 							dialog.dismiss();
 							PreferenceManager.setUserId(mActivity, "");
+							ArrayList<StudentModel>mArray=new ArrayList<>();
+							PreferenceManager.setStudentArrayList(mArray,mContext);
 							Intent mIntent = new Intent(mActivity, LoginActivity.class);
 							mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 							mActivity.startActivity(mIntent);

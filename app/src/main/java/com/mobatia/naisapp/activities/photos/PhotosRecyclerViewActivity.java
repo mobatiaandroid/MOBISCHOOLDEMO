@@ -26,6 +26,7 @@ import com.mobatia.naisapp.manager.AppUtils;
 import com.mobatia.naisapp.manager.HeaderManager;
 import com.mobatia.naisapp.manager.PreferenceManager;
 import com.mobatia.naisapp.recyclerviewmanager.DividerItemDecoration;
+import com.mobatia.naisapp.recyclerviewmanager.OnBottomReachedListener;
 import com.mobatia.naisapp.recyclerviewmanager.RecyclerItemListener;
 import com.mobatia.naisapp.volleywrappermanager.VolleyWrapper;
 
@@ -52,6 +53,10 @@ public class PhotosRecyclerViewActivity extends Activity implements URLConstants
     RecyclerView.LayoutManager recyclerViewLayoutManager;
   Bundle extras;
     String photo_id="-1";
+    String scrollTo="";
+    String apiID="";
+    boolean isFromBottom=false;
+    int notificationSize=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,10 +66,21 @@ public class PhotosRecyclerViewActivity extends Activity implements URLConstants
         AppController.mPhotosModelArrayListGallery = new ArrayList<PhotosListModel>();
         initUI();
         if (AppUtils.isNetworkConnected(mContext)) {
-            photosListApiCall();
-        } else {
+
+            scrollTo="";
+            apiID="";
+            isFromBottom=false;
+            photosListApiCall(apiID,scrollTo);
+
+        } else
+        {
             AppUtils.showDialogAlertDismiss((Activity) mContext, "Network Error", getString(R.string.no_internet), R.drawable.nonetworkicon, R.drawable.roundred);
         }
+//        if (AppUtils.isNetworkConnected(mContext)) {
+//            photosListApiCall();
+//        } else {
+//            AppUtils.showDialogAlertDismiss((Activity) mContext, "Network Error", getString(R.string.no_internet), R.drawable.nonetworkicon, R.drawable.roundred);
+//        }
     }
 
     private void initUI() {
@@ -93,6 +109,7 @@ public class PhotosRecyclerViewActivity extends Activity implements URLConstants
         if(extras!=null){
             photo_id=extras.getString("photo_id");
         }
+
         recycler_view_photos = (RecyclerView) findViewById(R.id.recycler_view_photos);
 //        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
 //        mSwipeRefreshLayout.setRefreshing(false);
@@ -109,36 +126,25 @@ public class PhotosRecyclerViewActivity extends Activity implements URLConstants
         recycler_view_photos.addOnItemTouchListener(new RecyclerItemListener(mContext, recycler_view_photos,
                 new RecyclerItemListener.RecyclerTouchListener() {
                     public void onClickItem(View v, int position) {
-                        if ( mPhotosModelArrayList.get(position).getmPhotosUrlArrayList().size()>0) {
-                            Intent intent = new Intent(mContext, PhotosViewRecyclerViewActivity.class);
+                        Intent intent = new Intent(mContext, PhotosViewRecyclerViewActivity.class);
 //                            intent.putExtra("photo_array", mPhotosModelArrayList);
-                            AppController.mPhotosModelArrayListGallery=mPhotosModelArrayList;
-                            intent.putExtra("pos", position);
-                            startActivity(intent);
-                        }
-                        else {
-                            Toast.makeText(mContext,"No photos available in this album",Toast.LENGTH_SHORT).show();
-                        }
+//                        AppController.mPhotosModelArrayListGallery=mPhotosModelArrayList;
+                        intent.putExtra("albumID", mPhotosModelArrayList.get(position).getPhotoId());
+                        intent.putExtra("pos", position);
+                        startActivity(intent);
+//                        if ( mPhotosModelArrayList.get(position).getmPhotosUrlArrayList().size()>0) {
+//
+//                        }
+//                        else {
+//                            Toast.makeText(mContext,"No photos available in this album",Toast.LENGTH_SHORT).show();
+//                        }
                     }
 
                     public void onLongClickItem(View v, int position) {
                     }
                 }));
 
-//        LinearLayoutManager llm = new LinearLayoutManager(this);
-//        llm.setOrientation(LinearLayoutManager.HORIZONTAL);
-//        recycler_view_photos.setLayoutManager(llm);
-
-//        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                photosListApiCall();
-//                // Refresh items
-//                refreshItems();
-//            }
-//        });
-
-
+        mPhotosModelArrayList = new ArrayList<PhotosListModel>();
     }
 
     void refreshItems() {
@@ -211,11 +217,11 @@ public class PhotosRecyclerViewActivity extends Activity implements URLConstants
 
 
 
-    private void photosListApiCall() {
+    private void photosListApiCall(String id,String scrollto) {
         try {
-            mPhotosModelArrayList = new ArrayList<PhotosListModel>();
-            String[] name = {NAME_ACCESS_TOKEN};
-            String[] values = {PreferenceManager.getAccessToken(mContext)};
+            notificationSize=0;
+            String[] name = {NAME_ACCESS_TOKEN,"page_from","scroll_to"};
+            String[] values = {PreferenceManager.getAccessToken(mContext),id,scrollto};
             final VolleyWrapper manager = new VolleyWrapper(URL_GET_PHOTOS_LIST);
             manager.getResponsePOST(mContext, 11, name, values,
                     new VolleyWrapper.ResponseListener() {
@@ -232,7 +238,8 @@ public class PhotosRecyclerViewActivity extends Activity implements URLConstants
                                         String statusCode = responseObject.getString(JTAG_STATUSCODE);
                                         if (statusCode.equalsIgnoreCase(STATUS_SUCCESS)) {
 
-                                            JSONArray data = responseObject.optJSONArray(JTAG_RESPONSE_IMAGES_ARRAY);
+                                            JSONArray data = responseObject.optJSONArray("albums");
+                                            notificationSize=data.length();
                                             for (int i = 0; i < data.length(); i++) {
                                                 JSONObject imageDetail = data.optJSONObject(i);
                                                 PhotosListModel mPhotosModel = new PhotosListModel();
@@ -240,22 +247,59 @@ public class PhotosRecyclerViewActivity extends Activity implements URLConstants
                                                 mPhotosModel.setPhotoUrl(imageDetail.optString(JTAG_IMAGE));
                                                 mPhotosModel.setTitle(imageDetail.optString(JTAG_TITLE));
                                                 mPhotosModel.setDescription(imageDetail.optString(JTAG_DESCRIPTION));
-                                                JSONArray st = imageDetail.optJSONArray("gallery_images");
-                                                mPhotosModelUrlArrayList = new ArrayList<PhotosListModel>();
-                                                for(int j=0;j<st.length();j++)
-                                                {
-                                                    //String photosUrl = st.getString(j);
-                                                    String photosUrl = st.getJSONObject(j).optString(JTAG_IMAGE);
-                                                    PhotosListModel mPhotosModelUrl = new PhotosListModel();
-                                                    mPhotosModelUrl.setPhotoUrl(photosUrl);
-                                                    mPhotosModelUrlArrayList.add(mPhotosModelUrl);
-                                                    // loop and add it to array or arraylist
-                                                }
-                                                mPhotosModel.setmPhotosUrlArrayList(mPhotosModelUrlArrayList);
+//                                                JSONArray st = imageDetail.optJSONArray("gallery_images");
+//                                                mPhotosModelUrlArrayList = new ArrayList<PhotosListModel>();
+//                                                for(int j=0;j<st.length();j++)
+//                                                {
+//                                                    //String photosUrl = st.getString(j);
+//                                                    String photosUrl = st.getJSONObject(j).optString(JTAG_IMAGE);
+//                                                    PhotosListModel mPhotosModelUrl = new PhotosListModel();
+//                                                    mPhotosModelUrl.setPhotoUrl(photosUrl);
+//                                                    mPhotosModelUrlArrayList.add(mPhotosModelUrl);
+//                                                    // loop and add it to array or arraylist
+//                                                }
+//
+//                                                mPhotosModel.setmPhotosUrlArrayList(mPhotosModelUrlArrayList);
                                                 mPhotosModelArrayList.add(mPhotosModel);
                                             }
-                                            mPhotosRecyclerviewAdapter = new PhotosRecyclerviewAdapter(mContext, mPhotosModelArrayList,photo_id);
-                                            recycler_view_photos.setAdapter(mPhotosRecyclerviewAdapter);
+                                            if (mPhotosModelArrayList.size()>0)
+                                            {
+                                                mPhotosRecyclerviewAdapter = new PhotosRecyclerviewAdapter(mContext, mPhotosModelArrayList,photo_id);
+                                                recycler_view_photos.setAdapter(mPhotosRecyclerviewAdapter);
+                                                if (isFromBottom)
+                                                {
+                                                    recycler_view_photos.scrollToPosition(mPhotosModelArrayList.size()-notificationSize-2);
+                                                }
+                                                else
+                                                {
+                                                    recycler_view_photos.scrollToPosition(0);
+                                                }
+
+
+                                                mPhotosRecyclerviewAdapter.setOnBottomReachedListener(new OnBottomReachedListener()
+                                                {
+                                                    @Override
+                                                    public void onBottomReached(int position) {
+                                                        System.out.println("reachedbottom");
+                                                        isFromBottom=true;
+                                                        scrollTo="old";
+                                                        int listSize=mPhotosModelArrayList.size();
+                                                        apiID=mPhotosModelArrayList.get(listSize-1).getPhotoId();
+                                                        System.out.println("Page From Value"+apiID);
+                                                        if (notificationSize==15)
+                                                        {
+                                                            if (AppUtils.isNetworkConnected(mContext)) {
+                                                                photosListApiCall(apiID,scrollTo);
+                                                            } else {
+                                                                AppUtils.showDialogAlertDismiss((Activity) mContext, "Network Error", getString(R.string.no_internet), R.drawable.nonetworkicon, R.drawable.roundred);
+                                                            }
+                                                        }
+
+
+                                                    }
+                                                });
+                                            }
+
                                         } else if (statusCode.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_EXPIRED) ||
                                                 statusCode.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_MISSING)) {
                                             AppUtils.postInitParam(mContext, new AppUtils.GetAccessTokenInterface() {
@@ -263,7 +307,7 @@ public class PhotosRecyclerViewActivity extends Activity implements URLConstants
                                                 public void getAccessToken() {
                                                 }
                                             });
-                                            photosListApiCall();
+                                            photosListApiCall(id,scrollto);
 
                                         }
 
@@ -275,7 +319,7 @@ public class PhotosRecyclerViewActivity extends Activity implements URLConstants
                                             public void getAccessToken() {
                                             }
                                         });
-                                        photosListApiCall();
+                                        photosListApiCall(id,scrollto);
 
                                     } else {
                                         AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);

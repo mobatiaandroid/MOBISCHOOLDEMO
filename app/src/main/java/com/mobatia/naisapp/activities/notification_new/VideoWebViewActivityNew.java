@@ -161,11 +161,8 @@ public class VideoWebViewActivityNew extends Activity implements OnClickListener
 								JSONObject responseObject = rootObject.optJSONObject(JTAG_RESPONSE);
 								String statusCode = responseObject.getString(JTAG_STATUSCODE);
 								if (statusCode.equalsIgnoreCase(STATUS_SUCCESS)) {
-									String notification_badge=responseObject.optString("notification_badge");
-									String notification_edited_badge=responseObject.optString("notification_edited_badge");
-									System.out.println("notification_edited_badge"+notification_edited_badge+"notification_badge"+notification_badge);
-									PreferenceManager.setNotificationBadge(mActivity,notification_badge);
-									PreferenceManager.setNotificationEditedBadge(mActivity,notification_edited_badge);
+									PreferenceManager.setNotificationBadge(mActivity,"0");
+									PreferenceManager.setNotificationEditedBadge(mActivity,"0");
 									HomeListAppCompatActivity.mListAdapter.notifyDataSetChanged();
 									JSONArray dataArray=responseObject.getJSONArray("data");
 									//JSONObject dataObject=responseObject.getJSONObject("data");

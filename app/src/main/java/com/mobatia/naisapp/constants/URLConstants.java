@@ -14,16 +14,13 @@ public interface URLConstants {
 //	public String POST_APITOKENURL="http://mobatia.in/naisV4.1/oauth/access_token";
 //	public String URL_HEAD = "http://mobatia.in/naisV4.1/api/";
 
- 	public String POST_APITOKENURL="http://beta.mobatia.in:81/naisV4.1/oauth/access_token";
-	public String URL_HEAD = "http://beta.mobatia.in:81/naisV4.1/api/";
+// 	public String POST_APITOKENURL="http://beta.mobatia.in:81/naisV4.1/oauth/access_token";
+//	public String URL_HEAD = "http://beta.mobatia.in:81/naisV4.1/api/";
 
-	//New Live RDS Test
-//	public String POST_APITOKENURL="https://cms.nasdubai.ae/naisRDS/oauth/access_token";
-//	public String URL_HEAD = "https://cms.nasdubai.ae/naisRDS/api/";
 
 //	//New Live Phase 4
-//	public String POST_APITOKENURL="https://cms.nasdubai.ae/nais/oauth/access_token";
-//	public String URL_HEAD = "https://cms.nasdubai.ae/nais/api/";
+	public String POST_APITOKENURL="https://cms.nasdubai.ae/nais/oauth/access_token";
+	public String URL_HEAD = "https://cms.nasdubai.ae/nais/api/";
 
 	//Mobicare NAS below//
 
@@ -54,11 +51,13 @@ public interface URLConstants {
 			+ "chatter_box";
 	public String URL_HOME_BANNER = URL_HEAD
 			+ "home_banner_images";
-	public String URL_GET_PHOTOS_LIST = URL_HEAD
-			+ "photos";
+	public String URL_GET_PHOTOS_LIST_DETAIL = URL_HEAD
+			+ "photos_V1";
+   public String URL_GET_PHOTOS_LIST = URL_HEAD
+			+ "albums";
 
 	public String URL_GET_VIDEOS_LIST = URL_HEAD
-			+ "videos";
+			+ "videos_V1";
 	public String URL_PTA_CONFIRMATION = URL_HEAD
 			+ "pta_confirmation";
 	public String URL_GET_PTA_REVIEW_LIST = URL_HEAD

@@ -752,7 +752,8 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
         if (data == null) {
 
             Toast.makeText(mActivity, "transaction cancelled", Toast.LENGTH_SHORT).show();
-        } else {
+        }
+        else {
             if (requestCode == 0) {
                 CardPaymentData cardPaymentData = CardPaymentData.getFromIntent(data);
                 Log.d("PAYMM",String.valueOf(cardPaymentData.getCode()));
@@ -768,7 +769,9 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
 
 
 
-                } else {
+                }
+                else {
+
                     Toast.makeText(mContext, "Transaction failed", Toast.LENGTH_SHORT).show();
 
                 }
@@ -813,7 +816,8 @@ public class CanteenFirstActivity extends Activity implements URLConstants, Stat
                 try {
                     JSONObject obj = new JSONObject(successResponse);
                     String response_code = obj.getString(JTAG_RESPONSECODE);
-                    if (response_code.equalsIgnoreCase("200")) {
+                    if (response_code.equalsIgnoreCase("200"))
+                    {
                         JSONObject secobj = obj.getJSONObject(JTAG_RESPONSE);
                         String status_code = secobj.getString(JTAG_STATUSCODE);
                         if (status_code.equalsIgnoreCase("303"))

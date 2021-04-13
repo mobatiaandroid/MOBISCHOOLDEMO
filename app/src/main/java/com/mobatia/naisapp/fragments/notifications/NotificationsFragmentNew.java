@@ -132,13 +132,21 @@ public class NotificationsFragmentNew extends Fragment implements
         ShortcutBadger.applyCount(mContext, 0);//badge
         initialiseUI();
         if (AppUtils.isNetworkConnected(mContext)) {
-            clearBadge();
+
             scrollTo="";
             apiID="";
             isFromBottom=false;
             callPushNotification(apiID,scrollTo);
-            getClearBadge();
-            getBadge();
+            if (pushNotificationArrayList.size()>0)
+            {
+                for (int i=0;i<pushNotificationArrayList.size();i++)
+                {
+                    if (pushNotificationArrayList.get(i).getStatus().equalsIgnoreCase("0") || pushNotificationArrayList.get(i).getStatus().equalsIgnoreCase("2"))
+                    {
+                        pushNotificationArrayList.get(i).setStatus("1");
+                    }
+                }
+            }
         } else
             {
             AppUtils.showDialogAlertDismiss((Activity) mContext, "Network Error", getString(R.string.no_internet), R.drawable.nonetworkicon, R.drawable.roundred);
@@ -172,7 +180,7 @@ public class NotificationsFragmentNew extends Fragment implements
                     public void onClickItem(View v, int position) {
                         if(pushNotificationArrayList.get(position).getStatus().equalsIgnoreCase("0")||pushNotificationArrayList.get(position).getStatus().equalsIgnoreCase("2"))
                         {
-                            callStatusChangeApi(URL_GET_STATUS_CHANGE_API,pushNotificationArrayList.get(position).getId(),position,pushNotificationArrayList.get(position).getStatus());
+                           // callStatusChangeApi(URL_GET_STATUS_CHANGE_API,pushNotificationArrayList.get(position).getId(),position,pushNotificationArrayList.get(position).getStatus());
 
                         }
                         if (pushNotificationArrayList.get(position).getPushType().equalsIgnoreCase("")) {
@@ -415,276 +423,16 @@ public class NotificationsFragmentNew extends Fragment implements
 
     }
 
-    private void clearBadge() {
-        pushNotificationArrayList = new ArrayList<PushNotificationModel>();
-
-        try {
-
-            final VolleyWrapper manager = new VolleyWrapper(URL_CLEAR_BADGE);
-            String[] name = {JTAG_ACCESSTOKEN, JTAG_USERS_ID};
-            String[] value = {PreferenceManager.getAccessToken(mContext), PreferenceManager.getUserId(mContext)};
-            manager.getResponsePOST(mContext, 11, name, value, new VolleyWrapper.ResponseListener() {
-
-                @Override
-                public void responseSuccess(String successResponse) {
-
-                    System.out.println("NofifyRes:" + successResponse);
-
-                    if (successResponse != null) {
-                        try {
-                            JSONObject rootObject = new JSONObject(successResponse);
-                            String responseCode = rootObject.getString(JTAG_RESPONSECODE);
-                            if (responseCode.equalsIgnoreCase(RESPONSE_SUCCESS)) {
-                                JSONObject responseObject = rootObject.optJSONObject(JTAG_RESPONSE);
-                                String statusCode = responseObject.getString(JTAG_STATUSCODE);
-                                if (statusCode.equalsIgnoreCase(STATUS_SUCCESS)) {
-
-                                } else if (statusCode.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_EXPIRED) ||
-                                        statusCode.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_MISSING)) {
-                                    AppUtils.postInitParam(mContext, new AppUtils.GetAccessTokenInterface() {
-                                        @Override
-                                        public void getAccessToken() {
-                                        }
-                                    });
-                                    clearBadge();
-
-                                }
-                            } else if (responseCode.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_EXPIRED) ||
-                                    responseCode.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_MISSING) ||
-                                    responseCode.equalsIgnoreCase(RESPONSE_INVALID_TOKEN)) {
-                                AppUtils.postInitParam(mContext, new AppUtils.GetAccessTokenInterface() {
-                                    @Override
-                                    public void getAccessToken() {
-                                    }
-                                });
-                                clearBadge();
-
-                            } else {
-                                Toast.makeText(mContext, "Some Error Occured", Toast.LENGTH_SHORT).show();
-
-                            }
 
 
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
-                    }
-                }
-
-                @Override
-                public void responseFailure(String failureResponse) {
-                    // CustomStatusDialog(RESPONSE_FAILURE);
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-    }
-    private void callStatusChangeApi(String URL, final String id, final int eventPosition, final String status) {
-        VolleyWrapper volleyWrapper = new VolleyWrapper(URL);
-        String[] name = {"access_token","users_id","id","type"};
-        String[] value = {PreferenceManager.getAccessToken(mContext),PreferenceManager.getUserId(mContext),id,"notification"};
-        volleyWrapper.getResponsePOST(mContext, 11, name, value, new VolleyWrapper.ResponseListener() {
-            @Override
-            public void responseSuccess(String successResponse) {
-                System.out.println("The response is status change" + successResponse);
-                try {
-                    JSONObject obj = new JSONObject(successResponse);
-                    String response_code = obj.getString(JTAG_RESPONSECODE);
-                    if (response_code.equalsIgnoreCase("200")) {
-                        JSONObject secobj = obj.getJSONObject(JTAG_RESPONSE);
-                        String status_code = secobj.getString(JTAG_STATUSCODE);
-                        if (status_code.equalsIgnoreCase("303")) {
-                            if(status.equalsIgnoreCase("0")||status.equalsIgnoreCase("2"))
-                            {
-                                pushNotificationArrayList.get(eventPosition).setStatus("1");
-                                mPushNotificationListAdapter.notifyDataSetChanged();
-
-                            }
-                        }
-                    } else if (response_code.equalsIgnoreCase("500")) {
-                        // AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);
-
-                    } else if (response_code.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_MISSING) ||
-                            response_code.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_EXPIRED) ||
-                            response_code.equalsIgnoreCase(RESPONSE_INVALID_TOKEN)) {
-                        AppUtils.postInitParam(mContext, new AppUtils.GetAccessTokenInterface() {
-                            @Override
-                            public void getAccessToken() {
-
-                            }
-                        });
-
-                    } else {
-
-                    }
-                } catch (Exception ex) {
-                    System.out.println("The Exception in edit profile is" + ex.toString());
-                }
-
-            }
-
-            @Override
-            public void responseFailure(String failureResponse) {
-                //AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);
-
-            }
-        });
-
-
-    }
-    public void getBadge()
-    {
-
-        try {
-            final VolleyWrapper manager = new VolleyWrapper(URL_GET_USER_BADGE_COUNT);
-            String[] name = new String[]{JTAG_ACCESSTOKEN,"users_id"};
-            String[] value = new String[]{PreferenceManager.getAccessToken(mContext),PreferenceManager.getUserId(mContext)};
-            manager.getResponsePOST(mContext, 14, name, value, new VolleyWrapper.ResponseListener() {
-
-                @Override
-                public void responseSuccess(String successResponse) {
-                    String responsCode = "";
-                    if (successResponse != null) {
-                        try {
-                            JSONObject rootObject = new JSONObject(successResponse);
-                            System.out.println("The response is badge count" + successResponse);
-                            if (rootObject.optString(JTAG_RESPONSE) != null) {
-                                responsCode = rootObject.optString(JTAG_RESPONSECODE);
-                                if (responsCode.equals(RESPONSE_SUCCESS)) {
-                                    JSONObject respObject = rootObject.getJSONObject(JTAG_RESPONSE);
-                                    String statusCode = respObject.optString(JTAG_STATUSCODE);
-                                    if (statusCode.equals(STATUS_SUCCESS)) {
-                                        String calendar_badge=respObject.optString("calendar_badge");
-                                        PreferenceManager.setCalendarBadge(mContext,calendar_badge);
-                                        String notification_badge=respObject.optString("notification_badge");
-                                        PreferenceManager.setNotificationBadge(mContext,notification_badge);
-                                        String whole_school_coming_up_badge=respObject.optString("whole_school_coming_up_badge");
-                                        PreferenceManager.setNoticeBadge(mContext,whole_school_coming_up_badge);
-                                        String sports_badge=respObject.optString("sports_badge");
-                                        PreferenceManager.setSportsBadge(mContext,sports_badge);
-                                        String reports_badge=respObject.optString("reports_badge");
-                                        PreferenceManager.setReportsBadge(mContext,reports_badge);
-                                        String cca_badge=respObject.optString("cca_badge");
-                                        PreferenceManager.setCcaBadge(mContext,cca_badge);
-                                        String paymentitem_badge=respObject.optString("paymentitem_badge");
-                                        PreferenceManager.setPaymentitem_badge(mContext,paymentitem_badge);
-                                        String calendar_edited_badge=respObject.optString("calendar_edited_badge");
-                                        PreferenceManager.setCalendarEditedBadge(mContext,calendar_edited_badge);
-                                        String notification_edited_badge=respObject.optString("notification_edited_badge");
-                                        PreferenceManager.setNotificationEditedBadge(mContext,notification_edited_badge);
-                                        String whole_school_coming_up_edited_badge=respObject.optString("whole_school_coming_up_edited_badge");
-                                        PreferenceManager.setNoticeEditedBadge(mContext,whole_school_coming_up_edited_badge);
-                                        String report_edited_badge=respObject.optString("reports_edited_badge");
-                                        PreferenceManager.setReportsEditedBadge(mContext,report_edited_badge);
-                                        String cca_edited_badge=respObject.optString("cca_edited_badge");
-                                        PreferenceManager.setCcaEditedBadge(mContext,cca_edited_badge);
-                                        String sports_edited_badge=respObject.optString("sports_edited_badge");
-                                        PreferenceManager.setSportsEditedBadge(mContext,sports_edited_badge);
-                                        String paymentitem_edit_badge=respObject.optString("paymentitem_edit_badge");
-                                        PreferenceManager.setPaymentitem_edit_badge(mContext,paymentitem_edit_badge);
-                                        HomeListAppCompatActivity.mListAdapter.notifyDataSetChanged();
-
-                                    }
-                                }
-                                else if (responsCode.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_MISSING) ||
-                                        responsCode.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_EXPIRED) ||
-                                        responsCode.equalsIgnoreCase(RESPONSE_INVALID_TOKEN)) {
-                                    AppUtils.postInitParam(getActivity(), new AppUtils.GetAccessTokenInterface() {
-                                        @Override
-                                        public void getAccessToken() {
-                                        }
-                                    });
-                                    getBadge();
-
-                                }
-                            } else if (responsCode.equals(RESPONSE_ERROR)) {
-//								CustomStatusDialog(RESPONSE_FAILURE);
-
-                            }
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
-                    }
-                }
-
-                @Override
-                public void responseFailure(String failureResponse) {
-                    // CustomStatusDialog(RESPONSE_FAILURE);
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-    }
-    public void getClearBadge()
-    {
-        try {
-            final VolleyWrapper manager = new VolleyWrapper(URL_GET_CLEAR_NOTIFICATION_BADGE);
-            String[] name = new String[]{JTAG_ACCESSTOKEN,"users_id"};
-            String[] value = new String[]{PreferenceManager.getAccessToken(mContext),PreferenceManager.getUserId(mContext)};
-            manager.getResponsePOST(mContext, 14, name, value, new VolleyWrapper.ResponseListener()
-            {
-
-                @Override
-                public void responseSuccess(String successResponse) {
-                    System.out.println("The response is badge clear" + successResponse);
-                    String responsCode = "";
-                    if (successResponse != null) {
-                        try {
-                            JSONObject rootObject = new JSONObject(successResponse);
-                            if (rootObject.optString(JTAG_RESPONSE) != null) {
-                                responsCode = rootObject.optString(JTAG_RESPONSECODE);
-                                if (responsCode.equals(RESPONSE_SUCCESS)) {
-                                    JSONObject respObject = rootObject.getJSONObject(JTAG_RESPONSE);
-                                    String statusCode = respObject.optString(JTAG_STATUSCODE);
-                                    if (statusCode.equals(STATUS_SUCCESS)) {
-                                      if (pushNotificationArrayList.size()>0)
-                                      {
-                                          for (int i=0;i<pushNotificationArrayList.size();i++)
-                                          {
-                                              if (pushNotificationArrayList.get(i).getStatus().equalsIgnoreCase("0") || pushNotificationArrayList.get(i).getStatus().equalsIgnoreCase("2"))
-                                              {
-                                               pushNotificationArrayList.get(i).setStatus("1");
-                                              }
-                                          }
-                                      }
-                                    }
-                                }
-                                else if (responsCode.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_MISSING) ||
-                                        responsCode.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_EXPIRED) ||
-                                        responsCode.equalsIgnoreCase(RESPONSE_INVALID_TOKEN)) {
-                                    AppUtils.postInitParam(getActivity(), new AppUtils.GetAccessTokenInterface() {
-                                        @Override
-                                        public void getAccessToken() {
-                                        }
-                                    });
-                                    getClearBadge();
-
-                                }
-                            } else if (responsCode.equals(RESPONSE_ERROR)) {
-//								CustomStatusDialog(RESPONSE_FAILURE);
-
-                            }
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
-                    }
-                }
-
-                @Override
-                public void responseFailure(String failureResponse) {
-                    // CustomStatusDialog(RESPONSE_FAILURE);
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        System.out.println("on Resume works");
+        scrollTo="";
+        apiID="";
+        isFromBottom=false;
+        pushNotificationArrayList.clear();
+        callPushNotification(apiID,scrollTo);
     }
 }

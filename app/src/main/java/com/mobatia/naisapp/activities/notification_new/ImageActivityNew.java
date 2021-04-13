@@ -310,11 +310,8 @@ public class ImageActivityNew extends Activity implements
 								JSONObject responseObject = rootObject.optJSONObject(JTAG_RESPONSE);
 								String statusCode = responseObject.getString(JTAG_STATUSCODE);
 								if (statusCode.equalsIgnoreCase(STATUS_SUCCESS)) {
-									String notification_badge=responseObject.optString("notification_badge");
-									String notification_edited_badge=responseObject.optString("notification_edited_badge");
-									System.out.println("notification_edited_badge"+notification_edited_badge+"notification_badge"+notification_badge);
-									PreferenceManager.setNotificationBadge(mContext,notification_badge);
-									PreferenceManager.setNotificationEditedBadge(mContext,notification_edited_badge);
+									PreferenceManager.setNotificationBadge(mContext,"0");
+									PreferenceManager.setNotificationEditedBadge(mContext,"0");
 									HomeListAppCompatActivity.mListAdapter.notifyDataSetChanged();
 									JSONArray dataArray=responseObject.getJSONArray("data");
 									if (dataArray.length()>0) {

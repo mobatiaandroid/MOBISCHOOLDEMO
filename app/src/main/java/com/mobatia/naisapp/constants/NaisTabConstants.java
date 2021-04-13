@@ -45,6 +45,7 @@ public interface NaisTabConstants {
 	public static String TAB_PRIMARY_REG = "9";
 	public static String TAB_SECONDARY_REG = "10";
 	public static String TAB_IB_PROGRAMME_REG = "11";
+	//public static String TAB_UNIVERSITY_GUIDANCE_REG = "11";
 	public static String TAB_SPORTS_REG = "12";
 	public static String TAB_PERFORMING_ARTS_REG = "13";
 	public static String TAB_CCAS_REG = "14";

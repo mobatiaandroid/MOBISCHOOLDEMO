@@ -112,7 +112,8 @@ boolean firstVisit;
         firstVisit=true;
         initialiseUI();
         if (AppUtils.checkInternet(mContext)) {
-            getStudentsListAPI(URL_GET_STUDENT_LIST);
+            studentList();
+           // getStudentsListAPI(URL_GET_STUDENT_LIST);
         } else {
             AppUtils.showDialogAlertDismiss((Activity) mContext, "Network Error", getString(R.string.no_internet), R.drawable.nonetworkicon, R.drawable.roundred);
 
@@ -418,7 +419,50 @@ boolean firstVisit;
 
     }
 
-    private void getStudentsListAPI(final String URLHEAD) {
+    public void studentList()
+    {
+        studentsModelArrayList.clear();
+        studentList.clear();
+        if (PreferenceManager.getStudentArrayList(mContext).size()>0)
+        {
+            studentsModelArrayList.addAll(PreferenceManager.getStudentArrayList(mContext));
+            studentName.setText(studentsModelArrayList.get(0).getmName());
+            stud_id = studentsModelArrayList.get(0).getmId();
+            PreferenceManager.setLeaveStudentId(mContext, stud_id);
+            PreferenceManager.setLeaveStudentName(mContext, studentsModelArrayList.get(0).getmName());
+            studClass = studentsModelArrayList.get(0).getmClass();
+            stud_img = studentsModelArrayList.get(0).getmPhoto();
+            if (!(stud_img.equals(""))) {
+
+                Picasso.with(mContext).load(AppUtils.replace(stud_img)).placeholder(R.drawable.boy).fit().into(studImg);
+            }
+            else
+
+            {
+
+                studImg.setImageResource(R.drawable.boy);
+            }
+
+            belowViewRelative.setVisibility(View.VISIBLE);
+            newRequest.setVisibility(View.VISIBLE);
+            if (AppUtils.isNetworkConnected(mContext)) {
+                getList(URL_GET_LEAVEREQUEST_LIST, stud_id);
+            } else {
+                AppUtils.showDialogAlertDismiss((Activity) mContext, "Network Error", getString(R.string.no_internet), R.drawable.nonetworkicon, R.drawable.roundred);
+
+            }
+
+        }
+        else {
+            belowViewRelative.setVisibility(View.INVISIBLE);
+            newRequest.setVisibility(View.INVISIBLE);
+
+            AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.student_not_available), R.drawable.exclamationicon, R.drawable.round);
+        }
+    }
+
+    private void getStudentsListAPI(final String URLHEAD)
+    {
         VolleyWrapper volleyWrapper = new VolleyWrapper(URLHEAD);
         String[] name = {"access_token", "users_id"};
         String[] value = {PreferenceManager.getAccessToken(mContext), PreferenceManager.getUserId(mContext)};
@@ -436,20 +480,15 @@ boolean firstVisit;
                             JSONArray data = secobj.getJSONArray("data");
                             studentsModelArrayList.clear();
                             studentList.clear();
-                            if (data.length() > 0) {
-                                //studentsModelArrayList.add(0,);
-                                for (int i = 0; i < data.length(); i++) {
-                                    JSONObject dataObject = data.getJSONObject(i);
-                                    studentsModelArrayList.add(addStudentDetails(dataObject));
-                                    studentList.add(studentsModelArrayList.get(i).getmName());
-                                }
+                            if (PreferenceManager.getStudentArrayList(mContext).size()>0)
+                            {
+                                studentsModelArrayList.addAll(PreferenceManager.getStudentArrayList(mContext));
                                 studentName.setText(studentsModelArrayList.get(0).getmName());
                                 stud_id = studentsModelArrayList.get(0).getmId();
                                 PreferenceManager.setLeaveStudentId(mContext, stud_id);
                                 PreferenceManager.setLeaveStudentName(mContext, studentsModelArrayList.get(0).getmName());
                                 studClass = studentsModelArrayList.get(0).getmClass();
                                 stud_img = studentsModelArrayList.get(0).getmPhoto();
-
                                 if (!(stud_img.equals(""))) {
 
                                     Picasso.with(mContext).load(AppUtils.replace(stud_img)).placeholder(R.drawable.boy).fit().into(studImg);
@@ -470,13 +509,50 @@ boolean firstVisit;
 
                                 }
 
-                                // studentList.add("Select a child");
+                            }
 
-                                /*CustomSpinnerAdapter dataAdapter = new CustomSpinnerAdapter(mContext,
-                                        R.layout.spinnertextwithoutbg, studentList,-1);
-                                mStudentSpinner.setAdapter(dataAdapter);*/
-
-                            } else {
+//                            if (data.length() > 0) {
+//                                //studentsModelArrayList.add(0,);
+//                                for (int i = 0; i < data.length(); i++) {
+//                                    JSONObject dataObject = data.getJSONObject(i);
+//                                    studentsModelArrayList.add(addStudentDetails(dataObject));
+//                                    studentList.add(studentsModelArrayList.get(i).getmName());
+//                                }
+//                                studentName.setText(studentsModelArrayList.get(0).getmName());
+//                                stud_id = studentsModelArrayList.get(0).getmId();
+//                                PreferenceManager.setLeaveStudentId(mContext, stud_id);
+//                                PreferenceManager.setLeaveStudentName(mContext, studentsModelArrayList.get(0).getmName());
+//                                studClass = studentsModelArrayList.get(0).getmClass();
+//                                stud_img = studentsModelArrayList.get(0).getmPhoto();
+//
+//                                if (!(stud_img.equals(""))) {
+//
+//                                    Picasso.with(mContext).load(AppUtils.replace(stud_img)).placeholder(R.drawable.boy).fit().into(studImg);
+//                                }
+//                                else
+//
+//                                {
+//
+//                                    studImg.setImageResource(R.drawable.boy);
+//                                }
+//
+//                                belowViewRelative.setVisibility(View.VISIBLE);
+//                                newRequest.setVisibility(View.VISIBLE);
+//                                if (AppUtils.isNetworkConnected(mContext)) {
+//                                    getList(URL_GET_LEAVEREQUEST_LIST, stud_id);
+//                                } else {
+//                                    AppUtils.showDialogAlertDismiss((Activity) mContext, "Network Error", getString(R.string.no_internet), R.drawable.nonetworkicon, R.drawable.roundred);
+//
+//                                }
+//
+//                                // studentList.add("Select a child");
+//
+//                                /*CustomSpinnerAdapter dataAdapter = new CustomSpinnerAdapter(mContext,
+//                                        R.layout.spinnertextwithoutbg, studentList,-1);
+//                                mStudentSpinner.setAdapter(dataAdapter);*/
+//
+//                            }
+                            else {
                                 belowViewRelative.setVisibility(View.INVISIBLE);
                                 newRequest.setVisibility(View.INVISIBLE);
 

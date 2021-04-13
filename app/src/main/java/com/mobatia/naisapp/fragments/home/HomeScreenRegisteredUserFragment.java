@@ -62,6 +62,7 @@ import com.mobatia.naisapp.fragments.notifications.NotificationsFragmentNew;
 import com.mobatia.naisapp.fragments.parent_essentials.ParentEssentialsFragment;
 import com.mobatia.naisapp.fragments.parentassociation.ParentAssociationsFragment;
 import com.mobatia.naisapp.fragments.parents_evening.ParentsEveningFragment;
+import com.mobatia.naisapp.fragments.parents_evening.model.StudentModel;
 import com.mobatia.naisapp.fragments.performing_arts.PerformingArtsFragment;
 import com.mobatia.naisapp.fragments.permission_slips.PermissionSlipsFragment;
 import com.mobatia.naisapp.fragments.primary.PrimaryFragment;
@@ -159,6 +160,7 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 	private boolean locationToSettings = false;
 	String tabiDToProceed="";
 	ArrayList<ReportModel> studentsModelArrayList;
+	ArrayList<StudentModel> studentsModelArrayListn;
 	ArrayList<String> studentList = new ArrayList<>();
 	public HomeScreenRegisteredUserFragment(String title,
 											DrawerLayout mDrawerLayouts, ListView listView,
@@ -2246,7 +2248,6 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 			getStudentsListAPI(URL_GET_STUDENT_LIST);
 			getBanner();
 			getBadge();
-			getUpdateAppUser();
 		}
 		else
 		{
@@ -5448,66 +5449,8 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 
 
 	}
-	public void getUpdateAppUser()
-	{
-		String replaceVersion = "v"+AppUtils.getVersionInfo(mContext);
-		System.out.println("App version"+replaceVersion);
-		try {
-			final VolleyWrapper manager = new VolleyWrapper(URL_GET_UPDATE_APP_USER_VERSION);
-			String[] name = new String[]{JTAG_ACCESSTOKEN,"user_type","parent_id","staff_id","device_type","app_version"};
-			String[] value = new String[]{PreferenceManager.getAccessToken(mContext),"1",PreferenceManager.getUserId(mContext),"","2",replaceVersion};
-			homeBannerUrlImageArray = new ArrayList<>();
-			manager.getResponsePOST(mContext, 14, name, value, new VolleyWrapper.ResponseListener() {
-
-				@Override
-				public void responseSuccess(String successResponse) {
-					String responsCode = "";
-					System.out.println("Success Response of App user update"+successResponse);
-					if (successResponse != null) {
-						try {
-							JSONObject rootObject = new JSONObject(successResponse);
-							if (rootObject.optString(JTAG_RESPONSE) != null) {
-								responsCode = rootObject.optString(JTAG_RESPONSECODE);
-								if (responsCode.equals(RESPONSE_SUCCESS)) {
-
-									JSONObject respObject = rootObject.getJSONObject(JTAG_RESPONSE);
-									String statusCode = respObject.optString(JTAG_STATUSCODE);
-									if (statusCode.equals(STATUS_SUCCESS)) {
-
-									}
-								}
-								else if (responsCode.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_MISSING) ||
-										responsCode.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_EXPIRED) ||
-										responsCode.equalsIgnoreCase(RESPONSE_INVALID_TOKEN)) {
-									AppUtils.postInitParam(getActivity(), new AppUtils.GetAccessTokenInterface() {
-										@Override
-										public void getAccessToken() {
-										}
-									});
-									getUpdateAppUser();
-
-								}
-							} else if (responsCode.equals(RESPONSE_ERROR)) {
-//								CustomStatusDialog(RESPONSE_FAILURE);
-
-							}
-						} catch (Exception ex) {
-							ex.printStackTrace();
-						}
-					}
-				}
-
-				@Override
-				public void responseFailure(String failureResponse) {
-					// CustomStatusDialog(RESPONSE_FAILURE);
-				}
-			});
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 
-	}
 	private void proceedAfterPermission(String tabiDFromProceed) {
 
 		Fragment mFragment = null;
@@ -5968,8 +5911,13 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 								for (int i = 0; i < data.length(); i++) {
 									JSONObject dataObject = data.getJSONObject(i);
 									studentsModelArrayList.add(addStudentDetails(dataObject));
+									studentsModelArrayListn.add(addStudentDetailsn(dataObject));
 								}
 
+								if (studentsModelArrayList.size()>0)
+								{
+									PreferenceManager.setStudentArrayList(studentsModelArrayListn,mContext);
+								}
 
 							}
 							if (studentsModelArrayList.size()==1)
@@ -6044,5 +5992,19 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 
 		return studentModel;
 	}
+	private StudentModel addStudentDetailsn(JSONObject dataObject) {
+		StudentModel studentModel = new StudentModel();
+		studentModel.setmId(dataObject.optString(JTAG_ID));
+		studentModel.setmName(dataObject.optString(JTAG_TAB_NAME));
+		studentModel.setmClass(dataObject.optString(JTAG_TAB_CLASS));
+		studentModel.setmSection(dataObject.optString(JTAG_TAB_SECTION));
+		studentModel.setmHouse(dataObject.optString("house"));
+		studentModel.setmPhoto(dataObject.optString("photo"));
+
+		return studentModel;
+	}
+
+
+
 }
 

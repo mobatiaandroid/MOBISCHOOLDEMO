@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.provider.Settings;
 import androidx.core.app.ActivityCompat;
 
+import android.view.View;
 import android.widget.Toast;
 
 import com.mobatia.naisapp.R;
@@ -21,18 +22,26 @@ import com.mobatia.naisapp.activities.tutorial.TutorialActivity;
 import com.mobatia.naisapp.constants.IntentPassValueConstants;
 import com.mobatia.naisapp.constants.JSONConstants;
 import com.mobatia.naisapp.constants.URLConstants;
+import com.mobatia.naisapp.fragments.parents_evening.model.StudentModel;
 import com.mobatia.naisapp.manager.AppUtils;
 import com.mobatia.naisapp.manager.PreferenceManager;
 import com.mobatia.naisapp.service.OnClearFromRecentService;
+import com.mobatia.naisapp.volleywrappermanager.VolleyWrapper;
+import com.squareup.picasso.Picasso;
 
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class SplashActivity extends Activity implements
         IntentPassValueConstants, JSONConstants, URLConstants {
-
+    ArrayList<StudentModel> studentsModelArrayList = new ArrayList<>();
+    ArrayList<String> studentList = new ArrayList<>();
     private Context mContext;
 
     @Override
@@ -43,7 +52,9 @@ public class SplashActivity extends Activity implements
         if (AppUtils.checkInternet(mContext)) {
             AppUtils.postInitParams(mContext, new AppUtils.GetAccessTokenInterface() {
                 @Override
-                public void getAccessToken() {
+                public void getAccessToken()
+                {
+
                 }
             });
             goToNextView();
@@ -99,8 +110,6 @@ public class SplashActivity extends Activity implements
                         finish();
                     }
                 }else{
-//                    Intent loginIntent = new Intent(mContext,
-//                            HomeListActivity.class);
                     Intent loginIntent = new Intent(mContext,
                             HomeListAppCompatActivity.class);
                     startActivity(loginIntent);
@@ -170,6 +179,18 @@ public class SplashActivity extends Activity implements
             default:
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+    }
+
+
+    private StudentModel addStudentDetails(JSONObject dataObject) {
+        StudentModel studentModel = new StudentModel();
+        studentModel.setmId(dataObject.optString(JTAG_ID));
+        studentModel.setmName(dataObject.optString(JTAG_TAB_NAME));
+        studentModel.setmClass(dataObject.optString(JTAG_TAB_CLASS));
+        studentModel.setmSection(dataObject.optString(JTAG_TAB_SECTION));
+        studentModel.setmHouse(dataObject.optString("house"));
+        studentModel.setmPhoto(dataObject.optString("photo"));
+        return studentModel;
     }
 
 

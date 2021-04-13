@@ -70,6 +70,7 @@ public class CalendarFragmentListAdapter extends BaseAdapter implements NASCalen
     LayoutInflater minfalter;
     ViewHolder viewHolder;
     private int mnthId;
+    boolean isRead=false;
     EventsAdapter calendarFragmentListAdapter;
 
     public CalendarFragmentListAdapter(Context mContext, ArrayList<CalendarModel> calendarModels, ArrayList<CalendarModel> eventModels) {
@@ -140,7 +141,7 @@ public class CalendarFragmentListAdapter extends BaseAdapter implements NASCalen
         //for(int i=0;i<2;i++){
         // loadSubItems();
         // }
-         calendarFragmentListAdapter = new EventsAdapter(mContext, calendarModels.get(mPosition).getEventModels(), colors, mPosition);
+         calendarFragmentListAdapter = new EventsAdapter(mContext, calendarModels.get(mPosition).getEventModels(), colors, mPosition,isRead);
         viewHolder.eventsListView.setAdapter(calendarFragmentListAdapter);
         viewHolder.eventsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -148,12 +149,21 @@ public class CalendarFragmentListAdapter extends BaseAdapter implements NASCalen
 //showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(position).getDateNTime(), eventTypeStr) ;
                 if(calendarModels.get(mPosition).getEventModels().get(position).getStatus().equalsIgnoreCase("0"))
                 {
-                    callStatusChangeApi(URL_GET_STATUS_CHANGE_API,calendarModels.get(mPosition).getEventModels().get(position).getId(),position,mPosition,calendarModels.get(mPosition).getEventModels().get(position).getStatus());
+                    calendarModels.get(mPosition).getEventModels().get(position).setStatus("1");
+                    CalendarFragment.calendarFragmentListAdapter.notifyDataSetChanged();
+                    PreferenceManager.setCalendarBadge(mContext,"0");
+                    PreferenceManager.setCalendarEditedBadge(mContext,"0");
+                    HomeListAppCompatActivity.mListAdapter.notifyDataSetChanged();
+                    //callStatusChangeApi(URL_GET_STATUS_CHANGE_API,calendarModels.get(mPosition).getEventModels().get(position).getId(),position,mPosition,calendarModels.get(mPosition).getEventModels().get(position).getStatus());
                 }
                 else if(calendarModels.get(mPosition).getEventModels().get(position).getStatus().equalsIgnoreCase("2"))
                 {
-                    callStatusChangeApi(URL_GET_STATUS_CHANGE_API,calendarModels.get(mPosition).getEventModels().get(position).getId(),position,mPosition,calendarModels.get(mPosition).getEventModels().get(position).getStatus());
-
+                    //callStatusChangeApi(URL_GET_STATUS_CHANGE_API,calendarModels.get(mPosition).getEventModels().get(position).getId(),position,mPosition,calendarModels.get(mPosition).getEventModels().get(position).getStatus());
+                    calendarModels.get(mPosition).getEventModels().get(position).setStatus("1");
+                    PreferenceManager.setCalendarBadge(mContext,"0");
+                    PreferenceManager.setCalendarEditedBadge(mContext,"0");
+                    HomeListAppCompatActivity.mListAdapter.notifyDataSetChanged();
+                    CalendarFragment.calendarFragmentListAdapter.notifyDataSetChanged();
                 }
                 if ( calendarModels.get(mPosition).getEventModels().get(position).getIsAllDay().equalsIgnoreCase("1")) {
                     showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), "All Day Event", calendarModels.get(mPosition).getEventModels(),position,mContext) ;
@@ -171,59 +181,6 @@ public class CalendarFragmentListAdapter extends BaseAdapter implements NASCalen
             }
         });
         //calendarFragmentListAdapter.notifyDataSetChanged();
-
-    }
-    private void callStatusChangeApi(final String URL, final String id, final int eventPosition, final int eventMainPosition, final String status) {
-        VolleyWrapper volleyWrapper = new VolleyWrapper(URL);
-        String[] name = {"access_token","users_id","id","type"};
-        String[] value = {PreferenceManager.getAccessToken(mContext),PreferenceManager.getUserId(mContext),id,"calendar"};
-        volleyWrapper.getResponsePOST(mContext, 11, name, value, new VolleyWrapper.ResponseListener() {
-            @Override
-            public void responseSuccess(String successResponse) {
-                System.out.println("The response is status change" + successResponse);
-                try {
-                    JSONObject obj = new JSONObject(successResponse);
-                    String response_code = obj.getString(JTAG_RESPONSECODE);
-                    if (response_code.equalsIgnoreCase("200")) {
-                        JSONObject secobj = obj.getJSONObject(JTAG_RESPONSE);
-                        String status_code = secobj.getString(JTAG_STATUSCODE);
-                        if (status_code.equalsIgnoreCase("303")) {
-                              if(status.equalsIgnoreCase("0")||status.equalsIgnoreCase("2"))
-                              {
-                                  calendarModels.get(eventMainPosition).getEventModels().get(eventPosition).setStatus("1");
-                                  CalendarFragment.calendarFragmentListAdapter.notifyDataSetChanged();
-
-                              }
-                        }
-                    } else if (response_code.equalsIgnoreCase("500")) {
-                       // AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);
-
-                    } else if (response_code.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_MISSING) ||
-                            response_code.equalsIgnoreCase(RESPONSE_ACCESSTOKEN_EXPIRED) ||
-                            response_code.equalsIgnoreCase(RESPONSE_INVALID_TOKEN)) {
-                        AppUtils.postInitParam(mContext, new AppUtils.GetAccessTokenInterface() {
-                            @Override
-                            public void getAccessToken() {
-
-                            }
-                        });
-                        callStatusChangeApi(URL,  id,  eventPosition, eventMainPosition,   status);
-                    } else {
-
-                    }
-                } catch (Exception ex) {
-                    System.out.println("The Exception in edit profile is" + ex.toString());
-                }
-
-            }
-
-            @Override
-            public void responseFailure(String failureResponse) {
-                //AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);
-
-            }
-        });
-
 
     }
 
@@ -255,7 +212,7 @@ public class CalendarFragmentListAdapter extends BaseAdapter implements NASCalen
     }
 
     private void showCalendarEvent(String eventNameStr, String eventDateStr, String eventTypeStr, final ArrayList<CalendarModel> mCalendarEventModels, final int eventPosition, Context mContext) {
-
+        isRead=true;
         // set the custom dialog components - edit text, button
         TextView eventDate = (TextView) HomeListAppCompatActivity.dialogCal.findViewById(R.id.eventDate);
         TextView eventName = (TextView) HomeListAppCompatActivity.dialogCal.findViewById(R.id.eventName);
