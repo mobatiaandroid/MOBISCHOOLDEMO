@@ -71,6 +71,7 @@ import com.mobatia.naisapp.fragments.report.model.ReportModel;
 import com.mobatia.naisapp.fragments.secondary.SecondaryFragment;
 import com.mobatia.naisapp.fragments.sports.SportsMainScreenFragment;
 import com.mobatia.naisapp.fragments.trips.TripsFragmentNew;
+import com.mobatia.naisapp.fragments.universityguidance.UniverstyGuidanceFragment;
 import com.mobatia.naisapp.manager.AppUtils;
 import com.mobatia.naisapp.manager.PreferenceManager;
 import com.mobatia.naisapp.volleywrappermanager.VolleyWrapper;
@@ -2536,8 +2537,12 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 			TAB_ID = TAB_NAE_PROGRAMMES_REG;
 		} else if (text.equalsIgnoreCase(PRIMARY)) {
 			TAB_ID = TAB_PRIMARY_REG;
-		} else if (text.equalsIgnoreCase(SECONDARY)) {
+		}
+		else if (text.equalsIgnoreCase(SECONDARY)) {
 			TAB_ID = TAB_SECONDARY_REG;
+		}
+		else if (text.equalsIgnoreCase(UNIVERSITY_GUIDANCE)) {
+			TAB_ID = TAB_UNIVERSITY_GUIDANCE_REG;
 		}
 		/*else if (text.equalsIgnoreCase(SOCIAL_MEDIA)) {
 			TAB_ID = TAB_SOCIAL_MEDIA_REG;
@@ -4845,6 +4850,11 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 			fragmentIntent(mFragment);
 
 		}
+		else if (tabId.equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+			mFragment = new UniverstyGuidanceFragment(UNIVERSITY_GUIDANCE, TAB_UNIVERSITY_GUIDANCE_REG);
+			fragmentIntent(mFragment);
+
+		}
 		else if (tabId.equalsIgnoreCase(TAB_SPORTS_REG)) {
 			if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
 			{
@@ -5509,6 +5519,10 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 		}
 		else if (tabiDFromProceed.equalsIgnoreCase(TAB_IB_PROGRAMME_REG)) {
 			mFragment = new IbProgrammeFragment(IB_PROGRAMME, TAB_IB_PROGRAMME_REG);
+
+		}
+		else if (tabiDFromProceed.equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+			mFragment = new UniverstyGuidanceFragment(UNIVERSITY_GUIDANCE, TAB_UNIVERSITY_GUIDANCE_REG);
 
 		}
 		else if (tabiDFromProceed.equalsIgnoreCase(TAB_SPORTS_REG)) {

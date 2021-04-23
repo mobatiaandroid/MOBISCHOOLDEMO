@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Created by RIJO K JOSE on 25/1/17.
  */
 public class SecondaryModel implements Serializable{
-    String mId;
+
     public ArrayList<PrimaryModel> getmPrimaryModel() {
         return mPrimaryModel;
     }
@@ -18,7 +18,6 @@ public class SecondaryModel implements Serializable{
         this.mPrimaryModel = mPrimaryModel;
     }
 
-    ArrayList<PrimaryModel>mPrimaryModel;
 
     public String getmId() {
         return mId;
@@ -61,12 +60,13 @@ public class SecondaryModel implements Serializable{
     }
 
     String mName;String mFile,mTitle,mDescription;
-
-String title;
-String description;
-String createdon;
-String status;
-String id;
+    String mId;
+    ArrayList<PrimaryModel>mPrimaryModel;
+    String title;
+    String description;
+    String createdon;
+    String status;
+    String id;
 
     public String getTitle() {
         return title;

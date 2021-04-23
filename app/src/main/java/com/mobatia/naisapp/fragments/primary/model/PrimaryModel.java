@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Created by RIJO K JOSE on 25/1/17.
  */
 public class PrimaryModel implements Serializable{
-    String mId;
+
 
     public ArrayList<PrimaryModel> getmPrimaryModel() {
         return mPrimaryModel;
@@ -17,7 +17,6 @@ public class PrimaryModel implements Serializable{
         this.mPrimaryModel = mPrimaryModel;
     }
 
-    ArrayList<PrimaryModel>mPrimaryModel;
 
     public String getmId() {
         return mId;
@@ -59,7 +58,12 @@ public class PrimaryModel implements Serializable{
         this.mDescription = mDescription;
     }
 
-    String mName;String mFile,mTitle,mDescription;
+    String mId;
+    ArrayList<PrimaryModel>mPrimaryModel;
+    String mName;
+    String mFile;
+    String mTitle;
+    String mDescription;
 
 
 }

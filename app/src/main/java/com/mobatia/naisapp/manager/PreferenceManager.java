@@ -336,7 +336,7 @@ public class PreferenceManager implements NaisTabConstants {
     public static String getButtonThreeTextImage(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
                 Context.MODE_PRIVATE);
-        return prefs.getString("btn_three_pos_v3", "21");//19
+        return prefs.getString("btn_three_pos_v3", "22");//19
 
     }
 
@@ -362,7 +362,7 @@ public class PreferenceManager implements NaisTabConstants {
     public static String getButtonThreeTabId(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
                 Context.MODE_PRIVATE);
-        return prefs.getString("btn_three_tab_v3", "21");
+        return prefs.getString("btn_three_tab_v3", "22");
     }
 
     /*******************************************************
@@ -716,7 +716,7 @@ public class PreferenceManager implements NaisTabConstants {
     public static String getButtonEightTextImage(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
                 Context.MODE_PRIVATE);
-        return prefs.getString("btn_eight_pos_v3", "22");//19
+        return prefs.getString("btn_eight_pos_v3", "23");//19
 
     }
 
@@ -742,7 +742,7 @@ public class PreferenceManager implements NaisTabConstants {
     public static String getButtonEightTabId(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
                 Context.MODE_PRIVATE);
-        return prefs.getString("btn_eight_tab_v3", "22");
+        return prefs.getString("btn_eight_tab_v3", "23");
     }
 
     /*******************************************************
@@ -792,7 +792,7 @@ public class PreferenceManager implements NaisTabConstants {
     public static String getButtonNineTextImage(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
                 Context.MODE_PRIVATE);
-        return prefs.getString("btn_nine_pos_v3", "13");
+        return prefs.getString("btn_nine_pos_v3", "14");
 
     }
 
@@ -818,7 +818,7 @@ public class PreferenceManager implements NaisTabConstants {
     public static String getButtonNineTabId(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
                 Context.MODE_PRIVATE);
-        return prefs.getString("btn_nine_tab_v3", "13");
+        return prefs.getString("btn_nine_tab_v3", "14");
     }
 
     /*******************************************************

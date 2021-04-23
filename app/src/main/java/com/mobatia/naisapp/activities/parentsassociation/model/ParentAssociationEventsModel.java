@@ -11,7 +11,7 @@ public class ParentAssociationEventsModel implements Serializable{
     String eventName;
     String dayOfTheWeek ;
     String day ;
-   boolean itemSelected;
+    boolean itemSelected;
     int position;
     String title;
     String pdfTitle;

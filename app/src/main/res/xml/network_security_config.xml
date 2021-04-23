@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
+    <base-config cleartextTrafficPermitted="true" /><!--For allowing HTTP-->
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">beta.mobatia.in</domain>
+        <domain includeSubdomains="true">beta.mobatia.in:81</domain>
         <domain includeSubdomains="true">mobicaredev.mobatia.com</domain>
         <domain includeSubdomains="true">cms.nasdubai.ae</domain>
         <domain includeSubdomains="true">mobatia.in</domain>

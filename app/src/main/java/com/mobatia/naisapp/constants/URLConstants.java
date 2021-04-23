@@ -14,13 +14,13 @@ public interface URLConstants {
 //	public String POST_APITOKENURL="http://mobatia.in/naisV4.1/oauth/access_token";
 //	public String URL_HEAD = "http://mobatia.in/naisV4.1/api/";
 
-// 	public String POST_APITOKENURL="http://beta.mobatia.in:81/naisV4.1/oauth/access_token";
-//	public String URL_HEAD = "http://beta.mobatia.in:81/naisV4.1/api/";
+ 	public String POST_APITOKENURL="http://beta.mobatia.in:81/naisV4.1/oauth/access_token";
+	public String URL_HEAD = "http://beta.mobatia.in:81/naisV4.1/api/";
 
 
 //	//New Live Phase 4
-	public String POST_APITOKENURL="https://cms.nasdubai.ae/nais/oauth/access_token";
-	public String URL_HEAD = "https://cms.nasdubai.ae/nais/api/";
+//	public String POST_APITOKENURL="https://cms.nasdubai.ae/nais/oauth/access_token";
+//	public String URL_HEAD = "https://cms.nasdubai.ae/nais/api/";
 
 	//Mobicare NAS below//
 
@@ -83,6 +83,7 @@ public interface URLConstants {
 	public String URL_GET_NOTICATIONS_LIST=URL_HEAD+"notifications";
 	public String URL_GET_ABOUTUS_LIST=URL_HEAD+"about_us";
 	public String URL_CLEAR_BADGE=URL_HEAD+"clear_badge";
+
 
 	public String URL_COMMUNICATION_BANNER = URL_HEAD
 			+ "communication_banner_images";
@@ -178,5 +179,10 @@ public interface URLConstants {
     public String URL_GET_USER_BADGE_COUNT=URL_HEAD+"badge_counts";
     public String URL_GET_USER_BANNER=URL_HEAD+"home_banner_images_V1";
     public String URL_GET_TIME_EXCEED=URL_HEAD+"time_exceed_status";
+    public String URL_GET_BANNER_GUIDANCE=URL_HEAD+"banner_guidance";
+    public String URL_GET_GUIDANCE_INFORMATION=URL_HEAD+"guidance_informations";
+    public String URL_GET_GUIDANCE_CALENDAR=URL_HEAD+"guidance_calendar";
+    public String URL_GET_GUIDANCE_ESSENTIALS=URL_HEAD+"guidance_essentials";
+    public String URL_GET_GUIDANCE_ESSENTIALS_DETAILS=URL_HEAD+"guidance_essential_detail";
     public String URL_GET_CLEAR_NOTIFICATION_BADGE=URL_HEAD+"clear_notification_badge";
 }

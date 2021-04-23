@@ -220,7 +220,7 @@ public class HomeListAdapter extends BaseAdapter{
 				}
 			}
 
-			else if (position == 12) {
+			else if (position == 13) {
 				if (!(PreferenceManager.getSportsBadge(mContext).equalsIgnoreCase("0")) && (!(PreferenceManager.getSportsEditedBadge(mContext).equalsIgnoreCase("0")))) {
 					holder.badge.setVisibility(View.VISIBLE);
 					holder.badge.setText(PreferenceManager.getSportsBadge(mContext));
@@ -239,7 +239,7 @@ public class HomeListAdapter extends BaseAdapter{
 					holder.badge.setVisibility(View.GONE);
 
 				}
-			} else if (position == 18) {
+			} else if (position == 19) {
 				System.out.println("report badge" + PreferenceManager.getReportsBadge(mContext) + "report edited badge" + PreferenceManager.getReportsEditedBadge(mContext));
 				if (!(PreferenceManager.getReportsBadge(mContext).equalsIgnoreCase("0")) && (!(PreferenceManager.getReportsEditedBadge(mContext).equalsIgnoreCase("0")))) {
 					holder.badge.setVisibility(View.VISIBLE);
@@ -263,7 +263,7 @@ public class HomeListAdapter extends BaseAdapter{
 					holder.badge.setVisibility(View.GONE);
 
 				}
-			} else if (position == 14) {
+			} else if (position == 15) {
 				if (!(PreferenceManager.getCcaBadge(mContext).equalsIgnoreCase("0")) && (!(PreferenceManager.getCcaEditedBadge(mContext).equalsIgnoreCase("0")))) {
 					holder.badge.setVisibility(View.VISIBLE);
 					holder.badge.setText(PreferenceManager.getCcaBadge(mContext));

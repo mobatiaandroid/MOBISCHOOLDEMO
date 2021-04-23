@@ -36,6 +36,7 @@ public interface NaisClassNameConstants {
 	String COMING_UP = "Coming Up";
 	String REPORT = "Reports";
 	String PERMISSSION_SLIPS = "Permission Slips";
+	String UNIVERSITY_GUIDANCE = "University Guidance";
     String PRIMARY_COMING_UP = PRIMARY+": "+COMING_UP;
     String SECONDARY_COMING_UP = SECONDARY+": "+COMING_UP;
     String EARLY_YEARS_COMING_UP = EARLY_YEARS+": "+COMING_UP;

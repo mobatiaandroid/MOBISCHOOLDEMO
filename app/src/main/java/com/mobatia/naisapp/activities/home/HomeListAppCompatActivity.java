@@ -91,6 +91,7 @@ import com.mobatia.naisapp.fragments.secondary.SecondaryFragment;
 import com.mobatia.naisapp.fragments.settings.SettingsFragment;
 import com.mobatia.naisapp.fragments.sports.SportsMainScreenFragment;
 import com.mobatia.naisapp.fragments.trips.TripsFragmentNew;
+import com.mobatia.naisapp.fragments.universityguidance.UniverstyGuidanceFragment;
 import com.mobatia.naisapp.manager.AppUtils;
 import com.mobatia.naisapp.manager.PreferenceManager;
 import com.mobatia.naisapp.sqliteservice.DatabaseHelper;
@@ -1025,7 +1026,16 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
                     replaceFragmentsSelected(position);
 
                     break;
-                case 12:
+
+                    case 12:
+                    // IB programme
+                    mFragment = new UniverstyGuidanceFragment(mListItemArray[position],
+                            TAB_UNIVERSITY_GUIDANCE_REG);
+                    replaceFragmentsSelected(position);
+
+                    break;
+
+                case 13:
                     // Sports
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
                     {
@@ -1041,14 +1051,14 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
 
 
                     break;
-                case 13:
+                case 14:
                     // performing arts
                     mFragment = new PerformingArtsFragment(mListItemArray[position],
                             TAB_PERFORMING_ARTS_REG);
                     replaceFragmentsSelected(position);
 
                     break;
-                case 14:
+                case 15:
                     // CCAs
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
                     {
@@ -1064,7 +1074,7 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
 
 
                     break;
-                case 15:
+                case 16:
                     // parents association
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
                     {
@@ -1079,7 +1089,7 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
                     }
 
                     break;
-                case 16:
+                case 17:
                     // parents' evening
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
                     {
@@ -1095,14 +1105,14 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
 
 
                     break;
-                case 17:
+                case 18:
                     // Nae programmes
                     mFragment = new NaeProgrammesFragment(mListItemArray[position],
                             TAB_NAE_PROGRAMMES_REG);
                     replaceFragmentsSelected(position);
 
                     break;
-                case 18:
+                case 19:
                     // Report
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
                     {
@@ -1118,7 +1128,7 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
 
 
                     break;
-                case 19:
+                case 20:
                     // Report
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
                     {
@@ -1134,7 +1144,7 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
 
 
                     break;
-                case 20:
+                case 21:
                     // gallery
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
                     {
@@ -1254,14 +1264,14 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
                     }
 
                     break;
-                case 21:
+                case 22:
                     // about us
                     mFragment = new AboutUsFragment(mListItemArray[position],
                             TAB_ABOUT_US_REG);
                     replaceFragmentsSelected(position);
 
                     break;
-                case 22:
+                case 23:
                     // contact us
                     mFragment = new ContactUsFragment(mListItemArray[position],
                             TAB_CONTACT_US_REG);
@@ -1975,7 +1985,13 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
                     mFragment = new IbProgrammeFragment(mListItemArray[position],
                             TAB_IB_PROGRAMME_REG);
                     break;
-                case 12:
+
+                    case 12:
+                    // IB programme
+                    mFragment = new UniverstyGuidanceFragment(mListItemArray[position],
+                            TAB_UNIVERSITY_GUIDANCE_REG);
+                    break;
+                case 13:
                     // Sports
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
                     {
@@ -1989,12 +2005,12 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
                     }
 
                     break;
-                case 13:
+                case 14:
                     // performing arts
                     mFragment = new PerformingArtsFragment(mListItemArray[position],
                             TAB_PERFORMING_ARTS_REG);
                     break;
-                case 14:
+                case 15:
                     // CCAs
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
                     {
@@ -2008,7 +2024,7 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
                     }
 
                     break;
-                case 15:
+                case 16:
                     // parents association
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
                     {
@@ -2022,7 +2038,7 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
                     }
 
                     break;
-                case 16:
+                case 17:
                     // parents' evening
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
                     {
@@ -2038,12 +2054,12 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
 
                     break;
 
-                case 17:
+                case 18:
                     // Nae programmes
                     mFragment = new NaeProgrammesFragment(mListItemArray[position],
                             TAB_NAE_PROGRAMMES_REG);
                     break;
-                case 18:
+                case 19:
                     // social media
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
                     {
@@ -2059,7 +2075,7 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
 
 
                     break;
-                case 19:
+                case 20:
                     // social media
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
                     {
@@ -2075,7 +2091,7 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
 
 
                     break;
-                case 20:
+                case 21:
                     // gallery
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
                     {
@@ -2089,12 +2105,12 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
                     }
 
                     break;
-                case 21:
+                case 22:
                     // about us
                     mFragment = new AboutUsFragment(mListItemArray[position],
                             TAB_ABOUT_US_REG);
                     break;
-                case 22:
+                case 23:
                     // contact us
                     mFragment = new ContactUsFragment(mListItemArray[position],
                             TAB_CONTACT_US_REG);
