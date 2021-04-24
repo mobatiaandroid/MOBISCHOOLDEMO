@@ -463,6 +463,8 @@ boolean firstVisit;
 
     private void getStudentsListAPI(final String URLHEAD)
     {
+        studentsModelArrayList.clear();
+        studentList.clear();
         VolleyWrapper volleyWrapper = new VolleyWrapper(URLHEAD);
         String[] name = {"access_token", "users_id"};
         String[] value = {PreferenceManager.getAccessToken(mContext), PreferenceManager.getUserId(mContext)};
@@ -478,11 +480,18 @@ boolean firstVisit;
                         String status_code = secobj.getString(JTAG_STATUSCODE);
                         if (status_code.equalsIgnoreCase("303")) {
                             JSONArray data = secobj.getJSONArray("data");
-                            studentsModelArrayList.clear();
-                            studentList.clear();
-                            if (PreferenceManager.getStudentArrayList(mContext).size()>0)
+                            if(data.length()>0)
                             {
-                                studentsModelArrayList.addAll(PreferenceManager.getStudentArrayList(mContext));
+                                for (int i = 0; i < data.length(); i++) {
+                                    JSONObject dataObject = data.getJSONObject(i);
+                                    studentsModelArrayList.add(addStudentDetails(dataObject));
+                                 //  studentList.add(studentsModelArrayList.get(i).getmName());
+                                }
+                            }
+
+                            if (studentsModelArrayList.size()>0)
+                            {
+                               // studentsModelArrayList.addAll(PreferenceManager.getStudentArrayList(mContext));
                                 studentName.setText(studentsModelArrayList.get(0).getmName());
                                 stud_id = studentsModelArrayList.get(0).getmId();
                                 PreferenceManager.setLeaveStudentId(mContext, stud_id);

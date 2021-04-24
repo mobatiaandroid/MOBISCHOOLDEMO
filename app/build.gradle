@@ -9,8 +9,8 @@ android {
         applicationId "com.mobatia.naisapp"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 27
-        versionName "4.9"
+        versionCode 28
+        versionName "5.0"
         multiDexEnabled true
         generatedDensities = []
     }

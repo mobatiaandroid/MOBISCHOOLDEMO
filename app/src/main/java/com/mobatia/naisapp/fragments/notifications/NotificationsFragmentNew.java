@@ -342,10 +342,13 @@ public class NotificationsFragmentNew extends Fragment implements
                                             pushListView.setAdapter(mPushNotificationListAdapter);
                                             if (isFromBottom)
                                             {
+                                                System.out.println("isFrom");
                                                 pushListView.scrollToPosition(pushNotificationArrayList.size()-notificationSize-2);
                                             }
                                             else
                                             {
+                                                System.out.println("isFrom");
+
                                                 pushListView.scrollToPosition(0);
                                             }
                                             mPushNotificationListAdapter.setOnBottomReachedListener(new OnBottomReachedListener()

@@ -134,10 +134,10 @@ public class TermsOfServiceActivity extends Activity implements URLConstants,JSO
                                     "\n" +
                                     "@font-face {\n" +
                                     "font-family: SourceSansPro-Semibold;"+
-                                    "src: url(SourceSansPro-Semibold.ttf);"+
+                                    "src: url(SourceSansPro-Semibold.otf);"+
 
                                     "font-family: SourceSansPro-Regular;"+
-                                    "src: url(SourceSansPro-Regular.ttf);"+
+                                    "src: url(SourceSansPro-Regular.otf);"+
                                     "}"+
                                     ".title {"+
                                     "font-family: SourceSansPro-Regular;"+
