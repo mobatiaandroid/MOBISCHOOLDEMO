@@ -14,13 +14,13 @@ public interface URLConstants {
 //	public String POST_APITOKENURL="http://mobatia.in/naisV4.1/oauth/access_token";
 //	public String URL_HEAD = "http://mobatia.in/naisV4.1/api/";
 
- 	public String POST_APITOKENURL="http://beta.mobatia.in:81/naisV4.1/oauth/access_token";
-	public String URL_HEAD = "http://beta.mobatia.in:81/naisV4.1/api/";
+// 	public String POST_APITOKENURL="http://beta.mobatia.in:81/naisV4.1/oauth/access_token";
+//	public String URL_HEAD = "http://beta.mobatia.in:81/naisV4.1/api/";
 
 
 //	//New Live Phase 4
-//	public String POST_APITOKENURL="https://cms.nasdubai.ae/nais/oauth/access_token";
-//	public String URL_HEAD = "https://cms.nasdubai.ae/nais/api/";
+	public String POST_APITOKENURL="https://cms.nasdubai.ae/nais/oauth/access_token";
+	public String URL_HEAD = "https://cms.nasdubai.ae/nais/api/";
 
 	//Mobicare NAS below//
 

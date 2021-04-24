@@ -87,7 +87,7 @@
         <!-- 8 -->
         <item>IB Programme</item>
 
-        <item>University Guidance</item>
+<!--        <item>University Guidance</item>-->
         <!-- 9 -->
         <item>Sports</item>
         <!-- 10 -->
@@ -225,7 +225,7 @@
         <!-- 8 -->
         <item>@drawable/ib</item>
 
-        <item>@drawable/ib</item>
+<!--        <item>@drawable/university_guidelines</item>-->
         <!-- 9 -->
         <item>@drawable/sports</item>
         <!-- 10 -->

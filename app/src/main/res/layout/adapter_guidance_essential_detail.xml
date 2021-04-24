@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/transparent">
+    android:background="@color/transparent"
+    android:orientation="vertical">
    <RelativeLayout
        android:id="@+id/textRelative"
        android:layout_width="match_parent"
@@ -18,46 +19,55 @@
            android:layout_margin="10dp"/>
    </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/imageTypeRelative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible">
+        android:visibility="gone"
+        android:orientation="vertical">
+       <RelativeLayout
+           android:id="@+id/imagRel"
+           android:layout_width="match_parent"
+           android:layout_height="200dp">
+           <ImageView
+               android:id="@+id/imageTypeImg"
+               android:layout_width="match_parent"
+               android:layout_height="200dp"/>
 
-        <ImageView
-            android:id="@+id/imageTypeImg"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"/>
+           <ImageView
+               android:id="@+id/playImg"
+               android:layout_width="27dp"
+               android:layout_height="21dp"
+               android:layout_centerInParent="true"
+               android:src="@drawable/playicon" />
+       </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/playImg"
-            android:layout_width="27dp"
-            android:layout_height="21dp"
-            android:layout_centerInParent="true"
-            android:src="@drawable/playicon" />
         <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
             android:id="@+id/imageTypeTxt"
             android:layout_width="match_parent"
             android:textColor="@color/black"
             android:layout_margin="10dp"
-            android:layout_below="@+id/imageTypeImg"
+            android:layout_below="@+id/imagRel"
             android:layout_height="wrap_content"/>
-    </RelativeLayout>
-<RelativeLayout
+    </LinearLayout>
+<LinearLayout
     android:id="@+id/pdfTypeRelative"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:visibility="gone">
+    android:orientation="vertical"
+    android:visibility="visible">
     <RelativeLayout
         android:id="@+id/pdfRelative"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:clickable="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:background="@color/grey">
         <com.github.barteksc.pdfviewer.PDFView
             android:id="@+id/pdfView"
             android:layout_width="150dp"
-            android:clickable="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:layout_centerInParent="true"
             android:layout_height="200dp"/>
         <ImageView
@@ -65,8 +75,7 @@
             android:layout_height="40dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
-            android:clickable="true"
+            android:layout_margin="30dp"
             android:layout_marginLeft="10dp"
             android:src="@drawable/pdf_icon" />
     </RelativeLayout>
@@ -77,8 +86,8 @@
         android:layout_margin="10dp"
         android:layout_below="@+id/pdfRelative"
         android:layout_height="wrap_content"/>
-</RelativeLayout>
+</LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>
 

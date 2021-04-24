@@ -2541,9 +2541,9 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 		else if (text.equalsIgnoreCase(SECONDARY)) {
 			TAB_ID = TAB_SECONDARY_REG;
 		}
-		else if (text.equalsIgnoreCase(UNIVERSITY_GUIDANCE)) {
-			TAB_ID = TAB_UNIVERSITY_GUIDANCE_REG;
-		}
+//		else if (text.equalsIgnoreCase(UNIVERSITY_GUIDANCE)) {
+//			TAB_ID = TAB_UNIVERSITY_GUIDANCE_REG;
+//		}
 		/*else if (text.equalsIgnoreCase(SOCIAL_MEDIA)) {
 			TAB_ID = TAB_SOCIAL_MEDIA_REG;
 		} else if (text.equalsIgnoreCase(WISSUP)) {
@@ -4850,11 +4850,11 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 			fragmentIntent(mFragment);
 
 		}
-		else if (tabId.equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
-			mFragment = new UniverstyGuidanceFragment(UNIVERSITY_GUIDANCE, TAB_UNIVERSITY_GUIDANCE_REG);
-			fragmentIntent(mFragment);
-
-		}
+//		else if (tabId.equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+//			mFragment = new UniverstyGuidanceFragment(UNIVERSITY_GUIDANCE, TAB_UNIVERSITY_GUIDANCE_REG);
+//			fragmentIntent(mFragment);
+//
+//		}
 		else if (tabId.equalsIgnoreCase(TAB_SPORTS_REG)) {
 			if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
 			{
@@ -5521,10 +5521,10 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 			mFragment = new IbProgrammeFragment(IB_PROGRAMME, TAB_IB_PROGRAMME_REG);
 
 		}
-		else if (tabiDFromProceed.equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
-			mFragment = new UniverstyGuidanceFragment(UNIVERSITY_GUIDANCE, TAB_UNIVERSITY_GUIDANCE_REG);
-
-		}
+//		else if (tabiDFromProceed.equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+//			mFragment = new UniverstyGuidanceFragment(UNIVERSITY_GUIDANCE, TAB_UNIVERSITY_GUIDANCE_REG);
+//
+//		}
 		else if (tabiDFromProceed.equalsIgnoreCase(TAB_SPORTS_REG)) {
 			if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
 			{

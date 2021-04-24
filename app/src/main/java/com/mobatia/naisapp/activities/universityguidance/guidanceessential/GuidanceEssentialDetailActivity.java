@@ -3,10 +3,16 @@ package com.mobatia.naisapp.activities.universityguidance.guidanceessential;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.media.MediaMetadataRetriever;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +25,7 @@ import com.mobatia.naisapp.activities.universityguidance.guidanceessential.adapt
 import com.mobatia.naisapp.activities.universityguidance.guidanceessential.adapter.GuidanceEssentialDetailAdapter;
 import com.mobatia.naisapp.activities.universityguidance.guidanceessential.model.GuidanceEssentialDetailModel;
 import com.mobatia.naisapp.activities.universityguidance.guidanceessential.model.GuidanceEssentialModel;
+import com.mobatia.naisapp.constants.ClickInter;
 import com.mobatia.naisapp.constants.JSONConstants;
 import com.mobatia.naisapp.constants.NaisClassNameConstants;
 import com.mobatia.naisapp.constants.ResultConstants;
@@ -30,14 +37,17 @@ import com.mobatia.naisapp.manager.PreferenceManager;
 import com.mobatia.naisapp.recyclerviewmanager.DividerItemDecoration;
 import com.mobatia.naisapp.recyclerviewmanager.RecyclerItemListener;
 import com.mobatia.naisapp.volleywrappermanager.VolleyWrapper;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class GuidanceEssentialDetailActivity  extends Activity implements JSONConstants, URLConstants, ResultConstants, StatusConstants, NaisClassNameConstants {
+public class GuidanceEssentialDetailActivity  extends Activity implements JSONConstants, URLConstants, ResultConstants, StatusConstants, NaisClassNameConstants,ClickInter {
     private Context mContext;
     Bundle extras;
     String tab_type;
@@ -98,27 +108,27 @@ public class GuidanceEssentialDetailActivity  extends Activity implements JSONCo
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         informationRecycler.setLayoutManager(llm);
-        informationRecycler.addOnItemTouchListener(new RecyclerItemListener(getApplicationContext(), informationRecycler,
-                new RecyclerItemListener.RecyclerTouchListener() {
-                    public void onClickItem(View v, int position) {
-
-                       if (mListViewArray.get(position).getFile_type().equalsIgnoreCase("PDF"))
-                       {
-                           Intent intent = new Intent(mContext, PdfReaderActivity.class);
-                           intent.putExtra("pdf_url",mListViewArray.get(position).getFile_url());
-                           startActivity(intent);
-                       }
-                       else if (mListViewArray.get(position).getFile_type().equalsIgnoreCase("Video"))
-                       {
-                          Intent mIntent = new Intent(mContext, VideoViewActivity.class);
-                           mIntent.putExtra("URL", mListViewArray.get(position).getFile_url());
-                           startActivity(mIntent);
-                       }
-                    }
-
-                    public void onLongClickItem(View v, int position) {
-                    }
-                }));
+//        informationRecycler.addOnItemTouchListener(new RecyclerItemListener(getApplicationContext(), informationRecycler,
+//                new RecyclerItemListener.RecyclerTouchListener() {
+//                    public void onClickItem(View v, int position) {
+//
+////                       if (mListViewArray.get(position).getFile_type().equalsIgnoreCase("PDF"))
+////                       {
+////                           Intent intent = new Intent(mContext, PdfReaderActivity.class);
+////                           intent.putExtra("pdf_url",mListViewArray.get(position).getFile_url());
+////                           startActivity(intent);
+////                       }
+////                       else if (mListViewArray.get(position).getFile_type().equalsIgnoreCase("Video"))
+////                       {
+////                          Intent mIntent = new Intent(mContext, VideoViewActivity.class);
+////                           mIntent.putExtra("URL", mListViewArray.get(position).getFile_url());
+////                           startActivity(mIntent);
+////                       }
+//                    }
+//
+//                    public void onLongClickItem(View v, int position) {
+//                    }
+//                }));
     }
 
     public void getInformationList() {
@@ -151,9 +161,28 @@ public class GuidanceEssentialDetailActivity  extends Activity implements JSONCo
                                                 mListViewArray.add(getSearchValues(dataObject));
 
                                             }
-                                            informationRecycler.setAdapter(new GuidanceEssentialDetailAdapter(mContext, mListViewArray));
 
-
+//                                           GuidanceEssentialDetailAdapter unReadMessageAdapter = new GuidanceEssentialDetailAdapter(mContext, mListViewArray, new ClickInter() {
+//                                                @Override
+//                                                public void onPositionClicked(int position) {
+//                                                    Log.e("Clicked position",String.valueOf(position));
+//
+//
+//                                                }
+//
+//
+//                                                @Override
+//                                                public void onLongClicked(int position) {
+//
+//                                                }
+//
+//                                            });
+//
+//                                            informationRecycler.setAdapter(unReadMessageAdapter);
+//                                            unReadMessageAdapter.setClickListener(this);
+                                            GuidanceEssentialDetailAdapter   mAdapter = new GuidanceEssentialDetailAdapter(mContext, mListViewArray);
+                                            informationRecycler.setAdapter(mAdapter);
+                                            mAdapter.setClickListener(GuidanceEssentialDetailActivity.this);
 
                                         } else {
                                             AppUtils.showDialogAlertDismiss((Activity)mContext,"Alert",getString(R.string.nodatafound),R.drawable.exclamationicon,R.drawable.round);
@@ -205,7 +234,82 @@ public class GuidanceEssentialDetailActivity  extends Activity implements JSONCo
         model.setDescription(Object.getString("description"));
         model.setFile_type(Object.getString("file_type"));
         model.setFile_url(Object.getString("file_url"));
+        if (Object.getString("file_type").equalsIgnoreCase("Video"))
+        {
+            if (Object.getString("file_url").contains("https://youtu.be/"))
+            {
+                String main=Object.getString("file_url");
+                System.out.println(main.substring(main.lastIndexOf("/") + 1));
+                String imageURL="https://img.youtube.com/vi/"+main.substring(main.lastIndexOf("/") + 1)+"/hqdefault.jpg";
+                model.setImage_url(imageURL);
+               // Picasso.with(mContext).load(AppUtils.replace(imageURL)).placeholder(R.drawable.boy).fit().into(holder.imageTypeImg);
+                Log.e("IMAGE URL",imageURL);
+            }
+            else {
+                Bitmap bitmap;
+                try {
+                    bitmap  =retriveVideoFrameFromVideo(Object.getString("file_url"));
+                    if (bitmap !=null){
+                        DisplayMetrics displayMetrics = new DisplayMetrics();
+                        ((Activity) mContext).getWindowManager()
+                                .getDefaultDisplay()
+                                .getMetrics(displayMetrics);
+                        int height = displayMetrics.heightPixels;
+                        int width = displayMetrics.widthPixels;
+                        bitmap = Bitmap.createScaledBitmap(bitmap,width,500,false);
+                        model.setBitmap(bitmap);
+                        model.setImage_url("");
+//                        holder.imageTypeImg.setImageBitmap(bitmap);
+                    }
+                }catch (Throwable throwable){
+                    throwable.printStackTrace();
+                }
+            }
+
+        }
+        else
+        {
+            model.setImage_url("");
+        }
         return model;
+    }
+
+    public static Bitmap retriveVideoFrameFromVideo(String videoPath) throws Throwable {
+        Bitmap bitmap = null;
+        MediaMetadataRetriever mediaMetadataRetriever = null;
+        try {
+            mediaMetadataRetriever = new MediaMetadataRetriever();
+            mediaMetadataRetriever.setDataSource(videoPath, new HashMap<String, String>());
+            bitmap = mediaMetadataRetriever.getFrameAtTime();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Throwable("Exception in retriveVideoFrameFromVideo(String videoPath)" + e.getMessage());
+
+        } finally {
+            if (mediaMetadataRetriever != null) {
+                mediaMetadataRetriever.release();
+            }
+        }
+        return bitmap;
+    }
+
+    public String BitMapToString(Bitmap bitmap){
+        ByteArrayOutputStream baos=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
+        byte [] b=baos.toByteArray();
+        String temp= Base64.encodeToString(b, Base64.DEFAULT);
+        return temp;
+    }
+
+    @Override
+    public void onPositionClicked(int position) {
+
+        Log.e("CLCIKED POS",String.valueOf(position));
+    }
+
+    @Override
+    public void onLongClicked(int position) {
+
     }
 }
 

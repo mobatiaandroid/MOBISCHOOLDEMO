@@ -47,19 +47,19 @@ public interface NaisTabConstants {
 	public static String TAB_PRIMARY_REG = "9";
 	public static String TAB_SECONDARY_REG = "10";
 	public static String TAB_IB_PROGRAMME_REG = "11";
-	public static String TAB_UNIVERSITY_GUIDANCE_REG = "12";
-	public static String TAB_SPORTS_REG = "13";
-	public static String TAB_PERFORMING_ARTS_REG = "14";
-	public static String TAB_CCAS_REG = "15";
-	public static String TAB_PARENTS_ASSOCIATION_REG = "16";
-	public static String TAB_PARENTS_MEETING_REG = "17";
-	public static String TAB_NAE_PROGRAMMES_REG = "18";
-	public static String TAB_REPORT_REG = "19";
-	public static String TAB_PERMISSION_SLIP_REG = "20";
+//	public static String TAB_UNIVERSITY_GUIDANCE_REG = "12";
+	public static String TAB_SPORTS_REG = "12";
+	public static String TAB_PERFORMING_ARTS_REG = "13";
+	public static String TAB_CCAS_REG = "14";
+	public static String TAB_PARENTS_ASSOCIATION_REG = "15";
+	public static String TAB_PARENTS_MEETING_REG = "16";
+	public static String TAB_NAE_PROGRAMMES_REG = "17";
+	public static String TAB_REPORT_REG = "18";
+	public static String TAB_PERMISSION_SLIP_REG = "19";
 	//	public static String TAB_SOCIAL_MEDIA_REG = "17";
-	public static String TAB_GALLERY_REG = "21";
-	public static String TAB_ABOUT_US_REG= "22";
-	public static String TAB_CONTACT_US_REG = "23";
+	public static String TAB_GALLERY_REG = "20";
+	public static String TAB_ABOUT_US_REG= "21";
+	public static String TAB_CONTACT_US_REG = "22";
 
 	/***************** Not In side Menu Common for both guest and Registered user**********/
 //	public static String TAB_NAS_TODAY = "1";
