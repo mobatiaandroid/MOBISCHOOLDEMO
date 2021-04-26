@@ -435,7 +435,7 @@ public class NotificationsFragmentNew extends Fragment implements
         scrollTo="";
         apiID="";
         isFromBottom=false;
-        pushNotificationArrayList.clear();
+        pushNotificationArrayList=new ArrayList<>();
         callPushNotification(apiID,scrollTo);
     }
 }

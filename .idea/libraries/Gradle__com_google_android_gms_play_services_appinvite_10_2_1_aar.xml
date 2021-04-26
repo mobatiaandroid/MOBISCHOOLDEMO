@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.android.gms:play-services-appinvite:10.2.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d88ae858fb4aeb8a861396895500f8df/jetified-play-services-appinvite-10.2.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d88ae858fb4aeb8a861396895500f8df/jetified-play-services-appinvite-10.2.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d88ae858fb4aeb8a861396895500f8df/jetified-play-services-appinvite-10.2.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c0d6a4b9c35620a91ee76bda6acdd519/jetified-play-services-appinvite-10.2.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c0d6a4b9c35620a91ee76bda6acdd519/jetified-play-services-appinvite-10.2.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c0d6a4b9c35620a91ee76bda6acdd519/jetified-play-services-appinvite-10.2.1/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

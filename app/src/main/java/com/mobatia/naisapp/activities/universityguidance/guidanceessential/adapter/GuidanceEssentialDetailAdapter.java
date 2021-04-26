@@ -43,7 +43,6 @@ import javax.net.ssl.HttpsURLConnection;
 
 
 public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<GuidanceEssentialDetailAdapter.MyViewHolder> {
-     PDFView pdfView;
     private Context mContext;
     private ArrayList<GuidanceEssentialDetailModel> informationModelArrayList;
     private ClickInter listener;
@@ -52,7 +51,7 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
         TextView textOnlyTxt,imageTypeTxt,pdfTxt;
         RelativeLayout textRelative,pdfRelative,imagRel;
         LinearLayout imageTypeRelative;
-        ImageView imageTypeImg,playImg;
+        ImageView imageTypeImg,playImg,pdfImg,pdfImgIcon;
         LinearLayout pdfTypeRelative;
 
 
@@ -65,14 +64,14 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
             imageTypeTxt = (TextView) view.findViewById(R.id.imageTypeTxt);
             imageTypeImg = (ImageView) view.findViewById(R.id.imageTypeImg);
             playImg = (ImageView) view.findViewById(R.id.playImg);
+            pdfImg = (ImageView) view.findViewById(R.id.pdfImg);
+            pdfImgIcon = (ImageView) view.findViewById(R.id.pdfImgIcon);
 
             pdfTypeRelative = (LinearLayout) view.findViewById(R.id.pdfTypeRelative);
             pdfRelative = (RelativeLayout) view.findViewById(R.id.pdfRelative);
             imagRel = (RelativeLayout) view.findViewById(R.id.imagRel);
             pdfTxt = (TextView) view.findViewById(R.id.pdfTxt);
-            pdfView = (PDFView) view.findViewById(R.id.pdfView);
             pdfRelative.setOnClickListener(this);
-            pdfView.setOnClickListener(this);
             imageTypeImg.setOnClickListener(this);
             imagRel.setOnClickListener(this);
             view.setOnClickListener(this);
@@ -98,7 +97,20 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
                intent.putExtra("pdf_url",informationModelArrayList.get(getAdapterPosition()).getFile_url());
                mContext.startActivity(intent);
            }
-             if (v.getId()==pdfView.getId())
+             if (v.getId()==pdfImg.getId())
+           {
+               Intent intent = new Intent(mContext, PdfReaderActivity.class);
+               intent.putExtra("pdf_url",informationModelArrayList.get(getAdapterPosition()).getFile_url());
+               mContext.startActivity(intent);
+           }
+
+             if (v.getId()==pdfImg.getId())
+           {
+               Intent intent = new Intent(mContext, PdfReaderActivity.class);
+               intent.putExtra("pdf_url",informationModelArrayList.get(getAdapterPosition()).getFile_url());
+               mContext.startActivity(intent);
+           }
+            if (v.getId()==pdfImgIcon.getId())
            {
                Intent intent = new Intent(mContext, PdfReaderActivity.class);
                intent.putExtra("pdf_url",informationModelArrayList.get(getAdapterPosition()).getFile_url());
@@ -148,7 +160,7 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
       holder.pdfTxt.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-          Toast.makeText(mContext,"clicks",Toast.LENGTH_SHORT).show();
+
           }
       });
 
@@ -182,7 +194,6 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
             holder.textRelative.setVisibility(View.GONE);
             holder.pdfTypeRelative.setVisibility(View.VISIBLE);
             Log.e("FILE NAME",informationModelArrayList.get(position).getFile_url());
-            new RetrivePDFfromUrl().execute(informationModelArrayList.get(position).getFile_url());
             if (informationModelArrayList.get(position).getDescription().equalsIgnoreCase(""))
             {
                 holder.pdfTxt.setVisibility(View.GONE);
@@ -233,39 +244,7 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
                 }
             }
 
-
-
-//            if (informationModelArrayList.get(position).getFile_url().contains("https://youtu.be/"))
-//            {
-//                String main=informationModelArrayList.get(position).getFile_url();
-//                System.out.println(main.substring(main.lastIndexOf("/") + 1));
-//                String imageURL="https://img.youtube.com/vi/"+main.substring(main.lastIndexOf("/") + 1)+"/hqdefault.jpg";
-//                Picasso.with(mContext).load(AppUtils.replace(imageURL)).placeholder(R.drawable.boy).fit().into(holder.imageTypeImg);
-//                Log.e("IMAGE URL",imageURL);
-//            }
-//            else {
-//                try {
-//                    bitmap  =retriveVideoFrameFromVideo(informationModelArrayList.get(position).getFile_url());
-//                    if (bitmap !=null){
-//                        DisplayMetrics displayMetrics = new DisplayMetrics();
-//                        ((Activity) mContext).getWindowManager()
-//                                .getDefaultDisplay()
-//                                .getMetrics(displayMetrics);
-//                        int height = displayMetrics.heightPixels;
-//                        int width = displayMetrics.widthPixels;
-//                        bitmap = Bitmap.createScaledBitmap(bitmap,width,500,false);
-//                        holder.imageTypeImg.setImageBitmap(bitmap);
-//                    }
-//                }catch (Throwable throwable){
-//                    throwable.printStackTrace();
-//                }
-//            }
-
-
         }
-
-
-//        holder.listTxtTitle.setText(informationModelArrayList.get(position).getName());
 
     }
 
@@ -275,44 +254,6 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
         return informationModelArrayList.size();
     }
 
-    class RetrivePDFfromUrl extends AsyncTask<String, Void, InputStream> {
-        @Override
-        protected InputStream doInBackground(String... strings) {
-            InputStream inputStream = null;
-            try {
-                URL url = new URL(strings[0]);
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                if (urlConnection.getResponseCode() == 200)
-                {
-                    inputStream = new BufferedInputStream(urlConnection.getInputStream());
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-            }
-            return inputStream;
-        }
-
-        @Override
-        protected void onPostExecute(InputStream inputStream) {
-            // after the execution of our async
-            // task we are loading our pdf in our pdf view.
-         //   pdfView.fromStream(inputStream).enableSwipe(false).enableDoubletap(false).load();
-            // pdfView.enableSwipe(false);
-            pdfView.scrollBy(1, 1);
-            pdfView.fromStream(inputStream).enableDoubletap(false).enableSwipe(false).onLoad(new OnLoadCompleteListener() {
-                @Override
-                public void loadComplete(int nbPages) {
-                 //   loader.setVisibility(View.GONE);
-
-                }
-            }).load();
-            pdfView.setVisibility(View.VISIBLE);
-
-
-        }
-    }
     public static Bitmap retriveVideoFrameFromVideo(String videoPath) throws Throwable {
         Bitmap bitmap = null;
         MediaMetadataRetriever mediaMetadataRetriever = null;
