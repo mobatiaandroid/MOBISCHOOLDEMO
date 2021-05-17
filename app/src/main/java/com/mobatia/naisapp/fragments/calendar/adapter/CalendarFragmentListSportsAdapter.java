@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -25,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mobatia.naisapp.R;
+import com.mobatia.naisapp.activities.home.HomeListAppCompatActivity;
 import com.mobatia.naisapp.appcontroller.AppController;
 import com.mobatia.naisapp.constants.IntentPassValueConstants;
 import com.mobatia.naisapp.constants.JSONConstants;
@@ -32,6 +34,7 @@ import com.mobatia.naisapp.constants.NASCalendarConstants;
 import com.mobatia.naisapp.constants.NaisClassNameConstants;
 import com.mobatia.naisapp.constants.StatusConstants;
 import com.mobatia.naisapp.constants.URLConstants;
+import com.mobatia.naisapp.fragments.calendar.CalendarFragment;
 import com.mobatia.naisapp.fragments.calendar.model.CalendarModel;
 import com.mobatia.naisapp.manager.AppUtils;
 import com.mobatia.naisapp.manager.PreferenceManager;
@@ -126,27 +129,43 @@ public class CalendarFragmentListSportsAdapter extends BaseAdapter implements NA
         viewHolder.eventsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(position).getDateNTime(), eventTypeStr) ;
+
+
+                //showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(position).getDateNTime(), eventTypeStr) ;
                 if(calendarModels.get(mPosition).getEventModels().get(position).getStatus().equalsIgnoreCase("0"))
                 {
-                    callStatusChangeApi(URL_GET_STATUS_CHANGE_API,calendarModels.get(mPosition).getEventModels().get(position).getId(),position,mPosition,calendarModels.get(mPosition).getEventModels().get(position).getStatus());
+                    calendarModels.get(mPosition).getEventModels().get(position).setStatus("1");
+                    CalendarFragment.calendarFragmentListAdapter.notifyDataSetChanged();
+                    PreferenceManager.setUniversity_edit_badge(mContext,"0");
+                    PreferenceManager.setUniversity_badge(mContext,"0");
+                    HomeListAppCompatActivity.mListAdapter.notifyDataSetChanged();
+                    //callStatusChangeApi(URL_GET_STATUS_CHANGE_API,calendarModels.get(mPosition).getEventModels().get(position).getId(),position,mPosition,calendarModels.get(mPosition).getEventModels().get(position).getStatus());
                 }
                 else if(calendarModels.get(mPosition).getEventModels().get(position).getStatus().equalsIgnoreCase("2"))
                 {
-                    callStatusChangeApi(URL_GET_STATUS_CHANGE_API,calendarModels.get(mPosition).getEventModels().get(position).getId(),position,mPosition,calendarModels.get(mPosition).getEventModels().get(position).getStatus());
+                    calendarModels.get(mPosition).getEventModels().get(position).setStatus("1");
+                    CalendarFragment.calendarFragmentListAdapter.notifyDataSetChanged();
+                    PreferenceManager.setUniversity_edit_badge(mContext,"0");
+                    PreferenceManager.setUniversity_badge(mContext,"0");
+                    HomeListAppCompatActivity.mListAdapter.notifyDataSetChanged();
+                   // callStatusChangeApi(URL_GET_STATUS_CHANGE_API,calendarModels.get(mPosition).getEventModels().get(position).getId(),position,mPosition,calendarModels.get(mPosition).getEventModels().get(position).getStatus());
+                }
+                if ( calendarModels.get(mPosition).getEventModels().get(position).getIsAllDay().equalsIgnoreCase("1"))
+                {
+                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), "All Day Event", calendarModels.get(mPosition).getEventModels(),position,calendarModels.get(mPosition).getEventModels().get(position).getVpml()) ;
 
                 }
-                if ( calendarModels.get(mPosition).getEventModels().get(position).getIsAllDay().equalsIgnoreCase("1")) {
-                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), "All Day Event", calendarModels.get(mPosition).getEventModels(),position) ;
+                else if (!(calendarModels.get(mPosition).getEventModels().get(position).getStartTime().equalsIgnoreCase("")) && !(calendarModels.get(mPosition).getEventModels().get(position).getEndTime().equalsIgnoreCase(""))){
+                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), calendarModels.get(mPosition).getEventModels().get(position).getStartTime() + " - " + calendarModels.get(mPosition).getEventModels().get(position).getEndTime(),calendarModels.get(mPosition).getEventModels(),position,calendarModels.get(mPosition).getEventModels().get(position).getVpml()) ;
 
-                } else if (!(calendarModels.get(mPosition).getEventModels().get(position).getStartTime().equalsIgnoreCase("")) && !(calendarModels.get(mPosition).getEventModels().get(position).getEndTime().equalsIgnoreCase(""))){
-                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), calendarModels.get(mPosition).getEventModels().get(position).getStartTime() + " - " + calendarModels.get(mPosition).getEventModels().get(position).getEndTime(),calendarModels.get(mPosition).getEventModels(),position) ;
+                }
+                else if (!(calendarModels.get(mPosition).getEventModels().get(position).getStartTime().equalsIgnoreCase("")))
+                {
+                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), calendarModels.get(mPosition).getEventModels().get(position).getStartTime(),calendarModels.get(mPosition).getEventModels(),position,calendarModels.get(mPosition).getEventModels().get(position).getVpml()) ;
 
-                }else if (!(calendarModels.get(mPosition).getEventModels().get(position).getStartTime().equalsIgnoreCase(""))){
-                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), calendarModels.get(mPosition).getEventModels().get(position).getStartTime(),calendarModels.get(mPosition).getEventModels(),position) ;
-
-                }else if (!(calendarModels.get(mPosition).getEventModels().get(position).getEndTime().equalsIgnoreCase(""))){
-                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), calendarModels.get(mPosition).getEventModels().get(position).getEndTime(),calendarModels.get(mPosition).getEventModels(),position) ;
+                }else if (!(calendarModels.get(mPosition).getEventModels().get(position).getEndTime().equalsIgnoreCase("")))
+                {
+                    showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(mPosition).getDateNTime(), calendarModels.get(mPosition).getEventModels().get(position).getEndTime(),calendarModels.get(mPosition).getEventModels(),position,calendarModels.get(mPosition).getEventModels().get(position).getVpml()) ;
 
                 }
             }
@@ -235,7 +254,7 @@ public class CalendarFragmentListSportsAdapter extends BaseAdapter implements NA
 //        listView.setLayoutParams(params);
     }
 
-    private void showCalendarEvent(String eventNameStr, String eventDateStr, String eventTypeStr, final ArrayList<CalendarModel> mCalendarEventModels, final int eventPosition) {
+    private void showCalendarEvent(String eventNameStr, String eventDateStr, String eventTypeStr, final ArrayList<CalendarModel> mCalendarEventModels, final int eventPosition,String vlink) {
         final Dialog dialog = new Dialog(mContext, R.style.NewDialog);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.custom_dialog_calendar);
@@ -254,7 +273,28 @@ public class CalendarFragmentListSportsAdapter extends BaseAdapter implements NA
         Button addToCalendar = (Button) dialog
                 .findViewById(R.id.addToCalendar);
         Button dismiss = (Button) dialog.findViewById(R.id.dismiss);
-        linkBtn.setVisibility(View.GONE);
+        if (vlink.equalsIgnoreCase(""))
+        {
+            linkBtn.setVisibility(View.GONE);
+        }
+        else
+        {
+            linkBtn.setVisibility(View.VISIBLE);
+        }
+
+        linkBtn.setOnClickListener(new View.OnClickListener()
+
+                                   {
+                                       @Override
+                                       public void onClick(View v) {
+                                           Uri uri = Uri.parse(mCalendarEventModels.get(eventPosition).getVpml());
+                                           Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                                           mContext.startActivity(intent);
+                                           HomeListAppCompatActivity.dialogCal.dismiss();
+                                       }
+                                   }
+
+        );
         // if button is clicked, close the custom dialog
         deleteCalendar.setOnClickListener(new View.OnClickListener() {
                                               @Override

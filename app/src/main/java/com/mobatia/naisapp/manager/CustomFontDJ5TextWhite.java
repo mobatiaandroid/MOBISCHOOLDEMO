@@ -15,7 +15,7 @@ import com.mobatia.naisapp.R;
 public class CustomFontDJ5TextWhite extends TextView {
     public CustomFontDJ5TextWhite(Context context) {
         super(context);
-        Typeface type = Typeface.createFromAsset(context.getAssets(),"fonts/DJ5CTRIAL.otf" );
+        Typeface type = Typeface.createFromAsset(context.getAssets(),"fonts/DJ2CTRIALNEW.otf" );
         this.setTypeface(type);
         this.setTextColor(context.getResources().getColor(R.color.white));
         this.setTextSize(20);
@@ -23,7 +23,7 @@ public class CustomFontDJ5TextWhite extends TextView {
 
     public CustomFontDJ5TextWhite(Context context, AttributeSet attrs) {
         super(context, attrs);
-        Typeface type = Typeface.createFromAsset(context.getAssets(),"fonts/DJ5CTRIAL.otf");
+        Typeface type = Typeface.createFromAsset(context.getAssets(),"fonts/DJ2CTRIALNEW.otf");
         this.setTypeface(type);
        this.setTextColor(context.getResources().getColor(R.color.white));
         this.setTextSize(20);
@@ -32,7 +32,7 @@ public class CustomFontDJ5TextWhite extends TextView {
 
     public CustomFontDJ5TextWhite(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        Typeface type = Typeface.createFromAsset(context.getAssets(),"fonts/DJ5CTRIAL.otf" );
+        Typeface type = Typeface.createFromAsset(context.getAssets(),"fonts/DJ2CTRIALNEW.otf" );
         this.setTypeface(type);
         this.setTextColor(context.getResources().getColor(R.color.white));
         this.setTextSize(20);

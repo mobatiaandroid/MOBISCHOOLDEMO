@@ -56,7 +56,7 @@ public class UniverstyGuidanceFragment extends Fragment implements AdapterView.O
     String contactEmail = "", descriptionTxt = "";
     TextView text_content, description;
 
-    TextView text_dialog;
+    TextView text_dialog,calDot;
     RelativeLayout essentialRelative, informationRelative, calendarRelative;
 
     public UniverstyGuidanceFragment() {
@@ -108,13 +108,43 @@ public class UniverstyGuidanceFragment extends Fragment implements AdapterView.O
 
         mtitleRel = (LinearLayout) mRootView.findViewById(R.id.title);
         description = (TextView) mRootView.findViewById(R.id.description);
+        calDot = (TextView) mRootView.findViewById(R.id.calDot);
 
         bannerImagePager = (ImageView) mRootView.findViewById(R.id.bannerImagePager);
 
         essentialRelative = (RelativeLayout) mRootView.findViewById(R.id.essentialRelative);
         informationRelative = (RelativeLayout) mRootView.findViewById(R.id.informationRelative);
         calendarRelative = (RelativeLayout) mRootView.findViewById(R.id.calendarRelative);
+        if ((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))
+        {
+            calDot.setVisibility(View.GONE);
 
+        }
+        else if ((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&& !(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))&& !(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("")) )
+        {
+            calDot.setVisibility(View.VISIBLE);
+            calDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+            calDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+        }
+        else if (!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&& (PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0")))
+        {
+            calDot.setVisibility(View.VISIBLE);
+            calDot.setText(PreferenceManager.getUniversity_badge(mContext));
+            calDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+        }
+        else if (!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&& !(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0")))
+        {
+            calDot.setVisibility(View.VISIBLE);
+            calDot.setText(PreferenceManager.getUniversity_badge(mContext));
+            calDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+        }
+        else {
+            calDot.setVisibility(View.GONE);
+
+        }
         informationRelative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

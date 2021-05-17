@@ -1,16 +1,24 @@
 package com.mobatia.naisapp.activities.universityguidance.guidanceessential.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
 import android.os.AsyncTask;
+import android.os.Build;
+import android.text.Html;
+import android.text.SpannableStringBuilder;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.URLSpan;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -53,7 +61,6 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
         LinearLayout imageTypeRelative;
         ImageView imageTypeImg,playImg,pdfImg,pdfImgIcon;
         LinearLayout pdfTypeRelative;
-
 
         public MyViewHolder(View view) {
             super(view);
@@ -154,8 +161,10 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
         return new GuidanceEssentialDetailAdapter.MyViewHolder(itemView);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position)
+    {
 
       holder.pdfTxt.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -169,7 +178,15 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
             holder.imageTypeRelative.setVisibility(View.GONE);
             holder.pdfTypeRelative.setVisibility(View.GONE);
             holder.textRelative.setVisibility(View.VISIBLE);
-            holder.textOnlyTxt.setText(informationModelArrayList.get(position).getDescription());
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                holder.textOnlyTxt.setText(Html.fromHtml(informationModelArrayList.get(position).getDescription(), Html.FROM_HTML_MODE_COMPACT));
+//            } else {
+//                holder.textOnlyTxt.setText(Html.fromHtml(informationModelArrayList.get(position).getDescription()));
+//            }
+         //   holder.textOnlyTxt.setText(informationModelArrayList.get(position).getDescription());
+          //  setTextViewHTML(holder.textOnlyTxt,informationModelArrayList.get(position).getDescription());
+            holder.textOnlyTxt.setText( Html.fromHtml( informationModelArrayList.get(position).getDescription() ) );
+            holder.textOnlyTxt.setMovementMethod(LinkMovementMethod.getInstance());
         }
         else if (informationModelArrayList.get(position).getFile_type().equalsIgnoreCase("Image"))
         {
@@ -185,7 +202,8 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
             else
             {
                 holder.imageTypeTxt.setVisibility(View.VISIBLE);
-                holder.imageTypeTxt.setText(informationModelArrayList.get(position).getDescription());
+                holder.imageTypeTxt.setText( Html.fromHtml( informationModelArrayList.get(position).getDescription() ) );
+                holder.imageTypeTxt.setMovementMethod(LinkMovementMethod.getInstance());
             }
         }
         else if (informationModelArrayList.get(position).getFile_type().equalsIgnoreCase("PDF"))
@@ -193,6 +211,14 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
             holder.imageTypeRelative.setVisibility(View.GONE);
             holder.textRelative.setVisibility(View.GONE);
             holder.pdfTypeRelative.setVisibility(View.VISIBLE);
+            if (informationModelArrayList.get(position).getPdf_thumbnail_url().equalsIgnoreCase(""))
+            {
+                holder.pdfImg.setBackgroundColor(R.color.white);
+            }
+            else {
+                Picasso.with(mContext).load(AppUtils.replace(informationModelArrayList.get(position).getPdf_thumbnail_url())).placeholder(R.drawable.pdf_icon).fit().into(holder.pdfImg);
+
+            }
             Log.e("FILE NAME",informationModelArrayList.get(position).getFile_url());
             if (informationModelArrayList.get(position).getDescription().equalsIgnoreCase(""))
             {
@@ -201,7 +227,8 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
             else
             {
                 holder.pdfTxt.setVisibility(View.VISIBLE);
-                holder.pdfTxt.setText(informationModelArrayList.get(position).getDescription());
+                holder.pdfTxt.setText( Html.fromHtml( informationModelArrayList.get(position).getDescription() ) );
+                holder.pdfTxt.setMovementMethod(LinkMovementMethod.getInstance());
             }
 
 
@@ -220,7 +247,8 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
             else
             {
                 holder.imageTypeTxt.setVisibility(View.VISIBLE);
-                holder.imageTypeTxt.setText(informationModelArrayList.get(position).getDescription());
+                holder.imageTypeTxt.setText( Html.fromHtml( informationModelArrayList.get(position).getDescription() ) );
+                holder.imageTypeTxt.setMovementMethod(LinkMovementMethod.getInstance());
             }
             if (informationModelArrayList.get(position).getFile_url().contains("https://youtu.be/"))
             {
@@ -271,5 +299,32 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
             }
         }
         return bitmap;
+    }
+
+
+    protected void makeLinkClickable(SpannableStringBuilder strBuilder, final URLSpan span)
+    {
+        int start = strBuilder.getSpanStart(span);
+        int end = strBuilder.getSpanEnd(span);
+        int flags = strBuilder.getSpanFlags(span);
+        ClickableSpan clickable = new ClickableSpan() {
+            public void onClick(View view) {
+                // Do something with span.getURL() to handle the link click...
+            }
+        };
+        strBuilder.setSpan(clickable, start, end, flags);
+        strBuilder.removeSpan(span);
+    }
+
+    protected void setTextViewHTML(TextView text, String html)
+    {
+        CharSequence sequence = Html.fromHtml(html);
+        SpannableStringBuilder strBuilder = new SpannableStringBuilder(sequence);
+        URLSpan[] urls = strBuilder.getSpans(0, sequence.length(), URLSpan.class);
+        for(URLSpan span : urls) {
+            makeLinkClickable(strBuilder, span);
+        }
+        text.setText(strBuilder);
+        text.setMovementMethod(LinkMovementMethod.getInstance());
     }
  }

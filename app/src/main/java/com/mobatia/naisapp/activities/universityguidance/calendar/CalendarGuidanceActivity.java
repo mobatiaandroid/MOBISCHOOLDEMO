@@ -468,6 +468,7 @@ public class CalendarGuidanceActivity extends Activity
                                         model.setYearDate(splitStr[3]);
                                         model.setId(detJsonObject.optString("id"));
                                         model.setStatus(detJsonObject.optString("status"));
+
                                         if (!(detJsonObject.optString("starttime").equalsIgnoreCase(""))) {
 
 
@@ -509,6 +510,15 @@ public class CalendarGuidanceActivity extends Activity
                                             e.printStackTrace();
                                         }
                                         model.setEvent(detJsonObject.optString("title"));
+                                        if (detJsonObject.has("vpml"))
+                                        {
+                                            Log.e("It ", "Works vpml");
+                                            model.setVpml(detJsonObject.optString("vpml"));
+                                        }
+                                        else
+                                        {
+                                            model.setVpml("");
+                                        }
                                         eventModels.add(model);
                                     }
                                     calendarModel.setEventModels(eventModels);

@@ -173,7 +173,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             android:background="@drawable/button_navy"
-            android:text="Click here for VPM Link"
+            android:text="Join meeting here"
             android:textAllCaps="false"
             android:layout_below="@+id/calendarButtons"
             android:gravity="center_vertical|center_horizontal"

@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.mobatia.naisapp.R;
 import com.mobatia.naisapp.activities.home.HomeListAppCompatActivity;
 import com.mobatia.naisapp.activities.pdf.PdfReaderActivity;
@@ -47,6 +48,7 @@ public class GuidanceEssentialsActivity  extends Activity implements JSONConstan
     ArrayList<GuidanceEssentialModel> mListViewArray;
 
     HeaderManager headermanager;
+    ImageView bannerImagePager;
     ImageView back;
     ImageView home;
 
@@ -72,6 +74,7 @@ public class GuidanceEssentialsActivity  extends Activity implements JSONConstan
         }
         relativeHeader = (RelativeLayout) findViewById(R.id.relativeHeader);
         informationRecycler = (RecyclerView) findViewById(R.id.informationRecycler);
+        bannerImagePager = (ImageView) findViewById(R.id.bannerImagePager);
         informationRecycler.setHasFixedSize(true);
         informationRecycler.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.list_divider_teal)));
         headermanager = new HeaderManager(GuidanceEssentialsActivity.this, tab_type);
@@ -137,6 +140,12 @@ public class GuidanceEssentialsActivity  extends Activity implements JSONConstan
                                     JSONObject respObject = rootObject.getJSONObject(JTAG_RESPONSE);
                                     String statusCode = respObject.optString(JTAG_STATUSCODE);
                                     if (statusCode.equals(STATUS_SUCCESS)) {
+                                        String banner_image=respObject.optString("banner_image");
+                                        if (!banner_image.equalsIgnoreCase("")) {
+                                            Glide.with(mContext).load(AppUtils.replace(banner_image)).centerCrop().into(bannerImagePager);
+                                        } else {
+                                            bannerImagePager.setBackgroundResource(R.drawable.default_banner);
+                                        }
                                         JSONArray dataArray = respObject.getJSONArray(JTAG_RESPONSE_DATA_ARRAY);
                                         if (dataArray.length() > 0) {
                                             for (int i = 0; i <dataArray.length(); i++) {

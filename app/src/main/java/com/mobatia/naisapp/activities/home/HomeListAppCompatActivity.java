@@ -412,7 +412,11 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
                         .getClass()
                         .toString()
                         .equalsIgnoreCase(
-                                "class com.mobatia.naisapp.fragments.gallery.GalleryFragment")
+                                "class com.mobatia.naisapp.fragments.gallery.GalleryFragment") || currentFragment
+                        .getClass()
+                        .toString()
+                        .equalsIgnoreCase(
+                                "class com.mobatia.naisapp.fragments.universityguidance.UniverstyGuidanceFragment")
                         || currentFragment
                         .getClass()
                         .toString()
@@ -1547,11 +1551,18 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
                         .getClass()
                         .toString()
                         .equalsIgnoreCase(
-                                "class com.mobatia.naisapp.fragments.primary.PrimaryFragment") || currentFragment
+                                "class com.mobatia.naisapp.fragments.primary.PrimaryFragment")
+                        || currentFragment
                         .getClass()
                         .toString()
                         .equalsIgnoreCase(
-                                "class com.mobatia.naisapp.fragments.secondary.SecondaryFragment") || currentFragment
+                                "class com.mobatia.naisapp.fragments.secondary.SecondaryFragment")
+                        || currentFragment
+                        .getClass()
+                        .toString()
+                        .equalsIgnoreCase(
+                                "class com.mobatia.naisapp.fragments.universityguidance.UniverstyGuidanceFragment")
+                        || currentFragment
                         .getClass()
                         .toString()
                         .equalsIgnoreCase(

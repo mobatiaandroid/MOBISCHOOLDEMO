@@ -19,14 +19,14 @@
             android:id="@+id/bannerImagePager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="30"
+            android:layout_weight="40"
             android:background="@drawable/default_banner"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_weight="70">
+            android:layout_weight="60">
 
 
             <ScrollView
@@ -142,7 +142,28 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
                                 android:layout_marginLeft="2dp"
-                                android:background="@drawable/sportsbtnblue">
+                              >
+                                <ImageView
+                                    android:id="@+id/calBg"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/sportsbtnblue"/>
+
+                                <TextView
+                                    android:id="@+id/calDot"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:background="@drawable/shape_circle_red"
+                                    android:gravity="center"
+                                    android:text="100"
+                                    android:layout_alignEnd="@id/calBg"
+                                    android:textColor="@color/white"
+                                    android:textSize="8sp"
+                                    android:visibility="gone" />
                                 <ImageView
                                     android:id="@+id/calendarImg"
                                     android:layout_width="40dp"

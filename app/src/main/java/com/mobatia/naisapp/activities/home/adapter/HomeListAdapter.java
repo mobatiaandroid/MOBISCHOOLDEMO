@@ -220,6 +220,32 @@ public class HomeListAdapter extends BaseAdapter{
 				}
 			}
 
+			else if (position == 12) {
+
+				System.out.println("Condition works 1### "+PreferenceManager.getUniversity_edit_badge(mContext));
+				if (!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0")) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0")))) {
+					holder.badge.setVisibility(View.VISIBLE);
+					System.out.println("Condition works 1");
+					holder.badge.setText(PreferenceManager.getUniversity_badge(mContext));
+					holder.badge.setBackgroundResource(R.drawable.shape_circle_red);
+				} else if ((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0")) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("")))) {
+					holder.badge.setVisibility(View.VISIBLE);
+					holder.badge.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+					System.out.println("Condition works 2");
+					holder.badge.setBackgroundResource(R.drawable.shape_circle_navy);
+
+				} else if (!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0")) && ((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0")))) {
+					holder.badge.setVisibility(View.VISIBLE);
+					holder.badge.setText(PreferenceManager.getUniversity_badge(mContext));
+					System.out.println("Condition works 3");
+					holder.badge.setBackgroundResource(R.drawable.shape_circle_red);
+
+				} else {
+					holder.badge.setVisibility(View.GONE);
+					System.out.println("Condition works 4");
+
+				}
+			}
 			else if (position == 13) {
 				if (!(PreferenceManager.getSportsBadge(mContext).equalsIgnoreCase("0")) && (!(PreferenceManager.getSportsEditedBadge(mContext).equalsIgnoreCase("0")))) {
 					holder.badge.setVisibility(View.VISIBLE);
@@ -239,7 +265,8 @@ public class HomeListAdapter extends BaseAdapter{
 					holder.badge.setVisibility(View.GONE);
 
 				}
-			} else if (position == 19) {
+			}
+			else if (position == 19) {
 				System.out.println("report badge" + PreferenceManager.getReportsBadge(mContext) + "report edited badge" + PreferenceManager.getReportsEditedBadge(mContext));
 				if (!(PreferenceManager.getReportsBadge(mContext).equalsIgnoreCase("0")) && (!(PreferenceManager.getReportsEditedBadge(mContext).equalsIgnoreCase("0")))) {
 					holder.badge.setVisibility(View.VISIBLE);

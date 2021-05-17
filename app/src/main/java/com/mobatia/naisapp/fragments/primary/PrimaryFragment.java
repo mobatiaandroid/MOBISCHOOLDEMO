@@ -289,7 +289,8 @@ public class PrimaryFragment extends Fragment implements OnItemClickListener,
 										JSONArray dataArray = respObject.getJSONArray(JTAG_RESPONSE_DATA_ARRAY);
 										if (dataArray.length() > 0) {
 											for (int i = 0; i <= dataArray.length(); i++) {
-												if (i!=0) {
+												if (i!=0)
+												{
 													JSONObject dataObject = dataArray.getJSONObject(i-1);
 													mListViewArray.add(getSearchValues(dataObject));
 												}

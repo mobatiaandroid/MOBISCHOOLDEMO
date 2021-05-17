@@ -22,13 +22,13 @@
             android:id="@+id/bannerImagePager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="30"
+            android:layout_weight="40"
             android:background="@drawable/default_banner"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/informationRecycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="70"
+            android:layout_weight="60"
             android:overScrollMode="never"
             android:clipToPadding="false"
             android:scrollbars="vertical"

@@ -376,7 +376,8 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 
 				}
 
-			} else if (PreferenceManager.getButtonOneTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
+			}
+			else if (PreferenceManager.getButtonOneTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
 				if(!(PreferenceManager.getSportsBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getSportsEditedBadge(mContext).equalsIgnoreCase("0"))))
 				{
 					relImgOneDot.setVisibility(View.VISIBLE);
@@ -394,6 +395,32 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 				{
 					relImgOneDot.setVisibility(View.VISIBLE);
 					relImgOneDot.setText(PreferenceManager.getSportsBadge(mContext));
+					relImgOneDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+				}
+				else {
+					relImgOneDot.setVisibility(View.GONE);
+
+				}
+
+			}else if (PreferenceManager.getButtonOneTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+				if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgOneDot.setVisibility(View.VISIBLE);
+					relImgOneDot.setText(PreferenceManager.getUniversity_badge(mContext));
+					relImgOneDot.setBackgroundResource(R.drawable.shape_circle_red);
+				}
+				else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) &&  (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+				{
+					relImgOneDot.setVisibility(View.VISIBLE);
+					relImgOneDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+					relImgOneDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+				}
+				else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgOneDot.setVisibility(View.VISIBLE);
+					relImgOneDot.setText(PreferenceManager.getUniversity_badge(mContext));
 					relImgOneDot.setBackgroundResource(R.drawable.shape_circle_red);
 
 				}
@@ -634,7 +661,8 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 					relImgTwoDot.setVisibility(View.GONE);
 
 				}
-			} else if (PreferenceManager.getButtonTwoTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG))
+			}
+			else if (PreferenceManager.getButtonTwoTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG))
 			 {
 				if(!(PreferenceManager.getSportsBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getSportsEditedBadge(mContext).equalsIgnoreCase("0"))))
 				{
@@ -653,6 +681,33 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 				{
 					relImgTwoDot.setVisibility(View.VISIBLE);
 					relImgTwoDot.setText(PreferenceManager.getSportsBadge(mContext));
+					relImgTwoDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+				}
+				else {
+					relImgTwoDot.setVisibility(View.GONE);
+
+				}
+			}
+			else if (PreferenceManager.getButtonTwoTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG))
+			 {
+				if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgTwoDot.setVisibility(View.VISIBLE);
+					relImgTwoDot.setText(PreferenceManager.getUniversity_badge(mContext));
+					relImgTwoDot.setBackgroundResource(R.drawable.shape_circle_red);
+				}
+				else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+				{
+					relImgTwoDot.setVisibility(View.VISIBLE);
+					relImgTwoDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+					relImgTwoDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+				}
+				else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgTwoDot.setVisibility(View.VISIBLE);
+					relImgTwoDot.setText(PreferenceManager.getUniversity_badge(mContext));
 					relImgTwoDot.setBackgroundResource(R.drawable.shape_circle_red);
 
 				}
@@ -853,7 +908,8 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 					relImgThreeDot.setVisibility(View.GONE);
 
 				}
-			} else if (PreferenceManager.getButtonThreeTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
+			}
+			else if (PreferenceManager.getButtonThreeTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
 				if(!(PreferenceManager.getSportsBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getSportsEditedBadge(mContext).equalsIgnoreCase("0"))))
 				{
 					relImgThreeDot.setVisibility(View.VISIBLE);
@@ -871,6 +927,32 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 				{
 					relImgThreeDot.setVisibility(View.VISIBLE);
 					relImgThreeDot.setText(PreferenceManager.getSportsBadge(mContext));
+					relImgThreeDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+				}
+				else {
+					relImgThreeDot.setVisibility(View.GONE);
+
+				}
+			}
+			else if (PreferenceManager.getButtonThreeTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+				if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgThreeDot.setVisibility(View.VISIBLE);
+					relImgThreeDot.setText(PreferenceManager.getUniversity_badge(mContext));
+					relImgThreeDot.setBackgroundResource(R.drawable.shape_circle_red);
+				}
+				else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+				{
+					relImgThreeDot.setVisibility(View.VISIBLE);
+					relImgThreeDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+					relImgThreeDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+				}
+				else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgThreeDot.setVisibility(View.VISIBLE);
+					relImgThreeDot.setText(PreferenceManager.getUniversity_badge(mContext));
 					relImgThreeDot.setBackgroundResource(R.drawable.shape_circle_red);
 
 				}
@@ -1070,7 +1152,9 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 					relImgFourDot.setVisibility(View.GONE);
 
 				}
-			} else if (PreferenceManager.getButtonFourTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
+			}
+
+			else if (PreferenceManager.getButtonFourTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
 				if(!(PreferenceManager.getSportsBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getSportsEditedBadge(mContext).equalsIgnoreCase("0"))))
 				{
 					relImgFourDot.setVisibility(View.VISIBLE);
@@ -1088,6 +1172,33 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 				{
 					relImgFourDot.setVisibility(View.VISIBLE);
 					relImgFourDot.setText(PreferenceManager.getSportsBadge(mContext));
+					relImgFourDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+				}
+				else {
+					relImgFourDot.setVisibility(View.GONE);
+
+				}
+			}
+
+			else if (PreferenceManager.getButtonFourTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+				if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgFourDot.setVisibility(View.VISIBLE);
+					relImgFourDot.setText(PreferenceManager.getUniversity_badge(mContext));
+					relImgFourDot.setBackgroundResource(R.drawable.shape_circle_red);
+				}
+				else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+				{
+					relImgFourDot.setVisibility(View.VISIBLE);
+					relImgFourDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+					relImgFourDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+				}
+				else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgFourDot.setVisibility(View.VISIBLE);
+					relImgFourDot.setText(PreferenceManager.getUniversity_badge(mContext));
 					relImgFourDot.setBackgroundResource(R.drawable.shape_circle_red);
 
 				}
@@ -1279,7 +1390,8 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 					relImgFiveDot.setVisibility(View.GONE);
 
 				}
-			} else if (PreferenceManager.getButtonFiveTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
+			}
+			else if (PreferenceManager.getButtonFiveTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
 				if(!(PreferenceManager.getSportsBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getSportsEditedBadge(mContext).equalsIgnoreCase("0"))))
 				{
 					relImgFiveDot.setVisibility(View.VISIBLE);
@@ -1297,6 +1409,31 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 				{
 					relImgFiveDot.setVisibility(View.VISIBLE);
 					relImgFiveDot.setText(PreferenceManager.getSportsBadge(mContext));
+					relImgFiveDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+				}
+				else {
+					relImgFiveDot.setVisibility(View.GONE);
+
+				}
+			}else if (PreferenceManager.getButtonFiveTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+				if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgFiveDot.setVisibility(View.VISIBLE);
+					relImgFiveDot.setText(PreferenceManager.getUniversity_badge(mContext));
+					relImgFiveDot.setBackgroundResource(R.drawable.shape_circle_red);
+				}
+				else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+				{
+					relImgFiveDot.setVisibility(View.VISIBLE);
+					relImgFiveDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+					relImgFiveDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+				}
+				else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgFiveDot.setVisibility(View.VISIBLE);
+					relImgFiveDot.setText(PreferenceManager.getUniversity_badge(mContext));
 					relImgFiveDot.setBackgroundResource(R.drawable.shape_circle_red);
 
 				}
@@ -1491,7 +1628,8 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 					relImgSixDot.setVisibility(View.GONE);
 
 				}
-			} else if (PreferenceManager.getButtonSixTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
+			}
+			else if (PreferenceManager.getButtonSixTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
 				if(!(PreferenceManager.getSportsBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getSportsEditedBadge(mContext).equalsIgnoreCase("0"))))
 				{
 					relImgSixDot.setVisibility(View.VISIBLE);
@@ -1509,6 +1647,31 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 				{
 					relImgSixDot.setVisibility(View.VISIBLE);
 					relImgSixDot.setText(PreferenceManager.getSportsBadge(mContext));
+					relImgSixDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+				}
+				else {
+					relImgSixDot.setVisibility(View.GONE);
+
+				}
+			}else if (PreferenceManager.getButtonSixTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+				if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgSixDot.setVisibility(View.VISIBLE);
+					relImgSixDot.setText(PreferenceManager.getUniversity_badge(mContext));
+					relImgSixDot.setBackgroundResource(R.drawable.shape_circle_red);
+				}
+				else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+				{
+					relImgSixDot.setVisibility(View.VISIBLE);
+					relImgSixDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+					relImgSixDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+				}
+				else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgSixDot.setVisibility(View.VISIBLE);
+					relImgSixDot.setText(PreferenceManager.getUniversity_badge(mContext));
 					relImgSixDot.setBackgroundResource(R.drawable.shape_circle_red);
 
 				}
@@ -1705,7 +1868,8 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 					relImgSevenDot.setVisibility(View.GONE);
 
 				}
-			} else if (PreferenceManager.getButtonSevenTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
+			}
+			else if (PreferenceManager.getButtonSevenTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
 				if(!(PreferenceManager.getSportsBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getSportsEditedBadge(mContext).equalsIgnoreCase("0"))))
 				{
 					relImgSevenDot.setVisibility(View.VISIBLE);
@@ -1723,6 +1887,31 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 				{
 					relImgSevenDot.setVisibility(View.VISIBLE);
 					relImgSevenDot.setText(PreferenceManager.getSportsBadge(mContext));
+					relImgSevenDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+				}
+				else {
+					relImgSevenDot.setVisibility(View.GONE);
+
+				}
+			}else if (PreferenceManager.getButtonSevenTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+				if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgSevenDot.setVisibility(View.VISIBLE);
+					relImgSevenDot.setText(PreferenceManager.getUniversity_badge(mContext));
+					relImgSevenDot.setBackgroundResource(R.drawable.shape_circle_red);
+				}
+				else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+				{
+					relImgSevenDot.setVisibility(View.VISIBLE);
+					relImgSevenDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+					relImgSevenDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+				}
+				else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgSevenDot.setVisibility(View.VISIBLE);
+					relImgSevenDot.setText(PreferenceManager.getUniversity_badge(mContext));
 					relImgSevenDot.setBackgroundResource(R.drawable.shape_circle_red);
 
 				}
@@ -1922,7 +2111,8 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 					relImgEightDot.setVisibility(View.GONE);
 
 				}
-			} else if (PreferenceManager.getButtonEightTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
+			}
+			else if (PreferenceManager.getButtonEightTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
 				if(!(PreferenceManager.getSportsBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getSportsEditedBadge(mContext).equalsIgnoreCase("0"))))
 				{
 					relImgEightDot.setVisibility(View.VISIBLE);
@@ -1940,6 +2130,31 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 				{
 					relImgEightDot.setVisibility(View.VISIBLE);
 					relImgEightDot.setText(PreferenceManager.getSportsBadge(mContext));
+					relImgEightDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+				}
+				else {
+					relImgEightDot.setVisibility(View.GONE);
+
+				}
+			}else if (PreferenceManager.getButtonEightTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+				if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgEightDot.setVisibility(View.VISIBLE);
+					relImgEightDot.setText(PreferenceManager.getUniversity_badge(mContext));
+					relImgEightDot.setBackgroundResource(R.drawable.shape_circle_red);
+				}
+				else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+				{
+					relImgEightDot.setVisibility(View.VISIBLE);
+					relImgEightDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+					relImgEightDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+				}
+				else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgEightDot.setVisibility(View.VISIBLE);
+					relImgEightDot.setText(PreferenceManager.getUniversity_badge(mContext));
 					relImgEightDot.setBackgroundResource(R.drawable.shape_circle_red);
 
 				}
@@ -2135,7 +2350,8 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 					relImgNineDot.setVisibility(View.GONE);
 
 				}
-			} else if (PreferenceManager.getButtonNineTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
+			}
+			else if (PreferenceManager.getButtonNineTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
 				if(!(PreferenceManager.getSportsBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getSportsEditedBadge(mContext).equalsIgnoreCase("0"))))
 				{
 					relImgNineDot.setVisibility(View.VISIBLE);
@@ -2153,6 +2369,31 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 				{
 					relImgNineDot.setVisibility(View.VISIBLE);
 					relImgNineDot.setText(PreferenceManager.getSportsBadge(mContext));
+					relImgNineDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+				}
+				else {
+					relImgNineDot.setVisibility(View.GONE);
+
+				}
+			}else if (PreferenceManager.getButtonNineTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+				if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgNineDot.setVisibility(View.VISIBLE);
+					relImgNineDot.setText(PreferenceManager.getUniversity_badge(mContext));
+					relImgNineDot.setBackgroundResource(R.drawable.shape_circle_red);
+				}
+				else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgNineDot.setVisibility(View.VISIBLE);
+					relImgNineDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+					relImgNineDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+				}
+				else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+				{
+					relImgNineDot.setVisibility(View.VISIBLE);
+					relImgNineDot.setText(PreferenceManager.getUniversity_badge(mContext));
 					relImgNineDot.setBackgroundResource(R.drawable.shape_circle_red);
 
 				}
@@ -2741,7 +2982,8 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 
                     }
 
-                } else if (PreferenceManager.getButtonOneTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
+                }
+                else if (PreferenceManager.getButtonOneTabId(mContext).equalsIgnoreCase(TAB_SPORTS_REG)) {
                     if(!(PreferenceManager.getSportsBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getSportsEditedBadge(mContext).equalsIgnoreCase("0"))))
                     {
                         relImgOneDot.setVisibility(View.VISIBLE);
@@ -2768,6 +3010,34 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
                     }
 
                 }
+
+				else if (PreferenceManager.getButtonOneTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+					if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgOneDot.setVisibility(View.VISIBLE);
+						relImgOneDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgOneDot.setBackgroundResource(R.drawable.shape_circle_red);
+					}
+					else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+					{
+						relImgOneDot.setVisibility(View.VISIBLE);
+						relImgOneDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+						relImgOneDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+					}
+					else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgOneDot.setVisibility(View.VISIBLE);
+						relImgOneDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgOneDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+					}
+					else {
+						relImgOneDot.setVisibility(View.GONE);
+
+					}
+
+				}
 				else if (PreferenceManager.getButtonOneTabId(mContext).equalsIgnoreCase(TAB_COMMUNICATIONS_REG)) {
 					if(!(PreferenceManager.getNoticeBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getNoticeEditedBadge(mContext).equalsIgnoreCase("0"))))
 					{
@@ -3106,6 +3376,34 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 
                     }
                 }
+
+				else if (PreferenceManager.getButtonTwoTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG))
+				{
+					if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgTwoDot.setVisibility(View.VISIBLE);
+						relImgTwoDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgTwoDot.setBackgroundResource(R.drawable.shape_circle_red);
+					}
+					else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+					{
+						relImgTwoDot.setVisibility(View.VISIBLE);
+						relImgTwoDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+						relImgTwoDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+					}
+					else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgTwoDot.setVisibility(View.VISIBLE);
+						relImgTwoDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgTwoDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+					}
+					else {
+						relImgTwoDot.setVisibility(View.GONE);
+
+					}
+				}
 				else if (PreferenceManager.getButtonTwoTabId(mContext).equalsIgnoreCase(TAB_COMMUNICATIONS_REG)) {
 					if(!(PreferenceManager.getNoticeBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getNoticeEditedBadge(mContext).equalsIgnoreCase("0"))))
 					{
@@ -3310,6 +3608,33 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 
                     }
                 }
+
+				else if (PreferenceManager.getButtonThreeTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+					if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgThreeDot.setVisibility(View.VISIBLE);
+						relImgThreeDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgThreeDot.setBackgroundResource(R.drawable.shape_circle_red);
+					}
+					else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+					{
+						relImgThreeDot.setVisibility(View.VISIBLE);
+						relImgThreeDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+						relImgThreeDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+					}
+					else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgThreeDot.setVisibility(View.VISIBLE);
+						relImgThreeDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgThreeDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+					}
+					else {
+						relImgThreeDot.setVisibility(View.GONE);
+
+					}
+				}
 				else if (PreferenceManager.getButtonThreeTabId(mContext).equalsIgnoreCase(TAB_COMMUNICATIONS_REG)) {
 					if(!(PreferenceManager.getNoticeBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getNoticeEditedBadge(mContext).equalsIgnoreCase("0"))))
 					{
@@ -3503,6 +3828,32 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 						relImgFourDot.setVisibility(View.VISIBLE);
 						relImgFourDot.setText(PreferenceManager.getSportsBadge(mContext));
 						relImgFourDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+					}
+				}
+				else if (PreferenceManager.getButtonFourTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+					if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgFourDot.setVisibility(View.VISIBLE);
+						relImgFourDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgFourDot.setBackgroundResource(R.drawable.shape_circle_red);
+					}
+					else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+					{
+						relImgFourDot.setVisibility(View.VISIBLE);
+						relImgFourDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+						relImgFourDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+					}
+					else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgFourDot.setVisibility(View.VISIBLE);
+						relImgFourDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgFourDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+					}
+					else {
+						relImgFourDot.setVisibility(View.GONE);
 
 					}
 				}
@@ -3705,6 +4056,33 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 					{
 						relImgFiveDot.setVisibility(View.VISIBLE);
 						relImgFiveDot.setText(PreferenceManager.getSportsBadge(mContext));
+						relImgFiveDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+					}
+					else {
+						relImgFiveDot.setVisibility(View.GONE);
+
+					}
+				}
+
+				else if (PreferenceManager.getButtonFiveTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+					if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgFiveDot.setVisibility(View.VISIBLE);
+						relImgFiveDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgFiveDot.setBackgroundResource(R.drawable.shape_circle_red);
+					}
+					else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+					{
+						relImgFiveDot.setVisibility(View.VISIBLE);
+						relImgFiveDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+						relImgFiveDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+					}
+					else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgFiveDot.setVisibility(View.VISIBLE);
+						relImgFiveDot.setText(PreferenceManager.getUniversity_badge(mContext));
 						relImgFiveDot.setBackgroundResource(R.drawable.shape_circle_red);
 
 					}
@@ -3918,6 +4296,33 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 
                     }
                 }
+
+				else if (PreferenceManager.getButtonSixTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+					if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgSixDot.setVisibility(View.VISIBLE);
+						relImgSixDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgSixDot.setBackgroundResource(R.drawable.shape_circle_red);
+					}
+					else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+					{
+						relImgSixDot.setVisibility(View.VISIBLE);
+						relImgSixDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+						relImgSixDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+					}
+					else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgSixDot.setVisibility(View.VISIBLE);
+						relImgSixDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgSixDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+					}
+					else {
+						relImgSixDot.setVisibility(View.GONE);
+
+					}
+				}
 				else if (PreferenceManager.getButtonSixTabId(mContext).equalsIgnoreCase(TAB_COMMUNICATIONS_REG)) {
 					if(!(PreferenceManager.getNoticeBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getNoticeEditedBadge(mContext).equalsIgnoreCase("0"))))
 					{
@@ -4122,6 +4527,33 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 
                     }
                 }
+
+				else if (PreferenceManager.getButtonSevenTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+					if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgSevenDot.setVisibility(View.VISIBLE);
+						relImgSevenDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgSevenDot.setBackgroundResource(R.drawable.shape_circle_red);
+					}
+					else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+					{
+						relImgSevenDot.setVisibility(View.VISIBLE);
+						relImgSevenDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+						relImgSevenDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+					}
+					else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgSevenDot.setVisibility(View.VISIBLE);
+						relImgSevenDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgSevenDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+					}
+					else {
+						relImgSevenDot.setVisibility(View.GONE);
+
+					}
+				}
 				else if (PreferenceManager.getButtonSevenTabId(mContext).equalsIgnoreCase(TAB_COMMUNICATIONS_REG)) {
 					if(!(PreferenceManager.getNoticeBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getNoticeEditedBadge(mContext).equalsIgnoreCase("0"))))
 					{
@@ -4326,6 +4758,33 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 
                     }
                 }
+
+				else if (PreferenceManager.getButtonEightTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+					if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgEightDot.setVisibility(View.VISIBLE);
+						relImgEightDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgEightDot.setBackgroundResource(R.drawable.shape_circle_red);
+					}
+					else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+					{
+						relImgEightDot.setVisibility(View.VISIBLE);
+						relImgEightDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+						relImgEightDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+					}
+					else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgEightDot.setVisibility(View.VISIBLE);
+						relImgEightDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgEightDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+					}
+					else {
+						relImgEightDot.setVisibility(View.GONE);
+
+					}
+				}
 				else if (PreferenceManager.getButtonEightTabId(mContext).equalsIgnoreCase(TAB_COMMUNICATIONS_REG)) {
 					if(!(PreferenceManager.getNoticeBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getNoticeEditedBadge(mContext).equalsIgnoreCase("0"))))
 					{
@@ -4530,6 +4989,33 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 
                     }
                 }
+
+				else if (PreferenceManager.getButtonNineTabId(mContext).equalsIgnoreCase(TAB_UNIVERSITY_GUIDANCE_REG)) {
+					if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgNineDot.setVisibility(View.VISIBLE);
+						relImgNineDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgNineDot.setBackgroundResource(R.drawable.shape_circle_red);
+					}
+					else if((PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))) && (!(PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase(""))))
+					{
+						relImgNineDot.setVisibility(View.VISIBLE);
+						relImgNineDot.setText(PreferenceManager.getUniversity_edit_badge(mContext));
+						relImgNineDot.setBackgroundResource(R.drawable.shape_circle_navy);
+
+					}
+					else if(!(PreferenceManager.getUniversity_badge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getUniversity_edit_badge(mContext).equalsIgnoreCase("0"))))
+					{
+						relImgNineDot.setVisibility(View.VISIBLE);
+						relImgNineDot.setText(PreferenceManager.getUniversity_badge(mContext));
+						relImgNineDot.setBackgroundResource(R.drawable.shape_circle_red);
+
+					}
+					else {
+						relImgNineDot.setVisibility(View.GONE);
+
+					}
+				}
 				else if (PreferenceManager.getButtonNineTabId(mContext).equalsIgnoreCase(TAB_COMMUNICATIONS_REG)) {
 					if(!(PreferenceManager.getNoticeBadge(mContext).equalsIgnoreCase("0"))&&(!(PreferenceManager.getNoticeEditedBadge(mContext).equalsIgnoreCase("0"))))
 					{
@@ -5421,6 +5907,11 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
                                         PreferenceManager.setSportsEditedBadge(mContext,sports_edited_badge);
 										String paymentitem_edit_badge=respObject.optString("paymentitem_edit_badge");
 										PreferenceManager.setPaymentitem_edit_badge(mContext,paymentitem_edit_badge);
+
+										String university_badge=respObject.optString("guidance_calendar_badge");
+										PreferenceManager.setUniversity_badge(mContext,university_badge);
+										String university_edit_badge=respObject.optString("guidance_calendar_edited_badge");
+										PreferenceManager.setUniversity_edit_badge(mContext,university_edit_badge);
 										getButtonBgAndTextImages();
 										HomeListAppCompatActivity.mListAdapter.notifyDataSetChanged();
 

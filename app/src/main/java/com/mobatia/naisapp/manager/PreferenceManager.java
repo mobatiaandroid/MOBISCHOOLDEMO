@@ -1980,7 +1980,8 @@ public class PreferenceManager implements NaisTabConstants {
                 Context.MODE_PRIVATE);
         whole_school_coming_up_edited_badge = prefs.getString("whole_school_coming_up_edited_badge", "0");
         return whole_school_coming_up_edited_badge;
-    }public static void setPaymentitem_badge(Context context, String paymentitem_badge) {
+    }
+    public static void setPaymentitem_badge(Context context, String paymentitem_badge) {
         SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
@@ -2008,6 +2009,36 @@ public class PreferenceManager implements NaisTabConstants {
         paymentitem_edit_badge = prefs.getString("paymentitem_edit_badge", "0");
         return paymentitem_edit_badge;
     }
+
+    public static void setUniversity_badge(Context context, String paymentitem_badge) {
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("guidance_calendar_badge", paymentitem_badge);
+        editor.commit();
+    }
+    public static String getUniversity_badge(Context context) {
+        String paymentitem_badge = "";
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
+                Context.MODE_PRIVATE);
+        paymentitem_badge = prefs.getString("guidance_calendar_badge", "0");
+        return paymentitem_badge;
+    }
+    public static void setUniversity_edit_badge(Context context, String paymentitem_edit_badge) {
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("guidance_calendar_edited_badge", paymentitem_edit_badge);
+        editor.commit();
+    }
+    public static String getUniversity_edit_badge(Context context) {
+        String paymentitem_edit_badge = "";
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
+                Context.MODE_PRIVATE);
+        paymentitem_edit_badge = prefs.getString("guidance_calendar_edited_badge", "0");
+        return paymentitem_edit_badge;
+    }
+
     public static void setSportsFixtureBadge(Context context, String sports_badge) {
         SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
                 Context.MODE_PRIVATE);

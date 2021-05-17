@@ -162,24 +162,7 @@ public class GuidanceEssentialDetailActivity  extends Activity implements JSONCo
 
                                             }
 
-//                                           GuidanceEssentialDetailAdapter unReadMessageAdapter = new GuidanceEssentialDetailAdapter(mContext, mListViewArray, new ClickInter() {
-//                                                @Override
-//                                                public void onPositionClicked(int position) {
-//                                                    Log.e("Clicked position",String.valueOf(position));
-//
-//
-//                                                }
-//
-//
-//                                                @Override
-//                                                public void onLongClicked(int position) {
-//
-//                                                }
-//
-//                                            });
-//
-//                                            informationRecycler.setAdapter(unReadMessageAdapter);
-//                                            unReadMessageAdapter.setClickListener(this);
+
                                             GuidanceEssentialDetailAdapter   mAdapter = new GuidanceEssentialDetailAdapter(mContext, mListViewArray);
                                             informationRecycler.setAdapter(mAdapter);
                                             mAdapter.setClickListener(GuidanceEssentialDetailActivity.this);
@@ -233,6 +216,7 @@ public class GuidanceEssentialDetailActivity  extends Activity implements JSONCo
         GuidanceEssentialDetailModel model = new GuidanceEssentialDetailModel();
         model.setDescription(Object.getString("description"));
         model.setFile_type(Object.getString("file_type"));
+        model.setPdf_thumbnail_url(Object.getString("pdf_thumbnail_url"));
         model.setFile_url(Object.getString("file_url"));
         if (Object.getString("file_type").equalsIgnoreCase("Video"))
         {
@@ -293,13 +277,7 @@ public class GuidanceEssentialDetailActivity  extends Activity implements JSONCo
         return bitmap;
     }
 
-    public String BitMapToString(Bitmap bitmap){
-        ByteArrayOutputStream baos=new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
-        byte [] b=baos.toByteArray();
-        String temp= Base64.encodeToString(b, Base64.DEFAULT);
-        return temp;
-    }
+
 
     @Override
     public void onPositionClicked(int position) {

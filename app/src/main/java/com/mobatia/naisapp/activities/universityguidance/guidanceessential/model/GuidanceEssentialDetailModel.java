@@ -10,6 +10,7 @@ public class GuidanceEssentialDetailModel  implements Serializable {
     String file_type;
     String image_url;
     Bitmap bitmap;
+    String pdf_thumbnail_url;
 
     public Bitmap getBitmap() {
         return bitmap;
@@ -49,5 +50,13 @@ public class GuidanceEssentialDetailModel  implements Serializable {
 
     public void setFile_type(String file_type) {
         this.file_type = file_type;
+    }
+
+    public String getPdf_thumbnail_url() {
+        return pdf_thumbnail_url;
+    }
+
+    public void setPdf_thumbnail_url(String pdf_thumbnail_url) {
+        this.pdf_thumbnail_url = pdf_thumbnail_url;
     }
 }
