@@ -130,21 +130,21 @@ public class CalendarFragmentListSportsAdapter extends BaseAdapter implements NA
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
                 //showCalendarEvent( calendarModels.get(mPosition).getEventModels().get(position).getEvent(), calendarModels.get(position).getDateNTime(), eventTypeStr) ;
                 if(calendarModels.get(mPosition).getEventModels().get(position).getStatus().equalsIgnoreCase("0"))
                 {
                     calendarModels.get(mPosition).getEventModels().get(position).setStatus("1");
-                    CalendarFragment.calendarFragmentListAdapter.notifyDataSetChanged();
+                    notifyDataSetChanged();
                     PreferenceManager.setUniversity_edit_badge(mContext,"0");
                     PreferenceManager.setUniversity_badge(mContext,"0");
                     HomeListAppCompatActivity.mListAdapter.notifyDataSetChanged();
                     //callStatusChangeApi(URL_GET_STATUS_CHANGE_API,calendarModels.get(mPosition).getEventModels().get(position).getId(),position,mPosition,calendarModels.get(mPosition).getEventModels().get(position).getStatus());
+
                 }
                 else if(calendarModels.get(mPosition).getEventModels().get(position).getStatus().equalsIgnoreCase("2"))
                 {
                     calendarModels.get(mPosition).getEventModels().get(position).setStatus("1");
-                    CalendarFragment.calendarFragmentListAdapter.notifyDataSetChanged();
+                    notifyDataSetChanged();
                     PreferenceManager.setUniversity_edit_badge(mContext,"0");
                     PreferenceManager.setUniversity_badge(mContext,"0");
                     HomeListAppCompatActivity.mListAdapter.notifyDataSetChanged();

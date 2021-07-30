@@ -1120,7 +1120,7 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 				}
 				else if((PreferenceManager.getReportsBadge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getReportsEditedBadge(mContext).equalsIgnoreCase("0"))))
 				{
-					relImgOneDot.setVisibility(View.GONE);
+					relImgFourDot.setVisibility(View.GONE);
 
 				}
 				else {
@@ -2079,7 +2079,7 @@ public class   HomeScreenRegisteredUserFragment extends Fragment implements
 				}
 				else if((PreferenceManager.getReportsBadge(mContext).equalsIgnoreCase("0"))&&((PreferenceManager.getReportsEditedBadge(mContext).equalsIgnoreCase("0"))))
 				{
-					relImgOneDot.setVisibility(View.GONE);
+					relImgEightDot.setVisibility(View.GONE);
 
 				}
 				else {

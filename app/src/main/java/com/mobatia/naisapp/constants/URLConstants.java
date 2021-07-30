@@ -13,9 +13,12 @@ public interface URLConstants {
     //Dev Phase 4
 //	public String POST_APITOKENURL="http://mobatia.in/naisV4.1/oauth/access_token";
 //	public String URL_HEAD = "http://mobatia.in/naisV4.1/api/";
-
+//
  	public String POST_APITOKENURL="http://beta.mobatia.in:81/naisV4.1/oauth/access_token";
 	public String URL_HEAD = "http://beta.mobatia.in:81/naisV4.1/api/";
+
+// 	public String POST_APITOKENURL="http://ec2-3-208-59-158.compute-1.amazonaws.com/nais/oauth/access_token";
+//	public String URL_HEAD = "http://ec2-3-208-59-158.compute-1.amazonaws.com/nais/api/";
 
 
 //	//New Live Phase 4

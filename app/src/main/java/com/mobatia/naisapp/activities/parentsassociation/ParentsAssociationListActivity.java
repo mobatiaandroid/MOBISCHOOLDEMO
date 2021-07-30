@@ -323,7 +323,6 @@ public class ParentsAssociationListActivity extends Activity implements URLConst
         mParentAssociationEventsModel.setMonthNumber(monthNumber);
         mParentAssociationEventsModel.setYear(year);
         ArrayList<ParentAssociationEventsModel> mParentAssociationItemsArrayList = new ArrayList<>();
-
         JSONArray itemData = mEventJSONdata.optJSONArray("items");
 
         for (int i = 0; i < itemData.length(); i++) {

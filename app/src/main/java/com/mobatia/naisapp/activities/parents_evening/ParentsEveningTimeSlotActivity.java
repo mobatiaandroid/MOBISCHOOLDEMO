@@ -84,7 +84,6 @@ public class ParentsEveningTimeSlotActivity extends Activity implements JSONCons
     boolean confirmedslotBookedByUser = false;
     String confirmedLink="";
     String dateTextValue;
-
     Button vpmlBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -347,7 +346,8 @@ public class ParentsEveningTimeSlotActivity extends Activity implements JSONCons
                                                 cancelTextView.setVisibility(View.INVISIBLE);
                                                 reviewConfirmTextView.setVisibility(View.INVISIBLE);
 
-                                            } else if (alreadyslotBookedByUser) {
+                                            }
+                                            else if (alreadyslotBookedByUser) {
                                                 cancelTextView.setVisibility(View.VISIBLE);
                                                 reviewConfirmTextView.setVisibility(View.VISIBLE);
                                             } else {
@@ -425,7 +425,6 @@ public class ParentsEveningTimeSlotActivity extends Activity implements JSONCons
                                     String statusCode = respObject.optString(JTAG_STATUSCODE);
                                     if (statusCode.equals(STATUS_SUCCESS)) {
                                         showDialogAlertSingleBtn((Activity) mContext, "Alert", "Reserved Only – Please review and confirm booking", R.drawable.tick, R.drawable.round);
-
                                         getPtaAllotedDateList();
                                     } else if (statusCode.equals(STATUS_CANCEL)) {
 
@@ -708,7 +707,6 @@ public class ParentsEveningTimeSlotActivity extends Activity implements JSONCons
             public void onClick(View v) {
                 dialog.dismiss();
                 Intent mIntent = new Intent(ParentsEveningTimeSlotActivity.this, ReviewAppointmentsRecyclerViewActivity.class);
-
                 startActivity(mIntent);
             }
         });

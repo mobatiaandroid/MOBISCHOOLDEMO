@@ -565,6 +565,15 @@ public class CalendarActivity extends Activity
                                             e.printStackTrace();
                                         }
                                         model.setEvent(detJsonObject.optString("title"));
+                                        if (detJsonObject.has("vpml"))
+                                        {
+                                            Log.e("It ", "Works vpml");
+                                            model.setVpml(detJsonObject.optString("vpml"));
+                                        }
+                                        else
+                                        {
+                                            model.setVpml("");
+                                        }
                                         eventModels.add(model);
                                     }
                                     calendarModel.setEventModels(eventModels);

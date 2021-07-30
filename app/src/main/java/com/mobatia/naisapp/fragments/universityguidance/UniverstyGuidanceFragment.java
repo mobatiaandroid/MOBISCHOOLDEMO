@@ -157,7 +157,7 @@ public class UniverstyGuidanceFragment extends Fragment implements AdapterView.O
         calendarRelative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                calDot.setVisibility(View.GONE);
                 Intent intent = new Intent(mContext, CalendarGuidanceActivity.class);
                 intent.putExtra("tab_type", "Calendar");
                 startActivity(intent);
@@ -386,6 +386,13 @@ public class UniverstyGuidanceFragment extends Fragment implements AdapterView.O
                 AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);
             }
         });
+
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
 
 
     }

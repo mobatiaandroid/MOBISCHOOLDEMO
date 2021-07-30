@@ -524,6 +524,8 @@ public class CalendarGuidanceActivity extends Activity
                                     calendarModel.setEventModels(eventModels);
                                     eventDateListArray.add(calendarModel);
                                 }
+                                PreferenceManager.setUniversity_badge(mContext,"0");
+                                PreferenceManager.setUniversity_edit_badge(mContext,"0");
                                 CalendarFragmentListSportsAdapter calendarFragmentListAdapter = new CalendarFragmentListSportsAdapter(mContext, eventDateListArray);
                                 mCalendarList.setAdapter(calendarFragmentListAdapter);
 

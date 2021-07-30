@@ -493,101 +493,61 @@ public class CalendarFragmentListAdapter extends BaseAdapter implements NASCalen
 
     }
     public int getMonthDetails(Context mContext, String descStringTime) {
-        // january
+        //
         if (descStringTime.equalsIgnoreCase(mContext.getResources().getString(
                 R.string.january))) {
-//            if (type == 0) {
-//                mnthTxt.setText(mContext.getResources().getString(
-//                        R.string.jan_short));
-//            }
+
             mnthId = 0;
-        } // february
+        }
         if (descStringTime.equalsIgnoreCase(mContext.getResources().getString(
                 R.string.february))) {
-//            if (type == 0) {
-//                mnthTxt.setText(mContext.getResources().getString(
-//                        R.string.feb_short));
-//            }
+
             mnthId = 1;
-        } // march
+        }
         if (descStringTime.equalsIgnoreCase(mContext.getResources().getString(
                 R.string.march))) {
-//            if (type == 0) {
-//                mnthTxt.setText(mContext.getResources().getString(
-//                        R.string.mar_short));
-//            }
+
             mnthId = 2;
-        } // april
+        }
         if (descStringTime.equalsIgnoreCase(mContext.getResources().getString(
                 R.string.april))) {
-//            if (type == 0) {
-//                mnthTxt.setText(mContext.getResources().getString(
-//                        R.string.apr_short));
-//            }
+
             mnthId = 3;
-        }// may
+        }
         if (descStringTime.equalsIgnoreCase(mContext.getResources().getString(
                 R.string.may))) {
-//            if (type == 0) {
-//                mnthTxt.setText(mContext.getResources().getString(
-//                        R.string.may_short));
-//            }
+
             mnthId = 4;
-        } // june
+        }
         if (descStringTime.equalsIgnoreCase(mContext.getResources().getString(
                 R.string.june))) {
-//            if (type == 0) {
-//                mnthTxt.setText(mContext.getResources().getString(
-//                        R.string.jun_short));
-//            }
+
             mnthId = 5;
-        } // july
+        }
         if (descStringTime.equalsIgnoreCase(mContext.getResources().getString(
                 R.string.july))) {
-//            if (type == 0) {
-//                mnthTxt.setText(mContext.getResources().getString(
-//                        R.string.jul_short));
-//            }
+
             mnthId = 6;
-        } // august
+        }
         if (descStringTime.equalsIgnoreCase(mContext.getResources().getString(
                 R.string.august))) {
-//            if (type == 0) {
-//                mnthTxt.setText(mContext.getResources().getString(
-//                        R.string.aug_short));
-//            }
+
             mnthId = 7;
-        } // september
+        }
         if (descStringTime.equalsIgnoreCase(mContext.getResources().getString(
                 R.string.september))) {
-//            if (type == 0) {
-//                mnthTxt.setText(mContext.getResources().getString(
-//                        R.string.sep_short));
-//            }
             mnthId = 8;
-        } // october
+        }
         if (descStringTime.equalsIgnoreCase(mContext.getResources().getString(
                 R.string.october))) {
-//            if (type == 0) {
-//                mnthTxt.setText(mContext.getResources().getString(
-//                        R.string.oct_short));
-//            }
             mnthId = 9;
-        } // november
+        }
         if (descStringTime.equalsIgnoreCase(mContext.getResources().getString(
                 R.string.november))) {
-//            if (type == 0) {
-//                mnthTxt.setText(mContext.getResources().getString(
-//                        R.string.nov_short));
-//            }
             mnthId = 10;
-        } // december
+        }
         if (descStringTime.equalsIgnoreCase(mContext.getResources().getString(
                 R.string.december))) {
-//            if (type == 0) {
-//                mnthTxt.setText(mContext.getResources().getString(
-//                        R.string.dec_short));
-//            }
             mnthId = 11;
         }
         return mnthId;

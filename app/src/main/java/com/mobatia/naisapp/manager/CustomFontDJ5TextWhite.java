@@ -38,6 +38,4 @@ public class CustomFontDJ5TextWhite extends TextView {
         this.setTextSize(20);
 
     }
-
-
 }

@@ -395,7 +395,7 @@ public class MyOrderActivity extends Activity implements URLConstants, StatusCon
                                         WalletAmount=Integer.parseInt(walletAmountString);
 
                                     } else {
-                                        AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);
+                                      //  AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);
 
                                     }
 
@@ -412,11 +412,11 @@ public class MyOrderActivity extends Activity implements URLConstants, StatusCon
                                 } else if (responsCode.equals(RESPONSE_ERROR)) {
 //								CustomStatusDialog(RESPONSE_FAILURE);
                                     //Toast.makeText(mContext,"Failure",Toast.LENGTH_SHORT).show();
-                                    AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);
+                                  //  AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);
 
                                 }
                             } else {
-                                AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);
+                             //   AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);
 
                             }
                         } catch (Exception ex) {
@@ -428,7 +428,7 @@ public class MyOrderActivity extends Activity implements URLConstants, StatusCon
 
                 @Override
                 public void responseFailure(String failureResponse) {
-                    AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);
+                  //  AppUtils.showDialogAlertDismiss((Activity) mContext, "Alert", getString(R.string.common_error), R.drawable.exclamationicon, R.drawable.round);
                 }
             });
         } catch (Exception e) {

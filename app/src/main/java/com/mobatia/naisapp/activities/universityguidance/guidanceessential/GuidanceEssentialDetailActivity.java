@@ -220,7 +220,7 @@ public class GuidanceEssentialDetailActivity  extends Activity implements JSONCo
         model.setFile_url(Object.getString("file_url"));
         if (Object.getString("file_type").equalsIgnoreCase("Video"))
         {
-            if (Object.getString("file_url").contains("https://youtu.be/"))
+            if (Object.getString("file_url").contains("https://youtu.be/") || Object.getString("file_url").contains("https://www.youtube.com/"))
             {
                 String main=Object.getString("file_url");
                 System.out.println(main.substring(main.lastIndexOf("/") + 1));

@@ -156,8 +156,6 @@ public class CalendarFragment extends Fragment implements
         mContext = getActivity();
         activity = getActivity();
         isSelectedSpinner = false;
-//		setHasOptionsMenu(true);
-//	 Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(mContext));
         initialiseUI();
         if (getArguments() != null) {
             Bundle bundle = getArguments();
@@ -249,12 +247,7 @@ public class CalendarFragment extends Fragment implements
         daySpinner = (TextView) mRootView.findViewById(R.id.daySpinner);
         selectedMonth = mContext.getResources().getString(R.string.month);
         selectedYear = mContext.getResources().getString(R.string.year);
-//		selectedDay = mContext.getResources().getString(R.string.day);
         populateMonthSpinner();
-//		monthSpinner.setSelection(0, false);
-//		monthSpinner.getChildAt(0).setBackgroundResource(R.color.transparent);
-//		monthSpinner.setOnItemSelectedListener(this);
-
         populateYearSpinner();
         populateDaySpinner();
         dayListView.setOnItemClickListener(new OnItemClickListener() {
@@ -276,7 +269,8 @@ public class CalendarFragment extends Fragment implements
                     calendarFragmentListAdapter = new CalendarFragmentListAdapter(mContext, tempArrayList);
                     calendarFragmentListAdapter.notifyDataSetChanged();
                     mCalendarList.setAdapter(calendarFragmentListAdapter);
-                } else if (!monthSpinner.getText().toString().equalsIgnoreCase("MONTH") && !yearSpinner.getText().toString().equalsIgnoreCase("YEAR")) {
+                }
+                else if (!monthSpinner.getText().toString().equalsIgnoreCase("MONTH") && !yearSpinner.getText().toString().equalsIgnoreCase("YEAR")) {
                     tempArrayList = new ArrayList<CalendarModel>();
                     for (int i = 0; i < eventDateListArray.size(); i++) {
                         if (eventDateListArray.get(i).getMonthDate().toLowerCase().contains(monthSpinner.getText().toString().toLowerCase()) && eventDateListArray.get(i).getYearDate().equalsIgnoreCase(yearSpinner.getText().toString())) {
@@ -385,7 +379,8 @@ public class CalendarFragment extends Fragment implements
 
                 if ((!selectedMonth.equalsIgnoreCase(mContext.getResources().getString(
                         R.string.month)) && (!selectedYear.equalsIgnoreCase(mContext
-                        .getResources().getString(R.string.year))))) {
+                        .getResources().getString(R.string.year)))))
+                {
                     setSearchCalendarResult();
                     if (selectedYear.equals("YEAR")) {
                         selectedYear = yearValues.get(0).toString();
@@ -422,43 +417,6 @@ public class CalendarFragment extends Fragment implements
                 yearListView.setVisibility(View.GONE);
                 mPosYear = position;
                 yearSpinner.setText(yearValues.get(position).toString());
-//				if (selectedMonth.equalsIgnoreCase(mContext.getResources().getString(
-//						R.string.jan_short))) {
-//					selectedMonthId = 1;
-//				} else if (selectedMonth.equalsIgnoreCase(mContext.getResources()
-//						.getString(R.string.feb_short))) {
-//					selectedMonthId = 2;
-//				} else if (selectedMonth.equalsIgnoreCase(mContext.getResources()
-//						.getString(R.string.mar_short))) {
-//					selectedMonthId = 3;
-//				} else if (selectedMonth.equalsIgnoreCase(mContext.getResources()
-//						.getString(R.string.apr_short))) {
-//					selectedMonthId = 4;
-//				} else if (selectedMonth.equalsIgnoreCase(mContext.getResources()
-//						.getString(R.string.may_short))) {
-//					selectedMonthId = 5;
-//				} else if (selectedMonth.equalsIgnoreCase(mContext.getResources()
-//						.getString(R.string.jun_short))) {
-//					selectedMonthId = 6;
-//				} else if (selectedMonth.equalsIgnoreCase(mContext.getResources()
-//						.getString(R.string.jul_short))) {
-//					selectedMonthId = 7;
-//				} else if (selectedMonth.equalsIgnoreCase(mContext.getResources()
-//						.getString(R.string.aug_short))) {
-//					selectedMonthId = 8;
-//				} else if (selectedMonth.equalsIgnoreCase(mContext.getResources()
-//						.getString(R.string.sep_short))) {
-//					selectedMonthId = 9;
-//				} else if (selectedMonth.equalsIgnoreCase(mContext.getResources()
-//						.getString(R.string.oct_short))) {
-//					selectedMonthId = 10;
-//				} else if (selectedMonth.equalsIgnoreCase(mContext.getResources()
-//						.getString(R.string.nov_short))) {
-//					selectedMonthId = 11;
-//				} else if (selectedMonth.equalsIgnoreCase(mContext.getResources()
-//						.getString(R.string.dec_short))) {
-//					selectedMonthId = 12;
-//				}
                 selectedYear = yearValues.get(position).toString();
 
                 if ((!selectedMonth.equalsIgnoreCase(mContext.getResources().getString(
@@ -483,18 +441,6 @@ public class CalendarFragment extends Fragment implements
                     }
                     populateDaySpinner(Calendar.MONTH, Integer.valueOf(selectedYear));
                     Log.e("Position3:", Integer.valueOf(selectedYear) + "::" + selectedYear);
-//					if (!yearSpinner.getText().toString().equalsIgnoreCase("YEAR")) {
-//						tempArrayList = new ArrayList<CalendarModel>();
-//						for (int i=0;i<eventDateListArray.size();i++)
-//						{
-//							if ( eventDateListArray.get(i).getYearDate().equalsIgnoreCase(yearSpinner.getText().toString()) ) {
-//								tempArrayList.add(eventDateListArray.get(i));
-//							}
-//						}
-//						calendarFragmentListAdapter = new CalendarFragmentListAdapter(mContext, tempArrayList);
-//						calendarFragmentListAdapter.notifyDataSetChanged();
-//						mCalendarList.setAdapter(calendarFragmentListAdapter);
-//					}
 
                 } else {
                     populateDaySpinner(Calendar.MONTH, Calendar.YEAR - 1);
@@ -613,14 +559,6 @@ public class CalendarFragment extends Fragment implements
                                         DateFormat format1 = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH);
                                         try {
                                             SimpleDateFormat format2 = new SimpleDateFormat("hh:mm a", Locale.ENGLISH);
-
-                                            /*Date dateStart = format1.parse(detJsonObject.optString("starttime"));
-                                            SimpleDateFormat format2 = new SimpleDateFormat("hh:mm a", Locale.ENGLISH);
-                                            String startTime = format2.format(dateStart);
-                                            model.setStartTime(startTime);
-                                            Date dateEndTime = format1.parse(detJsonObject.optString("endtime"));
-                                            String endTime = format2.format(dateEndTime);
-                                            model.setEndTime(endTime);*/
                                             if (!(detJsonObject.optString("starttime").equalsIgnoreCase(""))) {
 
                                                 Date dateStart = format1.parse(detJsonObject.optString("starttime"));
@@ -785,9 +723,7 @@ mCalendarList.setAdapter(calendarFragmentListAdapter);*/
         Calendar selctedCalender = Calendar.getInstance();
         selctedCalender.set(Calendar.MONTH, month);
         selctedCalender.set(Calendar.YEAR, year);
-        Log.e("Calendar.DAY_OF_MONTH", month + year + "");
         int noOfDays = selctedCalender.getActualMaximum(Calendar.DAY_OF_MONTH);
-        Log.e("noofdays", noOfDays + "");
         dayValues = new ArrayList<String>();
 
 
@@ -819,14 +755,16 @@ mCalendarList.setAdapter(calendarFragmentListAdapter);*/
                 R.layout.spinner_textview_item, dayValues, -1);
 
         dayListView.setAdapter(dataAdapter);
-        if (dayPosition >= 0 && !daySpinner.getText().toString().equalsIgnoreCase("DAY")) {
+        if (dayPosition >= 0 && !daySpinner.getText().toString().equalsIgnoreCase("DAY"))
+        {
             if (dayPosition < noOfDays) {
                 daySpinner.setText(dayValues.get(dayPosition).toString());
             } else {
 
                 daySpinner.setText(dayValues.get(noOfDays - 1).toString());
             }
-        } else {
+        }
+        else {
             daySpinner.setText("DAY");
 
         }
@@ -937,25 +875,17 @@ mCalendarList.setAdapter(calendarFragmentListAdapter);*/
     private void populateYearSpinner() {
 //List<String> yearValues = new ArrayList<String>();
 //		yearValues.add(mContext.getResources().getString(R.string.year));
+
+     //   System.out.println("YEAR::" + yearInt);
         int yearInt = Calendar.getInstance().get(Calendar.YEAR) - 1;
-        System.out.println("YEAR::" + yearInt);
         yearValues.add(yearInt + "");
         yearValues.add(yearInt + 1 + "");
         yearValues.add(yearInt + 2 + "");
         yearValues.add(yearInt + 3 + "");
         yearValues.add(yearInt + 4 + "");
         yearValues.add(yearInt + 5 + "");
-//	 yearValues.add(String.valueOf((Calendar.getInstance()
-//	 .get(Calendar.YEAR) - 1)));
-//	 yearValues.add(String.valueOf((Calendar.getInstance()
-//	 .get(Calendar.YEAR))));
-//	 yearValues.add(String.valueOf((Calendar.getInstance()
-//	 .get(Calendar.YEAR) + 1)));
         dataAdapter = new CustomSpinnerAdapter(mContext,
                 R.layout.spinner_textview_item, yearValues, -1);
-//	 dataAdapter
-// .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
         yearListView.setAdapter(dataAdapter);
     }
 
@@ -1081,51 +1011,7 @@ mCalendarList.setAdapter(calendarFragmentListAdapter);*/
                                         tempArrayList.get(k).getEventModels().get(position).setEventAddToCalendar(true);
                                     }
                                 }
-                      /*          timeString1 = tempArrayList.get(k).getEventModels().get(position).getToTime().split(":");
-                                hour1 = Integer.parseInt(timeString1[0]);
-                                min1 = Integer.parseInt(timeString1[1]);*/
-//                                boolean addToCalendar = true;
-//                                String[] prefData = PreferenceManager
-//                                        .getCalendarEventNames(mContext).split(",");
-//                                for (int i = 0; i < prefData.length; i++) {
-//                                    if (prefData[i].equalsIgnoreCase(tempArrayList.get(k).getEventModels().get(position).getEvent() + tempArrayList.get(k).getEventModels().get(position).getEvent())) {
-//                                        addToCalendar = false;
-//                                        break;
-//                                    }
-//                                }
-//                                System.out.println("addToCalendar---" + addToCalendar);
-//                                if (addToCalendar) {
-//                                    if (year != -1 && month != -1 && day != -1 && hour != -1
-//                                            && min != -1) {
-//                                        if (hour1 == -1 && min1 == -1) {
-//                                            addReminder(year, month, day, hour, min, year, month,
-//                                                    (day), hour, min,
-//                                                    tempArrayList.get(k).getEventModels().get(position).getEvent(),
-//                                                    tempArrayList.get(k).getEventModels().get(position).getEvent(), 0, position, allDay, k);
-//
-//                                        } else {
-//                                            addReminder(year, month, day, hour, min, year, month,
-//                                                    (day), hour1, min1,
-//                                                    tempArrayList.get(k).getEventModels().get(position).getEvent(),
-//                                                    tempArrayList.get(k).getEventModels().get(position).getEvent(), 0, position, allDay, k);
-//
-//                                        }
-//                                        mEventAdded = true;
-//
-//                                    } else {
-//                                        mEventAdded = false;
-//
-////                                        Toast.makeText(mContext,
-////                                                mContext.getResources().getString(
-////                                                        R.string.no_evnt_details), Toast.LENGTH_SHORT).show();
-//                                    }
-//                                } else {
-//                                    mEventAdded = true;
-//
-////                                    Toast.makeText(mContext,
-////                                            mContext.getResources().getString(
-////                                                    R.string.add_cal_success), Toast.LENGTH_SHORT).show();
-//                                }
+
                             }
                         }
                     } else if (eventDateListArray.size() > 0) {
@@ -1188,55 +1074,7 @@ mCalendarList.setAdapter(calendarFragmentListAdapter);*/
                                         eventDateListArray.get(k).getEventModels().get(position).setEventAddToCalendar(true);
                                     }
                                 }
-                      /*          timeString1 = tempArrayList.get(k).getEventModels().get(position).getToTime().split(":");
-                                hour1 = Integer.parseInt(timeString1[0]);
-                                min1 = Integer.parseInt(timeString1[1]);*/
-//                                boolean addToCalendar = true;
-//                                String[] prefData = PreferenceManager
-//                                        .getCalendarEventNames(mContext).split(",");
-//                                for (int i = 0; i < prefData.length; i++) {
-//                                    System.out.println("dataCal11:"+prefData[i]);
-//                                    System.out.println("dataCal22:"+eventDateListArray.get(k).getEventModels().get(position).getEvent());
-//
-//                                    if (prefData[i].equalsIgnoreCase(eventDateListArray.get(k).getEventModels().get(position).getEvent() + eventDateListArray.get(k).getEventModels().get(position).getEvent())) {
-//                                        addToCalendar = false;
-//                                        break;
-//                                    }
-//
-//                                }
-//                                if (addToCalendar) {
-//                                    if (year != -1 && month != -1 && day != -1 && hour != -1
-//                                            && min != -1) {
-//                                        if (hour1 == -1 && min1 == -1) {
-//                                            addReminder(year, month, day, hour, min, year, month,
-//                                                    (day), hour, min,
-//                                                    eventDateListArray.get(k).getEventModels().get(position).getEvent(),
-//                                                    eventDateListArray.get(k).getEventModels().get(position).getEvent(), 0, position, allDay, k);
-//                                            System.out.println("addToCalendar--eventDateListArray1-" + addToCalendar);
-//
-//                                        } else {
-//                                            addReminder(year, month, day, hour, min, year, month,
-//                                                    (day), hour1, min1,
-//                                                    eventDateListArray.get(k).getEventModels().get(position).getEvent(),
-//                                                    eventDateListArray.get(k).getEventModels().get(position).getEvent(), 0, position, allDay, k);
-//
-//                                        }
-//                                        mEventAdded = true;
-//
-//                                    } else {
-//                                        mEventAdded = false;
-//
-////                                        Toast.makeText(mContext,
-////                                                mContext.getResources().getString(
-////                                                        R.string.no_evnt_details), Toast.LENGTH_SHORT).show();
-//                                    }
-//                                } else {
-//                                    mEventAdded = true;
 
-//                                    Toast.makeText(mContext,
-//                                            mContext.getResources().getString(
-//                                                    R.string.add_cal_success), Toast.LENGTH_SHORT).show();
-//                                }
                             }
                         }
                     } else {
@@ -1440,11 +1278,9 @@ mCalendarList.setAdapter(calendarFragmentListAdapter);*/
                 dayListView.setVisibility(View.VISIBLE);
                 yearListView.setVisibility(View.GONE);
                 monthListView.setVisibility(View.GONE);
-
                 daySpinSelect = false;
             } else {
                 daySpinSelect = true;
-
                 commonRelList.setVisibility(View.GONE);
                 dayListView.setVisibility(View.GONE);
             }

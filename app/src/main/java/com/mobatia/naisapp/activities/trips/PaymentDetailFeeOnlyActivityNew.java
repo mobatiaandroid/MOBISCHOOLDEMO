@@ -225,6 +225,7 @@ public class PaymentDetailFeeOnlyActivityNew extends Activity implements URLCons
         mProgressRelLayout = (RelativeLayout) findViewById(R.id.progressDialog);
         mProgressRelLayout.setVisibility(View.GONE);
         bannerImageViewPager=findViewById(R.id.bannerImageViewPager);
+
         descriptionTitle.setText(category_name);
         description.setText(invoice_description);
         totalAmount.setText(formated_amount);

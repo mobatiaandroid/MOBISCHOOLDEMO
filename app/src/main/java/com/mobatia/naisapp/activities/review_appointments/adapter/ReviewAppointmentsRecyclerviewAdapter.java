@@ -179,7 +179,8 @@ public class ReviewAppointmentsRecyclerviewAdapter extends RecyclerView.Adapter<
             System.out.println("3three");
 
 
-        } else if (mVideosModelArrayList.get(position).getStatus().equalsIgnoreCase("2") && mVideosModelArrayList.get(position).getBooking_open().equalsIgnoreCase("n")) {
+        }
+        else if (mVideosModelArrayList.get(position).getStatus().equalsIgnoreCase("2") && mVideosModelArrayList.get(position).getBooking_open().equalsIgnoreCase("n")) {
             holder.confirmationImageview.setBackgroundResource(R.drawable.doubtinparticipatingsmallicon);
             holder.addTocalendar.setVisibility(View.GONE);
             holder.confirmAppointment.setVisibility(View.VISIBLE);

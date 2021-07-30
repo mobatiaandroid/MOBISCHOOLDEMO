@@ -687,7 +687,8 @@ public class SportsDetailActivity extends Activity implements URLConstants, JSON
                                 pickUpSchool.setBackgroundResource(R.drawable.curve_filled_light_grey_sports);
 
 
-                            } else if (pickUpStatus.equalsIgnoreCase("2")) {
+                            } else if (pickUpStatus.equalsIgnoreCase("2"))
+                            {
                                 pickUpAtVenue.setBackgroundResource(R.drawable.curve_filled_light_grey_sports);
                                 pickUpSchool.setBackgroundResource(R.drawable.curve_filled_split_bg_sports);
                             } else {

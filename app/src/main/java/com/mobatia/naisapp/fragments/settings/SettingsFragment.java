@@ -200,18 +200,21 @@ public class SettingsFragment extends Fragment implements OnItemClickListener,
                     mContext.startActivity(mIntent);
                     break;
                 case 2://email us
-                    String to = "communications@nasdubai.ae";
+
 //                String subject=editTextSubject.getText().toString();
 //                String message=editTextMessage.getText().toString();
+                    String to = "communications@nasdubai.ae";
                     Intent email = new Intent(Intent.ACTION_SEND);
                     email.putExtra(Intent.EXTRA_EMAIL, new String[]{to});
+                    email.setType("message/rfc822");
+                    startActivity(Intent.createChooser(email, "Choose an Email client :"));
 //                email.putExtra(Intent.EXTRA_SUBJECT, subject);
 //                email.putExtra(Intent.EXTRA_TEXT, message);
 
                     //need this to prompts email client only
-                    email.setType("message/rfc822");
 
-                    startActivity(Intent.createChooser(email, "Choose an Email client :"));
+
+
                     break;
 
                 case 3://tutorial

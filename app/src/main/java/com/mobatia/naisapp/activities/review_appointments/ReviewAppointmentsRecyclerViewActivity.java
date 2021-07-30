@@ -124,50 +124,8 @@ public class ReviewAppointmentsRecyclerViewActivity extends Activity implements 
                 }
             }
         });
-//        recycler_review.addOnItemTouchListener(new RecyclerItemListener(mContext, recycler_review,
-//                new RecyclerItemListener.RecyclerTouchListener() {
-//                    public void onClickItem(View v, int position) {
-//                        Intent intent = new Intent(mContext, VideosPlayerViewActivity.class);
-//                        intent.putExtra("video_url", mVideoModelArrayList.get(position).getUrl());
-//                        startActivity(intent);
-//                    }
-//
-//                    public void onLongClickItem(View v, int position) {
-//                    }
-//                }));
-//
-//
-////        LinearLayoutManager llm = new LinearLayoutManager(this);
-////        llm.setOrientation(LinearLayoutManager.HORIZONTAL);
-////        recycler_view_photos.setLayoutManager(llm);
-//
-////        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-////            @Override
-////            public void onRefresh() {
-////                photosListApiCall();
-////                // Refresh items
-////                refreshItems();
-////            }
-////        });
-//
-//
     }
-//
-//    void refreshItems() {
-//        // Load items
-//        // ...
-//        // Load complete
-//        onItemsLoadComplete();
-//    }
-//
-//
-//    void onItemsLoadComplete() {
-//        // Update the adapter and notify data set changed
-//        // ...
-//
-//        // Stop refresh animation
-//        mSwipeRefreshLayout.setRefreshing(false);
-//    }
+
 
 
     private void photosListApiCall() {

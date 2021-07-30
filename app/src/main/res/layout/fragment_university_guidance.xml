@@ -91,8 +91,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/essentialImg"
-                                android:text="Guidance Essentials"
+                                android:text="University Guidance Topics"
                                 android:textColor="@color/white"
+                                android:maxLines="2"
                                 android:layout_centerHorizontal="true"/>
                             <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
                                 android:id="@+id/ccaDot"
@@ -132,7 +133,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/informationImg"
-                                    android:text="Information"
+                                    android:text="Resources"
                                     android:textColor="@color/white"
                                     android:layout_centerHorizontal="true"/>
                             </RelativeLayout>

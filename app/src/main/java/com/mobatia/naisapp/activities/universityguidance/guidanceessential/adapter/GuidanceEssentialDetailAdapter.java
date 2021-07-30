@@ -250,7 +250,7 @@ public class GuidanceEssentialDetailAdapter extends RecyclerView.Adapter<Guidanc
                 holder.imageTypeTxt.setText( Html.fromHtml( informationModelArrayList.get(position).getDescription() ) );
                 holder.imageTypeTxt.setMovementMethod(LinkMovementMethod.getInstance());
             }
-            if (informationModelArrayList.get(position).getFile_url().contains("https://youtu.be/"))
+            if (informationModelArrayList.get(position).getFile_url().contains("https://youtu.be/") || informationModelArrayList.get(position).getFile_url().contains("https://www.youtube.com/") )
             {
                 if (informationModelArrayList.get(position).getImage_url().equalsIgnoreCase(""))
                 {
