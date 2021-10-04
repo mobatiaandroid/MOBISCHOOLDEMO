@@ -29,7 +29,7 @@
                 android:layout_alignParentEnd="true"
                 android:background="@color/white"/>
             <ImageView
-                android:id="@+id/closeImg"
+                android:id="@+id/imgClose"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentEnd="true"
@@ -46,7 +46,7 @@
                 app:headerLabelColor="@color/black"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/closeImg"
+                app:layout_constraintTop_toBottomOf="@+id/imgClose"
                 app:maximumDaysRange="10"
                 app:selectionColor="@color/canteen_red"
                 app:todayLabelColor="@color/black"

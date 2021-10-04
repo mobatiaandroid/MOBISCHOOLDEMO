@@ -4,46 +4,30 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.applandeo.materialcalendarview.CalendarView;
-import com.applandeo.materialcalendarview.EventDay;
 import com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener;
-import com.applandeo.materialcalendarview.listeners.OnDayClickListener;
 import com.mobatia.naisapp.R;
-import com.mobatia.naisapp.activities.canteen_new.adapter.CartDateRecyclerAdapter;
-import com.mobatia.naisapp.activities.canteen_new.model.CartItemDateModel;
-import com.mobatia.naisapp.activities.canteen_new.model.CartItemDetailModel;
 import com.mobatia.naisapp.activities.canteen_new.model.DateModel;
 import com.mobatia.naisapp.activities.home.HomeListAppCompatActivity;
-import com.mobatia.naisapp.activities.payment_history.PaymentHistoryNew;
 import com.mobatia.naisapp.constants.IntentPassValueConstants;
 import com.mobatia.naisapp.constants.JSONConstants;
 import com.mobatia.naisapp.constants.NameValueConstants;
 import com.mobatia.naisapp.constants.StatusConstants;
 import com.mobatia.naisapp.constants.URLConstants;
-import com.mobatia.naisapp.fragments.absence.model.LeavesModel;
-import com.mobatia.naisapp.fragments.canteen.CanteenActviity;
-import com.mobatia.naisapp.fragments.canteen_new.CanteenFragmentNew;
 import com.mobatia.naisapp.fragments.parents_evening.model.StudentModel;
 import com.mobatia.naisapp.fragments.sports.adapter.StrudentSpinnerAdapter;
 import com.mobatia.naisapp.manager.AppUtils;
@@ -58,11 +42,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
-
-import okhttp3.MediaType;
 
 public class PreOrderActivity extends Activity implements URLConstants, StatusConstants, JSONConstants, IntentPassValueConstants, NameValueConstants {
     Context mContext=this;
@@ -492,7 +472,7 @@ public class PreOrderActivity extends Activity implements URLConstants, StatusCo
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.show_calendar_popup);
         Button GetDate = (Button) dialog.findViewById(R.id.GetDate);
-        ImageView closeImg=(ImageView)dialog.findViewById(R.id.closeImg);
+        ImageView closeImg=(ImageView)dialog.findViewById(R.id.imgClose);
         ImageView dummyClose=(ImageView)dialog.findViewById(R.id.dummyClose);
         closeImg.setOnClickListener(new View.OnClickListener() {
             @Override

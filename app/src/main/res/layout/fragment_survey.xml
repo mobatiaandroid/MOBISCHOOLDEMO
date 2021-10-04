@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <!-- <com.mobatia.naisapp.manager.CustomFontDJ5TextWhite
+     android:id="@+id/titleTextView"
+     android:layout_width="match_parent"
+     android:background="@color/split_bg"
+         android:paddingBottom="5dp"
+         android:paddingTop="5dp"
+     android:textColor="@color/white"
+     android:textSize="17dp"
+     android:gravity="center"
+     android:text="Title"
+     android:layout_height="wrap_content" />-->
+    <RelativeLayout
+        android:id="@+id/relativeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pushListView"
+            style="@style/ListStyleBlackTextTransparentSelectorNotify"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/relativeHeader"
+            android:layout_height="match_parent">
+        </androidx.recyclerview.widget.RecyclerView>
+    <include
+        android:id="@+id/progressDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTextView"
+        android:layout_centerHorizontal="true"
+        layout="@layout/custom_progress_layout"
+        android:visibility="gone" />
+
+</RelativeLayout>

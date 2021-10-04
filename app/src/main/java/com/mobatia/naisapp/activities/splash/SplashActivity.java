@@ -104,12 +104,16 @@ public class SplashActivity extends Activity implements
                     }
                     else
                     {
+                        PreferenceManager.setIsSurveyHomeVisible(mContext,false);
+                        PreferenceManager.setIsNoticeHomeVisible(mContext,false);
                         Intent loginIntent = new Intent(mContext,
                                 HomeListAppCompatActivity.class);
                         startActivity(loginIntent);
                         finish();
                     }
                 }else{
+                    PreferenceManager.setIsSurveyHomeVisible(mContext,false);
+                    PreferenceManager.setIsNoticeHomeVisible(mContext,false);
                     Intent loginIntent = new Intent(mContext,
                             HomeListAppCompatActivity.class);
                     startActivity(loginIntent);

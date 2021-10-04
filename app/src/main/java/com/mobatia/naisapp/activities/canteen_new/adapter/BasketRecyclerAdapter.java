@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mobatia.naisapp.R;
 import com.mobatia.naisapp.activities.canteen_new.model.BasketModel;
-import com.mobatia.naisapp.activities.canteen_new.model.MyOrderModel;
-import com.mobatia.naisapp.appcontroller.AppController;
 import com.mobatia.naisapp.manager.AppUtils;
 import com.mobatia.naisapp.recyclerviewmanager.ItemOffsetDecoration;
 
@@ -41,7 +39,7 @@ public class BasketRecyclerAdapter extends RecyclerView.Adapter<BasketRecyclerAd
             cartItemRecycler=view.findViewById(R.id.cartItemRecycler);
             itemDateTxt=view.findViewById(R.id.itemDateTxt);
             totalAmountTxt=view.findViewById(R.id.totalAmountTxt);
-            closeImg=view.findViewById(R.id.closeImg);
+            closeImg=view.findViewById(R.id.imgClose);
 
         }
     }

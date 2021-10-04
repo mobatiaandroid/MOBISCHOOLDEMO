@@ -250,8 +250,6 @@ public class SportsMainScreenFragment extends Fragment implements
                                         String bannerImage = respObject.optString(JTAG_BANNER_IMAGE);
                                         description = respObject.optString(JTAG_DESCRIPTION);
                                         contactEmail = respObject.optString(JTAG_CONTACT_EMAIL);
-
-
                                         String sports_fixture_badge=respObject.optString("sports_badge");
                                         PreferenceManager.setSportsFixtureBadge(mContext,sports_fixture_badge);
                                         String sports_edited_fixture_badge=respObject.optString("sports_edited_badge");
@@ -260,15 +258,14 @@ public class SportsMainScreenFragment extends Fragment implements
                                         PreferenceManager.setSportsCalendarBadge(mContext,sports_calendar_badge);
                                         String sports_edited_calendar_badge=respObject.optString("sports_calendar_edited_badge");
                                         PreferenceManager.setSportsEditedCalendarBadge(mContext,sports_edited_calendar_badge);
-
                                         String sports_information_badge=respObject.optString("sports_information_badge");
                                         PreferenceManager.setSportsInformationBadge(mContext,sports_information_badge);
                                         String sports_information_edited_badge=respObject.optString("sports_information_edited_badge");
                                         PreferenceManager.setSportsEditedInformationBadge(mContext,sports_information_edited_badge);
                                         if (!bannerImage.equalsIgnoreCase("")) {
                                             Glide.with(mContext).load(AppUtils.replace(bannerImage)).centerCrop().into(bannerImagePager);
-
-                                        } else {
+                                        }
+                                        else {
                                             bannerImagePager.setBackgroundResource(R.drawable.default_banner);
 //											bannerImagePager.setBackgroundResource(R.drawable.ccas_banner);
 

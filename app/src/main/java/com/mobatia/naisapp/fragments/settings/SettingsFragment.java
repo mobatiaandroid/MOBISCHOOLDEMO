@@ -44,6 +44,7 @@ import com.mobatia.naisapp.constants.NaisClassNameConstants;
 import com.mobatia.naisapp.constants.NaisTabConstants;
 import com.mobatia.naisapp.constants.URLConstants;
 import com.mobatia.naisapp.fragments.settings.adapter.CustomSettingsAdapter;
+import com.mobatia.naisapp.fragments.survey.SurveyActivity;
 import com.mobatia.naisapp.manager.AppUtils;
 import com.mobatia.naisapp.manager.PreferenceManager;
 import com.mobatia.naisapp.volleywrappermanager.VolleyWrapper;
@@ -87,6 +88,7 @@ public class SettingsFragment extends Fragment implements OnItemClickListener,
             add("Terms of Service");
             add("Email Us");
             add("Tutorials");
+            add("Survey");
             add("Change Password");
             add("Logout");
         }
@@ -223,8 +225,12 @@ public class SettingsFragment extends Fragment implements OnItemClickListener,
 
                     mContext.startActivity(mintent);
                     break;
-
-                case 4://change password
+                case 4://terms of service
+                    Intent intent4 = new Intent(mContext, SurveyActivity.class);
+                    intent4.putExtra("tab_type", mSettingsListArrayRegistered.get(position).toString());
+                    mContext.startActivity(intent4);
+                    break;
+                case 5://change password
                     if(AppUtils.isNetworkConnected(mContext)){
                         showChangePasswordAlert();
                     }else{
@@ -232,7 +238,7 @@ public class SettingsFragment extends Fragment implements OnItemClickListener,
 
                     }
                     break;
-                case 5:
+                case 6:
                     if(AppUtils.isNetworkConnected(mContext)){
                         AppUtils.showDialogAlertLogout(getActivity(), "Confirm", "Do you want to logout?", R.drawable.questionmark_icon, R.drawable.round);
                     }else{
@@ -298,6 +304,8 @@ public class SettingsFragment extends Fragment implements OnItemClickListener,
 
                     mContext.startActivity(mintent);
                     break;
+
+
 
                 case 4:
                     AppUtils.showDialogAlertLogout(getActivity(), "Confirm?", "Do you want to logout?", R.drawable.questionmark_icon, R.drawable.round);

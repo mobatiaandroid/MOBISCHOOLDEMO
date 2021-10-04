@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NAS_AFT_PAYMENT.iml" filepath="$PROJECT_DIR$/.idea/modules/NAS_AFT_PAYMENT.iml" group="NAS_AFT_PAYMENT" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="NAS_AFT_PAYMENT/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/giraffeplayer/giraffeplayer.iml" filepath="$PROJECT_DIR$/.idea/modules/giraffeplayer/giraffeplayer.iml" group="NAS_AFT_PAYMENT/giraffeplayer" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ijkplayer-java/ijkplayer-java.iml" filepath="$PROJECT_DIR$/.idea/modules/ijkplayer-java/ijkplayer-java.iml" group="NAS_AFT_PAYMENT/ijkplayer-java" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/payment-sdk/payment-sdk.iml" filepath="$PROJECT_DIR$/.idea/modules/payment-sdk/payment-sdk.iml" group="NAS_AFT_PAYMENT/payment-sdk" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/payment-sdk-core/payment-sdk-core.iml" filepath="$PROJECT_DIR$/.idea/modules/payment-sdk-core/payment-sdk-core.iml" group="NAS_AFT_PAYMENT/payment-sdk-core" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/payment-sdk-samsungpay/payment-sdk-samsungpay.iml" filepath="$PROJECT_DIR$/.idea/modules/payment-sdk-samsungpay/payment-sdk-samsungpay.iml" group="NAS_AFT_PAYMENT/payment-sdk-samsungpay" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NAS_AFT_PAYMENT.iml" filepath="$PROJECT_DIR$/.idea/modules/NAS_AFT_PAYMENT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NAS_AFT_PAYMENT.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NAS_AFT_PAYMENT.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/giraffeplayer/NAS_AFT_PAYMENT.giraffeplayer.iml" filepath="$PROJECT_DIR$/.idea/modules/giraffeplayer/NAS_AFT_PAYMENT.giraffeplayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ijkplayer-java/NAS_AFT_PAYMENT.ijkplayer-java.iml" filepath="$PROJECT_DIR$/.idea/modules/ijkplayer-java/NAS_AFT_PAYMENT.ijkplayer-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/payment-sdk/NAS_AFT_PAYMENT.payment-sdk.iml" filepath="$PROJECT_DIR$/.idea/modules/payment-sdk/NAS_AFT_PAYMENT.payment-sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/payment-sdk-core/NAS_AFT_PAYMENT.payment-sdk-core.iml" filepath="$PROJECT_DIR$/.idea/modules/payment-sdk-core/NAS_AFT_PAYMENT.payment-sdk-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/payment-sdk-samsungpay/NAS_AFT_PAYMENT.payment-sdk-samsungpay.iml" filepath="$PROJECT_DIR$/.idea/modules/payment-sdk-samsungpay/NAS_AFT_PAYMENT.payment-sdk-samsungpay.iml" />
     </modules>
   </component>
 </project>

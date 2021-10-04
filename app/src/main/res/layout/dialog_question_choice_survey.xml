@@ -1,0 +1,157 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialogcurvedrectangle"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:id="@+id/closeRelative">
+    <ImageView
+        android:id="@+id/closeImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/close_survey"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/closeImg"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal"
+        >
+        <com.mobatia.naisapp.manager.CustomFontBoldWithoutColor
+            android:id="@+id/currentQntTxt"
+            android:layout_width="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content"/>
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlack
+            android:id="@+id/questionCount"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:gravity="center_vertical"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_below="@+id/closeRelative"/>
+<!-- style="?android:attr/progressBarStyleHorizontal"-->
+<RelativeLayout
+    android:id="@+id/mailSurveyNameRelative"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_below="@+id/progressBar">
+
+    <ImageView
+        android:id="@+id/emailImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        android:src="@drawable/mail_survey" />
+
+    <com.mobatia.naisapp.manager.CustomFontBoldWithoutColor
+        android:id="@+id/surveyName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="2dp"
+        android:layout_toLeftOf="@+id/emailImg"
+        android:gravity="center"
+        android:textColor="@color/rel_one"
+        android:textSize="18sp" />
+
+</RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="375dp"
+            android:layout_below="@+id/mailSurveyNameRelative">
+            <com.mobatia.naisapp.manager.NonSwipeableViewPager
+                android:id="@+id/surveyPager"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/buttonRelative"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/view">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <RelativeLayout
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/previousBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/prev"/>
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/nxtQnt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/button_blue"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:text="Submit"/>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/nextQuestionBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/next" />
+            </RelativeLayout>
+
+
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
+</RelativeLayout>
+

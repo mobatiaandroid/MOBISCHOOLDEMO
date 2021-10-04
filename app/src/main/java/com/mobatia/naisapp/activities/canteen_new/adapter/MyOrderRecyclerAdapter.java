@@ -19,10 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mobatia.naisapp.BuildConfig;
 import com.mobatia.naisapp.R;
-import com.mobatia.naisapp.activities.canteen_new.ConfirmedOrderActivity;
 import com.mobatia.naisapp.activities.canteen_new.MyOrderActivity;
 import com.mobatia.naisapp.activities.canteen_new.model.MyOrderModel;
-import com.mobatia.naisapp.activities.canteen_new.model.OrderHistoryDateModel;
 import com.mobatia.naisapp.constants.IntentPassValueConstants;
 import com.mobatia.naisapp.constants.JSONConstants;
 import com.mobatia.naisapp.constants.NameValueConstants;
@@ -62,7 +60,7 @@ public class MyOrderRecyclerAdapter extends RecyclerView.Adapter<MyOrderRecycler
             itemDateTxt=view.findViewById(R.id.itemDateTxt);
             totalAmountTxt=view.findViewById(R.id.totalAmountTxt);
             pickUpLocation=view.findViewById(R.id.pickUpLocation);
-            closeImg=view.findViewById(R.id.closeImg);
+            closeImg=view.findViewById(R.id.imgClose);
 
         }
     }

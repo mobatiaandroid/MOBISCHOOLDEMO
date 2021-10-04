@@ -30,6 +30,7 @@ import me.leolin.shortcutbadger.ShortcutBadger;
  */
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
+    //Todo: PUSH TEST PENDING
     private static final String TAG = "MyFirebaseMsgService";
     Intent intent;
     LayoutInflater mInflater;

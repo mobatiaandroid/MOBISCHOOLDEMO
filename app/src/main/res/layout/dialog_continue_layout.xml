@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+
+    >
+    <RelativeLayout
+        android:id="@+id/bannerRelative"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/curved_top_rec_survey">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+           android:background="@drawable/survey"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/descriptionRelative"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/bannerRelative"
+        android:background="@drawable/dialoguebottomcurve"
+        android:layout_height="250dp">
+        <com.mobatia.naisapp.manager.CustomFontBoldWithoutColor
+            android:id="@+id/thankYouTxt"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Alert"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+            android:id="@+id/thoughtsTxt"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="There is an unanswered question on this survey. Would you like to continue?"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/thankYouTxt"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentBottom="true">
+            <com.mobatia.naisapp.manager.CustomButtonFontSansButton
+                android:id="@+id/btn_Ok"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="Answer the Question"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_blue"
+                />
+            <com.mobatia.naisapp.manager.CustomButtonFontSansButton
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:text="Continue Without Answering"
+                android:layout_above="@+id/btn_Ok"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_curved_red"
+                />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>
+

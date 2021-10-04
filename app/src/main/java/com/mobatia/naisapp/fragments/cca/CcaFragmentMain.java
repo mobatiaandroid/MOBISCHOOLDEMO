@@ -151,6 +151,7 @@ RelativeLayout externalCCA;
             public void onClick(View view) {
                 if (!(PreferenceManager.getUserId(mContext).equalsIgnoreCase("")))
                 {
+                    PreferenceManager.setStudIdForCCA(mContext,"");
                     Intent intent = new Intent(mContext, CCA_Activity.class);
                     intent.putExtra("tab_type", "CCA Options");
                     startActivity(intent);

@@ -110,6 +110,7 @@ public interface URLConstants {
 	public String URL_BOOK_PTA_TIME_SLOT_NEW=URL_HEAD+"parent_assoc_events_attending_or_not_new";
 	public String URL_GET_STAFF_LIST_ACCORDING_TO_STUDENT=URL_HEAD+"stafflist";
 	public String URL_SEND_EMAIL_TO_STAFF=URL_HEAD+"sendemail";
+	public String URL_SURVEY_SUBMIT=URL_HEAD+"survey_submit";
 	public String URL_PARENT_SIGNUP=URL_HEAD+"parent_signup";
 	public String URL_LOGIN=URL_HEAD+"login";
 	public String URL_CHANGEPSAAWORD=URL_HEAD+"changepassword";
@@ -180,6 +181,9 @@ public interface URLConstants {
     public String URL_GET_STAFF_NOTIFICATION_STATUS_CHANGE=URL_HEAD+"staff_notification_read_unread_status_change";
     public String URL_GET_STAFF_BADGE_COUNT=URL_HEAD+"staff_badge_counts";
     public String URL_GET_USER_BADGE_COUNT=URL_HEAD+"badge_counts";
+    public String URL_GET_USER_SURVEY=URL_HEAD+"surveys";
+    public String URL_GET_USER_SURVEY_LIST=URL_HEAD+"survey_list";
+    public String URL_GET_USER_SURVEY_DETAIL=URL_HEAD+"survey_detail";
     public String URL_GET_USER_BANNER=URL_HEAD+"home_banner_images_V1";
     public String URL_GET_TIME_EXCEED=URL_HEAD+"time_exceed_status";
     public String URL_GET_BANNER_GUIDANCE=URL_HEAD+"banner_guidance";

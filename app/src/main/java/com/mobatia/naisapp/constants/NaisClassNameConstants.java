@@ -19,7 +19,7 @@ public interface NaisClassNameConstants {
     String PRIMARY = "Primary";
     String TRIPS = "Payments";
     String SECONDARY = "Secondary";
-    String IB_PROGRAMME = "IB Programme";
+    String IB_PROGRAMME = "Sixth Form";
     String SPORTS = "Sports";
     String PERFORMING_ARTS = "Performing Arts";
     String CCAS = "CCAs";
@@ -37,6 +37,7 @@ public interface NaisClassNameConstants {
 	String REPORT = "Reports";
 	String PERMISSSION_SLIPS = "Permission Slips";
 	String UNIVERSITY_GUIDANCE = "University Guidance";
+	String SURVEY = "Survey";
     String PRIMARY_COMING_UP = PRIMARY+": "+COMING_UP;
     String SECONDARY_COMING_UP = SECONDARY+": "+COMING_UP;
     String EARLY_YEARS_COMING_UP = EARLY_YEARS+": "+COMING_UP;

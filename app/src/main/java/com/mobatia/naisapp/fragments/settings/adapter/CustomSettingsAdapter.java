@@ -117,7 +117,7 @@ public CustomSettingsAdapter(Context context,
 				}
 				else
 				{
-					if (position==5)
+					if (position==6)
 					{
 						mTitleTxt.setMinLines(2);
 						mTitleTxt.setText(mSettingsList.get(position).toString() + "\n(" + PreferenceManager.getUserEmail(mContext)+")");
@@ -126,7 +126,7 @@ public CustomSettingsAdapter(Context context,
 				}
 
 			} else {
-				if (position==5)
+				if (position==6)
 				{
 					mTitleTxt.setMinLines(2);
 					mTitleTxt.setText(mSettingsList.get(position).toString() + "\n(" + PreferenceManager.getUserEmail(mContext)+")");

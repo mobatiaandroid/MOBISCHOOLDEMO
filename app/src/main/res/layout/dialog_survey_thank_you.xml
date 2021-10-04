@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+
+    >
+
+    <RelativeLayout
+        android:id="@+id/bannerRelative"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/curved_top_rec_survey">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/thankful" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/descriptionRelative"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/bannerRelative"
+        android:background="@drawable/dialoguebottomcurve"
+        android:layout_height="150dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/thankyouRel">
+            <com.mobatia.naisapp.manager.CustomFontBoldWithoutColor
+                android:id="@+id/thankYouTxt"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="Thank You!!!"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginTop="10dp"/>
+
+            <ImageView
+                android:id="@+id/emailImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/mail_survey" />
+        </RelativeLayout>
+
+
+        <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+             android:id="@+id/thoughtsTxt"
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:text="Thank you for sharing your thoughts"
+             android:textSize="16sp"
+            android:layout_below="@+id/thankyouRel"
+             android:textColor="@color/black"
+             android:gravity="center"
+             android:layout_marginTop="10dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentBottom="true">
+            <com.mobatia.naisapp.manager.CustomButtonFontSansButton
+                android:id="@+id/btn_Ok"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="OK"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_blue"
+                />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>
+

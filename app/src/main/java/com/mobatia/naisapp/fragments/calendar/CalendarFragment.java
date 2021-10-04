@@ -976,7 +976,8 @@ mCalendarList.setAdapter(calendarFragmentListAdapter);*/
                                     timeString = tempArrayList.get(k).getEventModels().get(position).getFromTime().split(":");
                                     hour = Integer.parseInt(timeString[0]);
                                     min = Integer.parseInt(timeString[1]);
-                                } else {
+                                }
+                                else {
                                     hour = -1;
                                     min = -1;
                                 }
@@ -1000,7 +1001,9 @@ mCalendarList.setAdapter(calendarFragmentListAdapter);*/
                                         mEventAdded = true;
                                         tempArrayList.get(k).getEventModels().get(position).setEventAddToCalendar(true);
                                     }
-                                } else {
+                                }
+
+                                else {
                                     if (tempArrayList.get(k).getEventModels().get(position).isEventAddToCalendar()) {
 
                                         addReminder(year, month, day, hour, min, year, month,
@@ -1014,7 +1017,8 @@ mCalendarList.setAdapter(calendarFragmentListAdapter);*/
 
                             }
                         }
-                    } else if (eventDateListArray.size() > 0) {
+                    }
+                    else if (eventDateListArray.size() > 0) {
                         for (int k = 0; k < eventDateListArray.size(); k++) {
 
                             for (int position = 0; position < eventDateListArray.get(k).getEventModels().size(); position++) {
@@ -1093,7 +1097,9 @@ mCalendarList.setAdapter(calendarFragmentListAdapter);*/
                                         R.string.no_evnt_details), Toast.LENGTH_SHORT).show();
                     }
 //
-                } else {
+                }
+
+                else {
                     for (int k = 0; k < eventDateListArray.size(); k++) {
                         for (int position = 0; position < eventDateListArray.get(k).getEventModels().size(); position++) {
                             System.out.println("temparrayList size9k==" + k + " " + eventDateListArray.size());
@@ -1153,39 +1159,6 @@ mCalendarList.setAdapter(calendarFragmentListAdapter);*/
                                     eventDateListArray.get(k).getEventModels().get(position).setEventAddToCalendar(true);
                                 }
                             }
-//                            System.out.println("addToCalendar---" + addToCalendar);
-//                            if (addToCalendar) {
-//                                if (year != -1 && month != -1 && day != -1 && hour != -1
-//                                        && min != -1) {
-//                                    if (hour1 == -1 && min1 == -1) {
-//                                        addReminder(year, month, day, hour, min, year, month,
-//                                                (day), hour, min,
-//                                                eventDateListArray.get(k).getEventModels().get(position).getEvent(),
-//                                                eventDateListArray.get(k).getEventModels().get(position).getEvent(), 0, position, allDay, k);
-//
-//                                    } else {
-//                                        addReminder(year, month, day, hour, min, year, month,
-//                                                (day), hour1, min1,
-//                                                eventDateListArray.get(k).getEventModels().get(position).getEvent(),
-//                                                eventDateListArray.get(k).getEventModels().get(position).getEvent(), 0, position, allDay, k);
-//
-//                                    }
-//                                    mEventAdded = true;
-//
-//                                } else {
-//
-//                                    mEventAdded = false;
-////                                    Toast.makeText(mContext,
-////                                            mContext.getResources().getString(
-////                                                    R.string.no_evnt_details), Toast.LENGTH_SHORT).show();
-//                                }
-//                            } else {
-//                                mEventAdded = true;
-////                                Toast.makeText(mContext,
-////                                        mContext.getResources().getString(
-////                                                R.string.add_cal_success), Toast.LENGTH_SHORT).show();
-//
-//                            }
                         }
                     }
                 }

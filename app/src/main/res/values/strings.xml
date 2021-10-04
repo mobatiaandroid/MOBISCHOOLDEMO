@@ -85,7 +85,7 @@
         <!-- 7 -->
         <item>Secondary</item>
         <!-- 8 -->
-        <item>IB Programme</item>
+        <item>Sixth Form</item>
 
         <item>University Guidance</item>
         <!-- 9 -->
@@ -134,7 +134,7 @@
         <!-- 7 -->
         <item>Secondary</item>
         <!-- 8 -->
-        <item>IB Programme</item>
+        <item>Sixth Form</item>
         <!-- 9 -->
 
         <item>Performing Arts</item>
@@ -178,7 +178,7 @@
         <!-- 7 -->
         <item>Secondary</item>
         <!-- 8 -->
-        <item>IB Programme</item>
+        <item>Sixth Form</item>
         <!-- 9 -->
 
         <item>Performing Arts</item>
@@ -246,6 +246,7 @@
         <item>@drawable/aboutus</item>
         <!-- 16 -->
         <item>@drawable/contacts</item>
+
 
 
 

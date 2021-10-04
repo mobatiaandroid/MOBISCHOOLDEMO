@@ -21,9 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mobatia.naisapp.BuildConfig;
 import com.mobatia.naisapp.R;
 import com.mobatia.naisapp.activities.canteen_new.ConfirmedOrderActivity;
-import com.mobatia.naisapp.activities.canteen_new.model.CartItemDateModel;
 import com.mobatia.naisapp.activities.canteen_new.model.ConfirmedDataModel;
-import com.mobatia.naisapp.activities.canteen_new.model.ConfirmedDetailModel;
 import com.mobatia.naisapp.constants.IntentPassValueConstants;
 import com.mobatia.naisapp.constants.JSONConstants;
 import com.mobatia.naisapp.constants.NameValueConstants;
@@ -64,7 +62,7 @@ public class ConfirmedDateRecyclerAdapter extends RecyclerView.Adapter<Confirmed
             cartItemRecycler=view.findViewById(R.id.cartItemRecycler);
             itemDateTxt=view.findViewById(R.id.itemDateTxt);
             amountTxt=view.findViewById(R.id.amountTxt);
-            closeImg=view.findViewById(R.id.closeImg);
+            closeImg=view.findViewById(R.id.imgClose);
             amountRelative=view.findViewById(R.id.amountRelative);
 
         }

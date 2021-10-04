@@ -90,6 +90,7 @@ import com.mobatia.naisapp.fragments.report.ReportFragment;
 import com.mobatia.naisapp.fragments.secondary.SecondaryFragment;
 import com.mobatia.naisapp.fragments.settings.SettingsFragment;
 import com.mobatia.naisapp.fragments.sports.SportsMainScreenFragment;
+import com.mobatia.naisapp.fragments.survey.SurveyFragment;
 import com.mobatia.naisapp.fragments.trips.TripsFragmentNew;
 import com.mobatia.naisapp.fragments.universityguidance.UniverstyGuidanceFragment;
 import com.mobatia.naisapp.manager.AppUtils;
@@ -448,6 +449,12 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
                         .toString()
                         .equalsIgnoreCase(
                                 "class com.mobatia.naisapp.fragments.parent_essentials.ParentEssentialsFragment")
+                        || currentFragment
+                        .getClass()
+                        .toString()
+                        .equalsIgnoreCase(
+                                "class com.mobatia.naisapp.fragments.survey.SurveyFragment")
+
                         || currentFragment
                         .getClass()
                         .toString()
@@ -1132,6 +1139,13 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
 
 
                     break;
+//                case 20:
+//                    // about us
+//                    mFragment = new SurveyFragment(mListItemArray[position],
+//                            TAB_SURVEY_REG);
+//                    replaceFragmentsSelected(position);
+//
+//                    break;
                 case 20:
                     // Report
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
@@ -1491,6 +1505,11 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
                         .toString()
                         .equalsIgnoreCase(
                                 "class com.mobatia.naisapp.fragments.cca.CcaFragmentMain")
+                        || currentFragment
+                        .getClass()
+                        .toString()
+                        .equalsIgnoreCase(
+                                "class com.mobatia.naisapp.fragments.survey.SurveyFragment")
                         || currentFragment
                         .getClass()
                         .toString()
@@ -2086,6 +2105,7 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
 
 
                     break;
+
                 case 20:
                     // social media
                     if (PreferenceManager.getStaffOnly(mContext).equalsIgnoreCase("1"))
@@ -2126,6 +2146,7 @@ public class HomeListAppCompatActivity extends AppCompatActivity implements
                     mFragment = new ContactUsFragment(mListItemArray[position],
                             TAB_CONTACT_US_REG);
                     break;
+
 
 //                case 22:
 //                    // parents' evening

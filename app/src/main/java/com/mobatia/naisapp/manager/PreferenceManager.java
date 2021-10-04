@@ -3179,5 +3179,51 @@ public class PreferenceManager implements NaisTabConstants {
         Type type = new TypeToken<ArrayList<StudentModel>>() {}.getType();
         return gson.fromJson(json, type);
     }
+
+
+
+
+    public static void setSurvey(Context context, int survey) {
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("survey", survey);
+        editor.commit();
+    }
+    public static int getSurvey(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
+                Context.MODE_PRIVATE);
+        return prefs.getInt("survey", 0);
+
+    }
+
+    public static void setIsSurveyHomeVisible(Context context, boolean result) {
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("is_survey_visible", result);
+        editor.commit();
+    }
+
+    public static boolean getIsSurveyHomeVisible(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
+                Context.MODE_PRIVATE);
+        return prefs.getBoolean("is_survey_visible", false);
+    }
+
+    public static void setIsNoticeHomeVisible(Context context, boolean result) {
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("is_notice_visible", result);
+        editor.commit();
+    }
+
+    public static boolean getIsNoticeHomeVisible(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PREF_NAS,
+                Context.MODE_PRIVATE);
+        return prefs.getBoolean("is_notice_visible", false);
+    }
+
 }
 

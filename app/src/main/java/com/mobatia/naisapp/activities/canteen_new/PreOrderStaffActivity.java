@@ -4,10 +4,6 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,10 +14,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener;
@@ -36,16 +28,12 @@ import com.mobatia.naisapp.constants.NameValueConstants;
 import com.mobatia.naisapp.constants.StatusConstants;
 import com.mobatia.naisapp.constants.URLConstants;
 import com.mobatia.naisapp.fragments.parents_evening.model.StudentModel;
-import com.mobatia.naisapp.fragments.sports.adapter.StrudentSpinnerAdapter;
 import com.mobatia.naisapp.manager.AppUtils;
 import com.mobatia.naisapp.manager.HeaderManager;
 import com.mobatia.naisapp.manager.PreferenceManager;
-import com.mobatia.naisapp.recyclerviewmanager.DividerItemDecoration;
-import com.mobatia.naisapp.recyclerviewmanager.RecyclerItemListener;
 import com.mobatia.naisapp.volleywrappermanager.VolleyWrapper;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -216,7 +204,7 @@ public class PreOrderStaffActivity extends Activity implements URLConstants, Sta
         dialog.setCancelable(false);
         dialog.setContentView(R.layout.show_calendar_popup);
         Button GetDate = (Button) dialog.findViewById(R.id.GetDate);
-        ImageView closeImg=(ImageView)dialog.findViewById(R.id.closeImg);
+        ImageView closeImg=(ImageView)dialog.findViewById(R.id.imgClose);
         closeImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

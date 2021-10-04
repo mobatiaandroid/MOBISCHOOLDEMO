@@ -13,6 +13,7 @@ import com.android.volley.toolbox.Volley;
 import com.mobatia.naisapp.activities.cca.model.WeekListModel;
 import com.mobatia.naisapp.activities.sports.filter.FilterModel;
 import com.mobatia.naisapp.fragments.gallery.model.PhotosListModel;
+import com.mobatia.naisapp.fragments.home.module.AnswerSubmitModel;
 
 import java.util.ArrayList;
 
@@ -28,8 +29,10 @@ public class AppController extends MultiDexApplication {
     public static int myHistoryPosition;
   public static String stud_id;
   public static String categoryId;
+  public static String question_id;
+  public static String answer_id;
     private RequestQueue mRequestQueue;
-
+    private Boolean isSurveyEnable=false;
     private static AppController mInstance;
     public static ArrayList<String> eventIdList=new ArrayList<>();
     public static boolean isProviderEnabled=false;
@@ -45,6 +48,7 @@ public class AppController extends MultiDexApplication {
     public static ListView mListViews;
     public static String[] listitemArrays;
     public  static ArrayList<FilterModel> filterModelArrayListFirst;
+    public  static ArrayList<AnswerSubmitModel> mAnswerArrayList;
 public static boolean isCommunicationDetailVisited=false;
     @Override
     public void onCreate() {

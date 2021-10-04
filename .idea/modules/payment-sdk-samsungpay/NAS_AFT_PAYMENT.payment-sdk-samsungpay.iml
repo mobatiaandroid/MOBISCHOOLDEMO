@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":payment-sdk-samsungpay" external.linked.project.path="$MODULE_DIR$/../../../payment-sdk-samsungpay" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="com.github.network-international" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android-gradle" name="Android-Gradle">
+      <configuration>
+        <option name="GRADLE_PROJECT_PATH" value=":payment-sdk-samsungpay" />
+        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="4.0.1" />
+        <option name="LAST_KNOWN_AGP_VERSION" value="4.0.1" />
+      </configuration>
+    </facet>
+    <facet type="android" name="Android">
+      <configuration>
+        <option name="SELECTED_BUILD_VARIANT" value="debug" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
+        <afterSyncTasks>
+          <task>generateDebugSources</task>
+        </afterSyncTasks>
+        <option name="ALLOW_USER_CONFIGURATION" value="false" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../payment-sdk-samsungpay/src/main/res;file://$MODULE_DIR$/../../../payment-sdk-samsungpay/src/debug/res;file://$MODULE_DIR$/../../../payment-sdk-samsungpay/build/generated/res/rs/debug" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../payment-sdk-samsungpay/src/androidTest/res;file://$MODULE_DIR$/../../../payment-sdk-samsungpay/src/androidTestDebug/res;file://$MODULE_DIR$/../../../payment-sdk-samsungpay/build/generated/res/rs/androidTest/debug" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
+        <option name="PROJECT_TYPE" value="1" />
+      </configuration>
+    </facet>
+    <facet type="kotlin-language" name="Kotlin">
+      <configuration version="4" platform="JVM 1.8" allPlatforms="JVM [1.8]" useProjectSettings="false">
+        <compilerSettings>
+          <option name="additionalArguments" value="-Xallow-no-source-files" />
+        </compilerSettings>
+        <compilerArguments>
+          <option name="destination" value="$MODULE_DIR$/../../../payment-sdk-samsungpay/build/tmp/kotlin-classes/debug" />
+          <option name="classpath" value="$MODULE_DIR$/../../../payment-sdk-samsungpay/build/intermediates/compile_only_not_namespaced_r_class_jar/debug/R.jar:/Users/abdulsamad/.gradle/caches/transforms-2/files-2.1/a1785b250db1f69a57758ec02e6b1a85/jetified-samsungpay_2.5.00.jar:/Users/abdulsamad/.gradle/caches/transforms-2/files-2.1/6aace39139d6aedab3350d24b07213e0/jetified-kotlin-stdlib-jdk7-1.3.20.jar:/Users/abdulsamad/.gradle/caches/transforms-2/files-2.1/c6f4c7f8c131a52bb018ea846a6d5cd3/jetified-kotlinx-coroutines-core-1.1.1.jar:/Users/abdulsamad/.gradle/caches/transforms-2/files-2.1/4d7703bbb5c7b5f4818d2ae713df0534/jetified-kotlin-stdlib-1.3.20.jar:/Users/abdulsamad/.gradle/caches/transforms-2/files-2.1/c0b55d3f319b1e19c3d1fcaa204f54eb/jetified-kotlinx-coroutines-core-common-1.1.1.jar:/Users/abdulsamad/.gradle/caches/transforms-2/files-2.1/a7702058ce107c028216e268e9cd1650/jetified-kotlin-stdlib-common-1.3.20.jar:/Users/abdulsamad/.gradle/caches/transforms-2/files-2.1/b197c4f90873acf15183bcad05081898/jetified-annotations-13.0.jar:/Users/abdulsamad/Documents/AparnaLivePro/NAS_AFT_PAYMENT/payment-sdk-core/build/intermediates/compile_library_classes_jar/debug/classes.jar:/Users/abdulsamad/Library/Android/sdk/platforms/android-28/android.jar" />
+          <option name="noStdlib" value="true" />
+          <option name="noReflect" value="true" />
+          <option name="moduleName" value="payment-sdk-samsungpay_debug" />
+          <option name="languageVersion" value="1.5" />
+          <option name="apiVersion" value="1.3" />
+          <option name="pluginOptions">
+            <array />
+          </option>
+          <option name="pluginClasspaths">
+            <array />
+          </option>
+          <option name="errors">
+            <ArgumentParseErrors />
+          </option>
+        </compilerArguments>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
+    <output url="file://$MODULE_DIR$/../../../payment-sdk-samsungpay/build/intermediates/javac/debug/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../payment-sdk-samsungpay/build/intermediates/javac/debugUnitTest/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../payment-sdk-samsungpay">
+      <sourceFolder url="file://$MODULE_DIR$/../../../payment-sdk-samsungpay/build/generated/ap_generated_sources/debug/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../payment-sdk-samsungpay/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../payment-sdk-samsungpay/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../payment-sdk-samsungpay/src/main/res" type="java-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../payment-sdk-samsungpay/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../payment-sdk-samsungpay/build" />
+    </content>
+    <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" name="Gradle: ./payment-sdk-samsungpay/libs/samsungpay_2.5.00.jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.20" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.20" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.20" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
+    <orderEntry type="module" module-name="NAS_AFT_PAYMENT.payment-sdk-core" />
+  </component>
+</module>
