@@ -12,6 +12,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f01d9459977f4d439c79b3e16cdeef5f/jetified-play-services-fitness-10.2.1/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f01d9459977f4d439c79b3e16cdeef5f/jetified-play-services-fitness-10.2.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f01d9459977f4d439c79b3e16cdeef5f/jetified-play-services-fitness-10.2.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f7524bd0b4ca7e890194249e44b13398/jetified-play-services-fitness-10.2.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f7524bd0b4ca7e890194249e44b13398/jetified-play-services-fitness-10.2.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f7524bd0b4ca7e890194249e44b13398/jetified-play-services-fitness-10.2.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

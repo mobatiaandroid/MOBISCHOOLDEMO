@@ -14,10 +14,47 @@ public class CCADetailModel implements Serializable {
     ArrayList<CCAchoiceModel> ccaChoiceModel;
     String choice1Id;
     String choice2Id;
+    String location;
+    String location2;
+    String description;
+    String description2;
     String cca_item_start_timechoice1;
     String cca_item_end_timechoice1;
     String cca_item_start_timechoice2;
     String cca_item_end_timechoice2;
+
+    public String getLocation2() {
+        return location2;
+    }
+
+    public void setLocation2(String location2) {
+        this.location2 = location2;
+    }
+
+    public String getDescription2() {
+        return description2;
+    }
+
+    public void setDescription2(String description2) {
+        this.description2 = description2;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public ArrayList<CCAchoiceModel> getCcaChoiceModel2() {
         return ccaChoiceModel2;
     }

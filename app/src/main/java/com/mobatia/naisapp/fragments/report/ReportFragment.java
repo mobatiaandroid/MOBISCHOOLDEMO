@@ -612,6 +612,7 @@ private ReportModel addStudentDetails(JSONObject dataObject) {
                                                                 SurveyAnswersModel nModel=new SurveyAnswersModel();
                                                                 nModel.setId(answerObject.optString("id"));
                                                                 nModel.setAnswer(answerObject.optString("answer"));
+                                                                nModel.setLabel(answerObject.optString("label"));
                                                                 nModel.setClicked(false);
                                                                 nModel.setClicked0(false);
                                                                 surveyAnswersArrayList.add(nModel);

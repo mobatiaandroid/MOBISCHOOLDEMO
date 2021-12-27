@@ -49,7 +49,8 @@ import java.util.ArrayList;
 
 public class CcaFragmentMain extends Fragment implements AdapterView.OnItemClickListener,
         NaisTabConstants,CacheDIRConstants, URLConstants,
-        IntentPassValueConstants,NaisClassNameConstants,JSONConstants,StatusConstants {
+        IntentPassValueConstants,NaisClassNameConstants,JSONConstants,StatusConstants
+{
     TextView mTitleTextView;
     TextView descriptionTV;
    public static TextView ccaDot;
@@ -58,7 +59,7 @@ public class CcaFragmentMain extends Fragment implements AdapterView.OnItemClick
     private String mTitle;
     private String mTabId;
     LinearLayout mtitleRel;
-RelativeLayout externalCCA;
+    RelativeLayout externalCCA;
     RelativeLayout informationCCA;
     ImageView bannerImagePager;
     ImageView mailImageView;
@@ -98,6 +99,7 @@ RelativeLayout externalCCA;
                 false);
         mContext = getActivity();
         initialiseUI();
+
 
 
         return mRootView;
@@ -153,7 +155,7 @@ RelativeLayout externalCCA;
                 {
                     PreferenceManager.setStudIdForCCA(mContext,"");
                     Intent intent = new Intent(mContext, CCA_Activity.class);
-                    intent.putExtra("tab_type", "CCA Options");
+                    intent.putExtra("tab_type", "EAP Options");
                     startActivity(intent);
                 }
                 else

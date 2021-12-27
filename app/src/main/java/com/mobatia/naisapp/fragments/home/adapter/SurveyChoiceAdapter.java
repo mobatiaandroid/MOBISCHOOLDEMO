@@ -33,15 +33,16 @@ public class SurveyChoiceAdapter extends RecyclerView.Adapter<SurveyChoiceAdapte
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
 
-        TextView answerTxt,smileyTxt,numberTxt;
+        TextView answerTxt,smileyTxt,numberTxt,rateType;
         RelativeLayout choiseRelative,smileyRelative,startRelative,numberRelative;
         LinearLayout smileyLinear;
-        ImageView smileyImg;
+        ImageView smileyImg,indicateImg;
         public MyViewHolder(View view) {
             super(view);
             answerTxt = (TextView) view.findViewById(R.id.answerTxt);
             smileyTxt = (TextView) view.findViewById(R.id.smileyTxt);
             numberTxt = (TextView) view.findViewById(R.id.numberTxt);
+            rateType = (TextView) view.findViewById(R.id.rateType);
             choiseRelative = (RelativeLayout) view.findViewById(R.id.choiseRelative);
             smileyRelative = (RelativeLayout) view.findViewById(R.id.smileyRelative);
             startRelative = (RelativeLayout) view.findViewById(R.id.startRelative);
@@ -49,6 +50,7 @@ public class SurveyChoiceAdapter extends RecyclerView.Adapter<SurveyChoiceAdapte
             numberRelative = (RelativeLayout) view.findViewById(R.id.numberRelative);
             smileyImg = (ImageView) view.findViewById(R.id.smileyImg);
             starImg = (ImageView) view.findViewById(R.id.starImg);
+            indicateImg = (ImageView) view.findViewById(R.id.indicateImg);
             smileyLinear = (LinearLayout) view.findViewById(R.id.smileyLinear);
 //            progress_bar = (RoundedHorizontalProgressBar) view.findViewById(R.id.progress_bar);
 
@@ -83,22 +85,43 @@ public class SurveyChoiceAdapter extends RecyclerView.Adapter<SurveyChoiceAdapte
             holder.startRelative.setVisibility(View.GONE);
             holder.numberRelative.setVisibility(View.GONE);
             holder.answerTxt.setText(mSurveyArrayList.get(position).getAnswer());
-            if (mSurveyArrayList.get(position).isClicked())
+            boolean isClick=false;
+            for (int i=0;i<mSurveyArrayList.size();i++)
             {
+                if (mSurveyArrayList.get(i).isClicked())
+                {
+                    isClick=true;
+                }
+            }
+            if (isClick)
+            {
+                if (mSurveyArrayList.get(position).isClicked())
+                {
 
 
-                AppController.answer_id=mSurveyArrayList.get(position).getId();
-                holder.answerTxt.setBackgroundColor(mContext.getResources().getColor(R.color.canteen_green));
-                holder.choiseRelative.setBackgroundColor(mContext.getResources().getColor(R.color.canteen_green));
-                nextQuestionBtn.setClickable(true);
+                    AppController.answer_id=mSurveyArrayList.get(position).getId();
+                    holder.answerTxt.setBackgroundColor(mContext.getResources().getColor(R.color.white));
+                    holder.choiseRelative.setBackgroundColor(mContext.getResources().getColor(R.color.white));
+                    holder.indicateImg.setImageResource(R.drawable.option_select);
+                    nextQuestionBtn.setClickable(true);
+                }
+                else
+                {
+                    AppController.answer_id="";
+                    holder.answerTxt.setBackgroundColor(mContext.getResources().getColor(R.color.white));
+                    holder.choiseRelative.setBackgroundColor(mContext.getResources().getColor(R.color.white));
+                    holder.indicateImg.setImageResource(R.drawable.option_initial);
+                    //holder.answerTxt.setBackground(mContext.getResources().getDrawable(R.drawable.button_grey_white));
+                }
             }
             else
             {
                 AppController.answer_id="";
-                holder.answerTxt.setBackgroundColor(mContext.getResources().getColor(R.color.rel_two));
-                holder.choiseRelative.setBackgroundColor(mContext.getResources().getColor(R.color.rel_one));
-                //holder.answerTxt.setBackground(mContext.getResources().getDrawable(R.drawable.button_grey_white));
+                holder.answerTxt.setBackgroundColor(mContext.getResources().getColor(R.color.white));
+                holder.choiseRelative.setBackgroundColor(mContext.getResources().getColor(R.color.white));
+                holder.indicateImg.setImageResource(R.drawable.option_not_select);
             }
+
         }
         else if (answerType.equalsIgnoreCase("2"))
         {
@@ -109,8 +132,8 @@ public class SurveyChoiceAdapter extends RecyclerView.Adapter<SurveyChoiceAdapte
             holder.smileyTxt.setText(mSurveyArrayList.get(position).getAnswer());
             if (mSurveyArrayList.get(position).isClicked())
             {
-                holder.smileyTxt.setBackgroundColor(mContext.getResources().getColor(R.color.canteen_green));
-                holder.smileyRelative.setBackgroundColor(mContext.getResources().getColor(R.color.canteen_green));
+                holder.smileyRelative.setBackgroundColor(mContext.getResources().getColor(R.color.list_bg));
+                holder.smileyTxt.setTextColor(mContext.getResources().getColor(R.color.white));
                 if (mSurveyArrayList.get(position).getAnswer().equalsIgnoreCase("Sad"))
                 {
                     holder.smileyImg.setImageResource(R.drawable.sad);
@@ -140,9 +163,8 @@ public class SurveyChoiceAdapter extends RecyclerView.Adapter<SurveyChoiceAdapte
 
             else
             {
-                holder.smileyTxt.setBackgroundColor(mContext.getResources().getColor(R.color.rel_two));
-                holder.smileyLinear.setBackgroundColor(mContext.getResources().getColor(R.color.rel_two));
-                holder.smileyRelative.setBackgroundColor(mContext.getResources().getColor(R.color.rel_one));
+                holder.smileyRelative.setBackground(mContext.getResources().getDrawable(R.drawable.survey_num_bg));
+                holder.smileyTxt.setTextColor(mContext.getResources().getColor(R.color.black));
                 AppController.answer_id="";
                 if (mSurveyArrayList.get(position).getAnswer().equalsIgnoreCase("Sad"))
                 {
@@ -199,20 +221,22 @@ public class SurveyChoiceAdapter extends RecyclerView.Adapter<SurveyChoiceAdapte
             int value=position+1;
             String num=String.valueOf(value);
             holder.numberTxt.setText(mSurveyArrayList.get(position).getAnswer());
+            holder.rateType.setText(mSurveyArrayList.get(position).getLabel());
             if (mSurveyArrayList.get(position).isClicked())
             {
 
 
                 AppController.answer_id=mSurveyArrayList.get(position).getId();
-                holder.numberTxt.setBackgroundColor(mContext.getResources().getColor(R.color.canteen_green));
-                holder.numberRelative.setBackgroundColor(mContext.getResources().getColor(R.color.canteen_green));
+                holder.numberTxt.setTextColor(mContext.getResources().getColor(R.color.white));
+                holder.numberTxt.setBackgroundColor(mContext.getResources().getColor(R.color.list_bg));
+               // holder.numberRelative.setBackgroundColor(mContext.getResources().getColor(R.color.list_bg));
                 nextQuestionBtn.setClickable(true);
             }
             else
             {
                 AppController.answer_id="";
-                holder.numberTxt.setBackgroundColor(mContext.getResources().getColor(R.color.white));
-                holder.numberRelative.setBackground(mContext.getResources().getDrawable(R.drawable.curve_number_survey));
+                holder.numberTxt.setTextColor(mContext.getResources().getColor(R.color.black));
+                holder.numberTxt.setBackground(mContext.getResources().getDrawable(R.drawable.survey_num_bg));
                 //holder.answerTxt.setBackground(mContext.getResources().getDrawable(R.drawable.button_grey_white));
             }
         }

@@ -44,6 +44,11 @@ public class CCAfinalReviewAfterSubmissionAdapter extends RecyclerView.Adapter<C
         LinearLayout linearChoice1, linearChoice2;
         TextView textViewCCAaDateItemChoice1;
         TextView textViewCCAaDateItemChoice2;
+        TextView locationTxt;
+        TextView descriptionTxt;
+        TextView location2Txt;
+        TextView description2Txt;
+        TextView readMore,readMore1;
         public MyViewHolder(View view) {
             super(view);
             textViewCCAaDateItemChoice1 = (TextView) view.findViewById(R.id.textViewCCAaDateItemChoice1);
@@ -56,6 +61,12 @@ public class CCAfinalReviewAfterSubmissionAdapter extends RecyclerView.Adapter<C
             deleteChoice2 = (ImageView) view.findViewById(R.id.deleteChoice2);
             linearChoice1 = (LinearLayout) view.findViewById(R.id.linearChoice1);
             linearChoice2 = (LinearLayout) view.findViewById(R.id.linearChoice2);
+            locationTxt = (TextView) view.findViewById(R.id.locationTxt);
+            descriptionTxt = (TextView) view.findViewById(R.id.descriptionTxt);
+            description2Txt = (TextView) view.findViewById(R.id.description2Txt);
+            location2Txt = (TextView) view.findViewById(R.id.location2Txt);
+            readMore = (TextView) view.findViewById(R.id.readMore);
+            readMore1 = (TextView) view.findViewById(R.id.readMore1);
             }
     }
     public CCAfinalReviewAfterSubmissionAdapter(Context mContext, ArrayList<CCAReviewAfterSubmissionModel> mCCADetailModelArrayList) {
@@ -75,7 +86,15 @@ public class CCAfinalReviewAfterSubmissionAdapter extends RecyclerView.Adapter<C
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         holder.textViewCCADay.setText(mCCADetailModelArrayList.get(position).getDay());
-        holder.attendanceListIcon.setOnClickListener(new View.OnClickListener() {
+        if(mCCADetailModelArrayList.get(position).getCca_item_description().length()>40)
+        {
+            holder.readMore1.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            holder.readMore1.setVisibility(View.GONE);
+        }
+         holder.attendanceListIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if ((!(mCCADetailModelArrayList.get(position).getChoice1().equalsIgnoreCase("0")) || !(mCCADetailModelArrayList.get(position).getChoice1().equalsIgnoreCase("-1"))) || (!(mCCADetailModelArrayList.get(position).getChoice2().equalsIgnoreCase("0")) || !(mCCADetailModelArrayList.get(position).getChoice2().equalsIgnoreCase("-1")))) {
@@ -83,6 +102,41 @@ public class CCAfinalReviewAfterSubmissionAdapter extends RecyclerView.Adapter<C
                     }
                     }
         });
+        holder.readMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+
+                AppUtils.showDialogAlertDismiss((Activity) mContext, "Description", mCCADetailModelArrayList.get(position).getCca_item_description_2(), R.drawable.exclamationicon, R.drawable.round);
+
+            }
+        });
+        holder.description2Txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AppUtils.showDialogAlertDismiss((Activity) mContext, "Description", mCCADetailModelArrayList.get(position).getCca_item_description_2(), R.drawable.exclamationicon, R.drawable.round);
+
+            }
+        });
+
+        holder.readMore1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AppUtils.showDialogAlertDismiss((Activity) mContext, "Description", mCCADetailModelArrayList.get(position).getCca_item_description(), R.drawable.exclamationicon, R.drawable.round);
+
+            }
+        });
+        holder.descriptionTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AppUtils.showDialogAlertDismiss((Activity) mContext, "Description", mCCADetailModelArrayList.get(position).getCca_item_description(), R.drawable.exclamationicon, R.drawable.round);
+
+            }
+        });
+
         if (mCCADetailModelArrayList.get(position).getChoice1().equalsIgnoreCase("0")) {
             holder.linearChoice1.setVisibility(View.GONE);
             holder.textViewCCAChoice1.setText("Choice 1 : None");
@@ -92,6 +146,29 @@ public class CCAfinalReviewAfterSubmissionAdapter extends RecyclerView.Adapter<C
             } else {
             holder.linearChoice1.setVisibility(View.VISIBLE);
             holder.textViewCCAChoice1.setText(mCCADetailModelArrayList.get(position).getChoice1());
+             if (mCCADetailModelArrayList.get(position).getVenue().equalsIgnoreCase("0") || mCCADetailModelArrayList.get(position).getVenue().equalsIgnoreCase(""))
+            {
+                holder.locationTxt.setVisibility(View.GONE);
+            }
+            else
+            {
+                holder.locationTxt.setVisibility(View.VISIBLE);
+                holder.locationTxt.setText("Location            : "+mCCADetailModelArrayList.get(position).getVenue());
+
+            }
+            System.out.println("DESC EDIT"+mCCADetailModelArrayList.get(position).getCca_item_description());
+            if (mCCADetailModelArrayList.get(position).getCca_item_description().equalsIgnoreCase("0") || mCCADetailModelArrayList.get(position).getCca_item_description().equalsIgnoreCase(""))
+            {
+                holder.descriptionTxt.setVisibility(View.GONE);
+                holder.readMore1.setVisibility(View.GONE);
+            }
+            else
+            {
+                holder.descriptionTxt.setVisibility(View.VISIBLE);
+                holder.readMore1.setVisibility(View.VISIBLE);
+                holder.descriptionTxt.setText("Description      : "+mCCADetailModelArrayList.get(position).getCca_item_description());
+
+            }
             if (mCCADetailModelArrayList.get(position).getCca_item_start_time() != null && mCCADetailModelArrayList.get(position).getCca_item_end_time() != null) {
                 holder.textViewCCAaDateItemChoice1.setVisibility(View.VISIBLE);
                 holder.textViewCCAaDateItemChoice1.setText("(" + AppUtils.convertTimeToAMPM(mCCADetailModelArrayList.get(position).getCca_item_start_time()) + " - " + AppUtils.convertTimeToAMPM(mCCADetailModelArrayList.get(position).getCca_item_end_time()) + ")");
@@ -124,6 +201,30 @@ public class CCAfinalReviewAfterSubmissionAdapter extends RecyclerView.Adapter<C
             } else {
             holder.linearChoice2.setVisibility(View.VISIBLE);
             holder.textViewCCAChoice2.setText(mCCADetailModelArrayList.get(position).getChoice2());
+             if (mCCADetailModelArrayList.get(position).getVenue2().equalsIgnoreCase("0") || mCCADetailModelArrayList.get(position).getVenue2().equalsIgnoreCase(""))
+            {
+                holder.location2Txt.setVisibility(View.GONE);
+                holder.readMore.setVisibility(View.GONE);
+            }
+            else
+            {
+                holder.location2Txt.setVisibility(View.VISIBLE);
+                holder.readMore.setVisibility(View.VISIBLE);
+                holder.location2Txt.setText("Location            : "+mCCADetailModelArrayList.get(position).getVenue2());
+
+            }
+
+
+            if (mCCADetailModelArrayList.get(position).getCca_item_description_2().equalsIgnoreCase("0") || mCCADetailModelArrayList.get(position).getCca_item_description_2().equalsIgnoreCase(""))
+            {
+                holder.description2Txt.setVisibility(View.GONE);
+            }
+            else
+            {
+                holder.description2Txt.setVisibility(View.VISIBLE);
+                holder.description2Txt.setText("Description      : "+mCCADetailModelArrayList.get(position).getCca_item_description_2());
+
+            }
             if (mCCADetailModelArrayList.get(position).getCca_item_start_time() != null && mCCADetailModelArrayList.get(position).getCca_item_end_time() != null) {
                 holder.textViewCCAaDateItemChoice2.setVisibility(View.VISIBLE);
                 holder.textViewCCAaDateItemChoice2.setText("(" + AppUtils.convertTimeToAMPM(mCCADetailModelArrayList.get(position).getCca_item_start_time()) + " - " + AppUtils.convertTimeToAMPM(mCCADetailModelArrayList.get(position).getCca_item_end_time()) + ")");

@@ -93,6 +93,7 @@ public class SurveyActivity extends Activity implements NaisTabConstants, CacheD
     String created_at="";
     String updated_at="";
     String contact_email="";
+    String surveyEmail="";
 
     TextView text_content;
     TextView text_dialog;
@@ -286,6 +287,7 @@ public class SurveyActivity extends Activity implements NaisTabConstants, CacheD
                                         created_at=dataObject.optString("created_at");
                                         updated_at=dataObject.optString("updated_at");
                                         contact_email=dataObject.optString("contact_email");
+                                        surveyEmail=dataObject.optString("contact_email");
                                         surveyQuestionArrayList=new ArrayList<>();
                                         JSONArray questionsArray=dataObject.getJSONArray("questions");
                                         if (questionsArray.length()>0)
@@ -308,6 +310,7 @@ public class SurveyActivity extends Activity implements NaisTabConstants, CacheD
                                                         SurveyAnswersModel nModel=new SurveyAnswersModel();
                                                         nModel.setId(answerObject.optString("id"));
                                                         nModel.setAnswer(answerObject.optString("answer"));
+                                                        nModel.setLabel(answerObject.optString("label"));
                                                         if (questionsObject.optString("answer").equalsIgnoreCase(answerObject.optString("id")))
                                                         {
                                                             nModel.setClicked(true);
@@ -531,6 +534,57 @@ public class SurveyActivity extends Activity implements NaisTabConstants, CacheD
                 dialog.dismiss();
             }
         });
+
+        ImageView emailImg = (ImageView) dialog.findViewById(R.id.emailImg);
+        if (surveyEmail.equalsIgnoreCase(""))
+        {
+            emailImg.setVisibility(View.GONE);
+        }
+        else
+        {
+            emailImg.setVisibility(View.VISIBLE);
+        }
+
+        emailImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final Dialog dialog = new Dialog(mContext);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.alert_send_email_dialog);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                Button dialogCancelButton = (Button) dialog.findViewById(R.id.cancelButton);
+                Button submitButton = (Button) dialog.findViewById(R.id.submitButton);
+                text_dialog = (EditText) dialog.findViewById(R.id.text_dialog);
+                text_content = (EditText) dialog.findViewById(R.id.text_content);
+
+
+                dialogCancelButton.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+
+                    public void onClick(View v) {
+                        //   AppUtils.hideKeyBoard(mContext);
+                        InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Activity.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(text_dialog.getWindowToken(), 0);
+                        imm.hideSoftInputFromWindow(text_content.getWindowToken(), 0);
+                        dialog.dismiss();
+
+                    }
+
+                });
+
+                submitButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        sendEmailToStaff(URL_SEND_EMAIL_TO_STAFF,surveyEmail,dialog);
+                    }
+                });
+
+
+                dialog.show();
+            }
+        });
         dialog.show();
 
     }
@@ -571,7 +625,7 @@ public class SurveyActivity extends Activity implements NaisTabConstants, CacheD
     }
 
 
-    private void sendEmailToStaff(String URL,String email) {
+    private void sendEmailToStaff(String URL,String email,Dialog dialog) {
         VolleyWrapper volleyWrapper=new VolleyWrapper(URL);
         String[] name={"access_token","email","users_id","title","message"};
         String[] value={PreferenceManager.getAccessToken(mContext),email,PreferenceManager.getUserId(mContext),text_dialog.getText().toString(),text_content.getText().toString()};//contactEmail
@@ -588,6 +642,7 @@ public class SurveyActivity extends Activity implements NaisTabConstants, CacheD
                         JSONObject secobj = obj.getJSONObject(JTAG_RESPONSE);
                         String status_code = secobj.getString(JTAG_STATUSCODE);
                         if (status_code.equalsIgnoreCase("303")) {
+                            dialog.dismiss();
                             Toast toast = Toast.makeText(mContext, "Successfully sent email to staff", Toast.LENGTH_SHORT);
                             toast.show();
                         } else {
@@ -601,7 +656,7 @@ public class SurveyActivity extends Activity implements NaisTabConstants, CacheD
                             public void tokenrenewed() {
                             }
                         });
-                        sendEmailToStaff(URL_SEND_EMAIL_TO_STAFF,email);
+                        sendEmailToStaff(URL_SEND_EMAIL_TO_STAFF,email,dialog);
 
                     } else if (response_code.equalsIgnoreCase("401")) {
                         AppUtils.getToken(mContext, new AppUtils.GetTokenSuccess() {
@@ -609,7 +664,7 @@ public class SurveyActivity extends Activity implements NaisTabConstants, CacheD
                             public void tokenrenewed() {
                             }
                         });
-                        sendEmailToStaff(URL_SEND_EMAIL_TO_STAFF,email);
+                        sendEmailToStaff(URL_SEND_EMAIL_TO_STAFF,email,dialog);
 
 
                     } else if (response_code.equalsIgnoreCase("402")) {
@@ -618,7 +673,7 @@ public class SurveyActivity extends Activity implements NaisTabConstants, CacheD
                             public void tokenrenewed() {
                             }
                         });
-                        sendEmailToStaff(URL_SEND_EMAIL_TO_STAFF,email);
+                        sendEmailToStaff(URL_SEND_EMAIL_TO_STAFF,email,dialog);
 
                     } else {
 						/*CustomDialog dialog = new CustomDialog(mContext, getResources().getString(R.string.common_error)
@@ -744,7 +799,7 @@ public class SurveyActivity extends Activity implements NaisTabConstants, CacheD
             emailImg.setVisibility(View.GONE);
         }
         else {
-            emailImg.setVisibility(View.VISIBLE);
+            emailImg.setVisibility(View.GONE);
         }
 
         emailImg.setOnClickListener(new View.OnClickListener() {
@@ -779,7 +834,7 @@ public class SurveyActivity extends Activity implements NaisTabConstants, CacheD
                 submitButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        sendEmailToStaff(URL_SEND_EMAIL_TO_STAFF,contactEmail);
+                        sendEmailToStaff(URL_SEND_EMAIL_TO_STAFF,contactEmail,dialog);
                     }
                 });
 

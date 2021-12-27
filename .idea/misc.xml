@@ -6,17 +6,45 @@
         <entry key="../../../../../layout/custom_preview.xml" value="0.14479166666666668" />
         <entry key="app/src/main/res/drawable/button_grey_white.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/drawable/button_grey_white_curve.xml" value="0.171875" />
+        <entry key="app/src/main/res/drawable/button_grey_with_teal.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/drawable/curve_filled_cca_completed.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/drawable/curve_filled_cca_not_available.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/drawable/curve_filled_cca_pending.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/drawable/curve_filled_green_canteen.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/drawable/curve_filled_light_grey_sports.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/drawable/curve_filled_light_greypa.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/drawable/curve_filled_pta_selected.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/drawable/curve_filled_split_bg_canteen.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/drawable/curve_filled_split_bg_sports.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/drawable/curve_number_survey.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/drawable/curved_blue.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/drawable/curved_filled_layout.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/drawable/curved_filled_layout_parents_association.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/drawable/curved_rel_layout.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/drawable/rec_blue_border_white.xml" value="0.171875" />
+        <entry key="app/src/main/res/drawable/survey_num_bg.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/absence_recycler_list_item.xml" value="0.10207700101317123" />
+        <entry key="app/src/main/res/layout/activity_cca.xml" value="0.12409420289855072" />
+        <entry key="app/src/main/res/layout/activity_cca_review.xml" value="0.20438388625592416" />
+        <entry key="app/src/main/res/layout/activity_cca_review_after_submit.xml" value="0.11730072463768115" />
+        <entry key="app/src/main/res/layout/activity_cca_selection.xml" value="0.11875" />
         <entry key="app/src/main/res/layout/adapter_canteen_item_recycler_new.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/adapter_cca_activity.xml" value="0.11197916666666667" />
+        <entry key="app/src/main/res/layout/adapter_cca_final_review.xml" value="0.12409420289855072" />
+        <entry key="app/src/main/res/layout/adapter_cca_review_after_submit.xml" value="0.12409420289855072" />
+        <entry key="app/src/main/res/layout/adapter_ccalist_activity_new.xml" value="0.115625" />
         <entry key="app/src/main/res/layout/adapter_survey_choice.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/adapter_survey_questions.xml" value="0.12182971014492754" />
+        <entry key="app/src/main/res/layout/dialog_attendance_list.xml" value="0.11231884057971014" />
         <entry key="app/src/main/res/layout/dialog_notice.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dialog_question_choice_survey.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dialog_survey_thank_you.xml" value="0.22" />
         <entry key="app/src/main/res/layout/dialog_survey_welcome_screen.xml" value="0.10207700101317123" />
         <entry key="app/src/main/res/layout/fragment_canteen_new.xml" value="0.10960144927536232" />
+        <entry key="app/src/main/res/layout/fragment_cca_main.xml" value="0.1015625" />
         <entry key="app/src/main/res/layout/fragment_home_screen_new.xml" value="0.10960144927536232" />
         <entry key="app/src/main/res/layout/item_list_activity_new.xml" value="0.10960144927536232" />
+        <entry key="app/src/main/res/layout/parentsactivityrecyclerview.xml" value="0.11730072463768115" />
       </map>
     </option>
   </component>

@@ -58,6 +58,24 @@
             android:text="None"
             android:textColor="@color/dark_grey1"
             android:textSize="14sp" />
+    <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+
+        android:id="@+id/locationTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/dark_grey1"
+        android:textSize="14sp" />
+    <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+
+        android:id="@+id/descriptionTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/dark_grey1"
+        android:textSize="14sp" />
 </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -101,6 +119,24 @@
             android:text="None"
             android:textColor="@color/dark_grey1"
             android:textSize="14sp" />
+            <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+
+                android:id="@+id/location2Txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/dark_grey1"
+                android:textSize="14sp" />
+            <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+
+                android:id="@+id/description2Txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/dark_grey1"
+                android:textSize="14sp" />
             </LinearLayout>
 
     </LinearLayout>

@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -68,7 +70,7 @@ public class CCA_Activity extends Activity implements URLConstants, JSONConstant
     String stud_img="";
 
     ImageView home;
-    String tab_type = "CCA Options";
+    String tab_type = "EAP Options";
     Bundle extras;
     RecyclerView recycler_review;
     GridLayoutManager recyclerViewLayoutManager;
@@ -191,7 +193,9 @@ public class CCA_Activity extends Activity implements URLConstants, JSONConstant
 
                     }
 
-                    public void onLongClickItem(View v, int position) {
+                    public void onLongClickItem(View v, int position)
+                    {
+                           
                     }
                 }));
     }
@@ -510,6 +514,8 @@ public class CCA_Activity extends Activity implements URLConstants, JSONConstant
                             mCCADetailModelchoice.setCca_item_start_time(objectCCAchoice.optString("cca_item_start_time"));
                             mCCADetailModelchoice.setCca_item_end_time(objectCCAchoice.optString("cca_item_end_time"));
                             mCCADetailModelchoice.setVenue(objectCCAchoice.optString("venue"));
+                            mCCADetailModelchoice.setDescription(objectCCAchoice.optString("description"));
+                            Log.e("DESC 1",objectCCAchoice.optString("description"));
                             if (objectCCAchoice.optString("attending_status").equalsIgnoreCase("0")) {
                                 if (dataObject.optString("isAttendee").equalsIgnoreCase("2")) {
                                     mCCADetailModelchoice.setStatus("1");
@@ -532,6 +538,7 @@ public class CCA_Activity extends Activity implements URLConstants, JSONConstant
                             mCCADetailModelchoice.setCca_item_name("None");
                             mCCADetailModelchoice.setCca_details_id("-541");
                             mCCADetailModelchoice.setVenue("0");
+                            mCCADetailModelchoice.setDescription("0");
                             mCCADetailModelchoice.setIsattending("0");
                             if (k == 0) {
                                 if (dataObject.optString("isAttendee").equalsIgnoreCase("2")) {
@@ -567,6 +574,8 @@ public class CCA_Activity extends Activity implements URLConstants, JSONConstant
                             mCCADetailModelchoice.setCca_item_start_time(objectCCAchoice.optString("cca_item_start_time"));
                             mCCADetailModelchoice.setCca_item_end_time(objectCCAchoice.optString("cca_item_end_time"));
                             mCCADetailModelchoice.setVenue(objectCCAchoice.optString("venue"));
+                            mCCADetailModelchoice.setDescription(objectCCAchoice.optString("description"));
+                            Log.e("DESC 2",objectCCAchoice.optString("description"));
                             mCCADetailModelchoice.setDayChoice(objectCCAchoice.optString("day"));
                             if (objectCCAchoice.optString("attending_status").equalsIgnoreCase("0")) {
                                 if (dataObject.optString("isAttendee").equalsIgnoreCase("2")) {
@@ -590,6 +599,7 @@ public class CCA_Activity extends Activity implements URLConstants, JSONConstant
                             mCCADetailModelchoice.setCca_details_id("-541");
                             mCCADetailModelchoice.setIsattending("0");
                             mCCADetailModelchoice.setVenue("0");
+                            mCCADetailModelchoice.setDescription("0");
 
                             if (k == 0) {
                                 if (dataObject.optString("isAttendee").equalsIgnoreCase("2")) {

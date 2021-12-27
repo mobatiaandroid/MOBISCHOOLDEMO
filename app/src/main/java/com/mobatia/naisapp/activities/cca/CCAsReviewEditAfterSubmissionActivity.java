@@ -246,11 +246,14 @@ public class CCAsReviewEditAfterSubmissionActivity extends Activity implements U
             if (choice1 != null) {
                 if(choice1.has("cca_item_name")) {
                     mCCAModel.setChoice1(choice1.optString("cca_item_name"));
+                    mCCAModel.setVenue(choice1.optString("venue"));
+                    mCCAModel.setCca_item_description(choice1.optString("cca_item_description"));
                     mCCAModel.setCca_item_start_time(choice1.optString("cca_item_start_time"));
                     mCCAModel.setCca_item_end_time(choice1.optString("cca_item_end_time"));
                     JSONArray absentDaysChoice1 = choice1.optJSONArray("absentDays");
                     absentDaysChoice1Array = new ArrayList<>();
-                    if (choice1.has("absentDays")) {
+                    if (choice1.has("absentDays"))
+                    {
 
                         for (int i = 0; i < absentDaysChoice1.length(); i++) {
                             absentDaysChoice1Array.add(absentDaysChoice1.optString(i));
@@ -291,6 +294,8 @@ public class CCAsReviewEditAfterSubmissionActivity extends Activity implements U
                 if(choice2.has("cca_item_name")) {
 
                     mCCAModel.setChoice2(choice2.optString("cca_item_name"));
+                    mCCAModel.setVenue2(choice2.optString("venue"));
+                    mCCAModel.setCca_item_description_2(choice2.optString("cca_item_description"));
                     mCCAModel.setCca_item_start_time(choice2.optString("cca_item_start_time"));
                     mCCAModel.setCca_item_end_time(choice2.optString("cca_item_end_time"));
                 JSONArray absentDaysChoice2 = choice2.optJSONArray("absentDays");

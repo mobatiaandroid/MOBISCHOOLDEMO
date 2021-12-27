@@ -19,6 +19,43 @@ public class CCAReviewAfterSubmissionModel implements Serializable {
     String cca_item_end_time;
     String attending_status;
     String attending_status2;
+    String venue;
+    String venue2;
+    String cca_item_description_2;
+    String cca_item_description;
+
+    public String getVenue2() {
+        return venue2;
+    }
+
+    public void setVenue2(String venue2) {
+        this.venue2 = venue2;
+    }
+
+    public String getCca_item_description_2() {
+        return cca_item_description_2;
+    }
+
+    public void setCca_item_description_2(String cca_item_description_2) {
+        this.cca_item_description_2 = cca_item_description_2;
+    }
+
+    public String getVenue() {
+        return venue;
+    }
+
+    public void setVenue(String venue) {
+        this.venue = venue;
+    }
+
+    public String getCca_item_description() {
+        return cca_item_description;
+    }
+
+    public void setCca_item_description(String cca_item_description) {
+        this.cca_item_description = cca_item_description;
+    }
+
     public String getDay() {
         return day;
     }

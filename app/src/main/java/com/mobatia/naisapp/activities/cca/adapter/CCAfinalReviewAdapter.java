@@ -28,6 +28,10 @@ public class CCAfinalReviewAdapter extends  RecyclerView.Adapter<CCAfinalReviewA
         TextView textViewCCADay;
         TextView textViewCCAChoice1;
         TextView textViewCCAChoice2;
+        TextView locationTxt;
+        TextView location2Txt;
+        TextView description2Txt;
+        TextView descriptionTxt;
         LinearLayout linearChoice1,linearChoice2;
         public MyViewHolder(View view) {
             super(view);
@@ -37,6 +41,10 @@ public class CCAfinalReviewAdapter extends  RecyclerView.Adapter<CCAfinalReviewA
             textViewCCADay= (TextView) view.findViewById(R.id.textViewCCADay);
             textViewCCAChoice1= (TextView) view.findViewById(R.id.textViewCCAChoice1);
             textViewCCAChoice2= (TextView) view.findViewById(R.id.textViewCCAChoice2);
+            locationTxt= (TextView) view.findViewById(R.id.locationTxt);
+            location2Txt= (TextView) view.findViewById(R.id.location2Txt);
+            description2Txt= (TextView) view.findViewById(R.id.description2Txt);
+            descriptionTxt= (TextView) view.findViewById(R.id.descriptionTxt);
             linearChoice1= (LinearLayout) view.findViewById(R.id.linearChoice1);
             linearChoice2= (LinearLayout) view.findViewById(R.id.linearChoice2);
 
@@ -68,7 +76,43 @@ public CCAfinalReviewAdapter(Context mContext,ArrayList<CCADetailModel>mCCADetai
 
 
 
+        if (mCCADetailModelArrayList.get(position).getLocation().equalsIgnoreCase("0")|| mCCADetailModelArrayList.get(position).getLocation().equalsIgnoreCase(""))
+        {
+            holder.locationTxt.setVisibility(View.GONE);
+        }
+        else
+        {
+            holder.locationTxt.setVisibility(View.VISIBLE);
+            holder.locationTxt.setText("Location       : "+mCCADetailModelArrayList.get(position).getLocation());
+        }
+        if (mCCADetailModelArrayList.get(position).getLocation2().equalsIgnoreCase("0")|| mCCADetailModelArrayList.get(position).getLocation2().equalsIgnoreCase(""))
+        {
+            holder.location2Txt.setVisibility(View.GONE);
+        }
+        else
+        {
+            holder.location2Txt.setVisibility(View.VISIBLE);
+            holder.location2Txt.setText("Location       : "+mCCADetailModelArrayList.get(position).getLocation2());
+        }
 
+        if (mCCADetailModelArrayList.get(position).getDescription().equalsIgnoreCase("0")|| mCCADetailModelArrayList.get(position).getDescription().equalsIgnoreCase(""))
+        {
+            holder.descriptionTxt.setVisibility(View.GONE);
+        }
+        else
+        {
+            holder.descriptionTxt.setVisibility(View.VISIBLE);
+            holder.descriptionTxt.setText("Description : "+mCCADetailModelArrayList.get(position).getDescription());
+        }
+        if (mCCADetailModelArrayList.get(position).getDescription2().equalsIgnoreCase("0")|| mCCADetailModelArrayList.get(position).getDescription2().equalsIgnoreCase(""))
+        {
+            holder.description2Txt.setVisibility(View.GONE);
+        }
+        else
+        {
+            holder.description2Txt.setVisibility(View.VISIBLE);
+            holder.description2Txt.setText("Description : "+mCCADetailModelArrayList.get(position).getDescription2());
+        }
     holder.textViewCCADay.setText(mCCADetailModelArrayList.get(position).getDay());
         if (mCCADetailModelArrayList.get(position).getChoice1()==null)
         {
@@ -80,7 +124,6 @@ public CCAfinalReviewAdapter(Context mContext,ArrayList<CCADetailModel>mCCADetai
             holder.linearChoice1.setVisibility(View.VISIBLE);
 
             holder.textViewCCAChoice1.setText("Choice 1 : "+mCCADetailModelArrayList.get(position).getChoice1());
-
 
             if (mCCADetailModelArrayList.get(position).getCca_item_start_timechoice1()!=null && mCCADetailModelArrayList.get(position).getCca_item_end_timechoice1()!=null)
             {
@@ -102,7 +145,6 @@ public CCAfinalReviewAdapter(Context mContext,ArrayList<CCADetailModel>mCCADetai
             else
             {
                 holder.textViewCCAaDateItemChoice1.setVisibility(View.GONE);
-
             }
 
         }

@@ -61,8 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/messageTxt"
-        android:layout_above="@+id/submitBtn"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/bannerImg"
        android:background="@color/cal_row_4" >
         <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
             android:id="@+id/msgTxt"
@@ -73,5 +72,10 @@
             android:textColor="@color/white"
             android:text="Your options are submitted &amp; waiting for approval" />
     </RelativeLayout>
-
+    <ImageView
+        android:id="@+id/bannerImg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:src="@drawable/cca_review_banner"
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>

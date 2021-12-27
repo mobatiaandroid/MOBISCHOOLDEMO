@@ -8,6 +8,7 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.9.0/5d1492954907fda7cf90e20922cd6ae4675ed159/byte-buddy-agent-1.9.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.9.0/5d1492954907fda7cf90e20922cd6ae4675ed159/byte-buddy-agent-1.9.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

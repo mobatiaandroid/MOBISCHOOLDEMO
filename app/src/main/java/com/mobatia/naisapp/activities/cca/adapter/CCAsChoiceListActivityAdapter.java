@@ -1,11 +1,16 @@
 package com.mobatia.naisapp.activities.cca.adapter;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mobatia.naisapp.R;
@@ -34,6 +39,9 @@ public class CCAsChoiceListActivityAdapter extends RecyclerView.Adapter<CCAsChoi
         TextView textViewCCAaDateItem;
         ImageView confirmationImageview;
         TextView textViewCCAVenue;
+        TextView descriptionTxt;
+        TextView readMoreTxt;
+        RelativeLayout descriptionRel;
 
         public MyViewHolder(View view) {
             super(view);
@@ -41,7 +49,10 @@ public class CCAsChoiceListActivityAdapter extends RecyclerView.Adapter<CCAsChoi
             textViewCCAaDateItem = (TextView) view.findViewById(R.id.textViewCCAaDateItem);
             listTxtView = (TextView) view.findViewById(R.id.textViewCCAaItem);
             textViewCCAVenue = (TextView) view.findViewById(R.id.textViewCCAVenue);
+            descriptionTxt = (TextView) view.findViewById(R.id.descriptionTxt);
+            readMoreTxt = (TextView) view.findViewById(R.id.readMoreTxt);
             confirmationImageview = (ImageView) view.findViewById(R.id.confirmationImageview);
+            descriptionRel = (RelativeLayout) view.findViewById(R.id.descriptionRel);
 
 
         }
@@ -79,7 +90,7 @@ public class CCAsChoiceListActivityAdapter extends RecyclerView.Adapter<CCAsChoi
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
 
         holder.confirmationImageview.setVisibility(View.VISIBLE);
@@ -95,6 +106,38 @@ public class CCAsChoiceListActivityAdapter extends RecyclerView.Adapter<CCAsChoi
             holder.textViewCCAVenue.setVisibility(View.VISIBLE);
 
         }
+        System.out.println("DESC TEST"+mCCAmodelArrayList.get(position).getDescription());
+
+     //   Log.e("DESC ADA",mCCAmodelArrayList.get(position).getDescription());
+        if(mCCAmodelArrayList.get(position).getDescription().equalsIgnoreCase("0")|| mCCAmodelArrayList.get(position).getDescription().equalsIgnoreCase(""))
+        {
+            holder.descriptionRel.setVisibility(View.GONE);
+        }
+        else
+        {
+            holder.descriptionRel.setVisibility(View.VISIBLE);
+            holder.descriptionTxt.setText("Description : "+mCCAmodelArrayList.get(position).getDescription());
+        }
+        Integer count=holder.descriptionTxt.getLineCount();
+        Log.e("LINE COUNT", String.valueOf(count));
+
+        if(mCCAmodelArrayList.get(position).getDescription().length()>22)
+        {
+            holder.readMoreTxt.setVisibility(View.GONE);
+        }
+        else
+        {
+            holder.readMoreTxt.setVisibility(View.GONE);
+        }
+
+        holder.readMoreTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AppUtils.showDialogAlertDismiss((Activity) mContext, "Description", mCCAmodelArrayList.get(position).getDescription(), R.drawable.exclamationicon, R.drawable.round);
+
+            }
+        });
         if (choicePosition == 0) {
 
             if (mCCAmodelArrayList.get(position).getDisableCccaiem()) {
@@ -128,10 +171,8 @@ public class CCAsChoiceListActivityAdapter extends RecyclerView.Adapter<CCAsChoi
             }else if (mCCAmodelArrayList.get(position).getStatus().equalsIgnoreCase("0")) {
                 holder.confirmationImageview.setBackgroundResource(R.drawable.close_icon_with_white);
                 holder.listTxtView.setTextColor(mContext.getResources().getColor(R.color.black));
-
-
-
-            } else {
+            }
+            else {
                 holder.confirmationImageview.setBackgroundResource(R.drawable.participatingsmallicon_new);
                 AppController.weekList.get(dayPosition).setChoiceStatus1("1");
                 CCASelectionActivity.CCADetailModelArrayList.get(CCASelectionActivity.ccaDetailpos).setChoice2(mCCAmodelArrayList.get(position).getCca_item_name());
@@ -150,8 +191,10 @@ public class CCAsChoiceListActivityAdapter extends RecyclerView.Adapter<CCAsChoi
             } else {
                 CCASelectionActivity.filled = true;
             }
-            if (!( CCASelectionActivity.filled)) {
+            if (!( CCASelectionActivity.filled))
+            {
                 break;
+
             }
 
         }

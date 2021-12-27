@@ -55,7 +55,7 @@
         android:id="@+id/textViewCCAaSelect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select CCA Choices for:"
+        android:text="Select EAP Choices for:"
         android:layout_margin="5dp"
         android:textColor="#ff000000"
         android:textSize="15sp" />
@@ -79,13 +79,17 @@
         android:layout_margin="5dp"
         android:textColor="@color/dark_grey1"
         android:textSize="15sp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_cca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/submitBtn"
         android:layout_below="@+id/textViewStudName"
-        android:layout_margin="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:background="@color/white"
         android:overScrollMode="never"
         android:scrollbars="vertical" />
@@ -94,7 +98,7 @@
         android:id="@+id/submitBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continue"
+        android:text="CONTINUE"
         android:textAllCaps="false"
         android:layout_centerHorizontal="true"
         android:textColor="@color/white"

@@ -52,7 +52,29 @@
             android:text="Venue:"
             android:textColor="@color/dark_grey1"
             android:textSize="14sp" />
+           <RelativeLayout
+               android:id="@+id/descriptionRel"
+               android:layout_width="match_parent"
+               android:layout_marginLeft="5dp"
+               android:layout_marginTop="5dp"
+               android:layout_height="wrap_content">
 
+               <TextView
+                   android:id="@+id/readMoreTxt"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:text="Read more"
+                   android:visibility="gone"
+                   android:layout_marginRight="5dp"
+                   android:textColor="@color/blue" />
+
+               <TextView
+                   android:id="@+id/descriptionTxt"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginRight="10dp"
+                   android:textColor="@color/dark_grey1" />
+           </RelativeLayout>
     </LinearLayout>
-
 </LinearLayout>

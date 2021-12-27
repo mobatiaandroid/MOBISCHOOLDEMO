@@ -142,7 +142,14 @@ public class CCAsReviewActivity extends Activity implements NaisTabConstants, Ca
                             if (CCASelectionActivity.CCADetailModelArrayList.get(j).getCcaChoiceModel().get(k).getCca_item_start_time() != null && CCASelectionActivity.CCADetailModelArrayList.get(j).getCcaChoiceModel().get(k).getCca_item_end_time() != null) {
                                 mCCADetailModel.setCca_item_start_timechoice1(CCASelectionActivity.CCADetailModelArrayList.get(j).getCcaChoiceModel().get(k).getCca_item_start_time());
                                 mCCADetailModel.setCca_item_end_timechoice1(CCASelectionActivity.CCADetailModelArrayList.get(j).getCcaChoiceModel().get(k).getCca_item_end_time());
+                                mCCADetailModel.setLocation(CCASelectionActivity.CCADetailModelArrayList.get(j).getCcaChoiceModel().get(k).getVenue());
+                                mCCADetailModel.setDescription(CCASelectionActivity.CCADetailModelArrayList.get(j).getCcaChoiceModel().get(k).getDescription());
+
                                 break;
+                            }
+                            else {
+                                mCCADetailModel.setLocation("0");
+                                mCCADetailModel.setDescription("0");
                             }
                         }
                     for (int k = 0; k < CCASelectionActivity.CCADetailModelArrayList.get(j).getCcaChoiceModel2().size(); k++)
@@ -150,7 +157,13 @@ public class CCAsReviewActivity extends Activity implements NaisTabConstants, Ca
                             if (CCASelectionActivity.CCADetailModelArrayList.get(j).getCcaChoiceModel2().get(k).getCca_item_start_time() != null && CCASelectionActivity.CCADetailModelArrayList.get(j).getCcaChoiceModel2().get(k).getCca_item_end_time() != null) {
                                 mCCADetailModel.setCca_item_start_timechoice2(CCASelectionActivity.CCADetailModelArrayList.get(j).getCcaChoiceModel2().get(k).getCca_item_start_time());
                                 mCCADetailModel.setCca_item_end_timechoice2(CCASelectionActivity.CCADetailModelArrayList.get(j).getCcaChoiceModel2().get(k).getCca_item_end_time());
+                                mCCADetailModel.setLocation2(CCASelectionActivity.CCADetailModelArrayList.get(j).getCcaChoiceModel2().get(k).getVenue());
+                                mCCADetailModel.setDescription2(CCASelectionActivity.CCADetailModelArrayList.get(j).getCcaChoiceModel2().get(k).getDescription());
                                 break;
+                            }
+                            else {
+                                mCCADetailModel.setLocation2("0");
+                                mCCADetailModel.setDescription2("0");
                             }
                         }
                     mCCADetailModelArrayList.add(mCCADetailModel);
@@ -431,6 +444,7 @@ public class CCAsReviewActivity extends Activity implements NaisTabConstants, Ca
                                                                 SurveyAnswersModel nModel=new SurveyAnswersModel();
                                                                 nModel.setId(answerObject.optString("id"));
                                                                 nModel.setAnswer(answerObject.optString("answer"));
+                                                                nModel.setLabel(answerObject.optString("label"));
                                                                 nModel.setClicked(false);
                                                                 nModel.setClicked0(false);
 

@@ -99,13 +99,14 @@
                          android:layout_marginTop="3dp"
                          android:layout_centerHorizontal="true"
                          android:src="@drawable/cca_sign_up"/>
+
                      <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
                          android:layout_below="@+id/ccaImg"
-                         android:text="CCA Options"
-                         android:textColor="@color/white"
-                         android:layout_centerHorizontal="true"/>
+                         android:layout_centerHorizontal="true"
+                         android:text="EAP"
+                         android:textColor="@color/white" />
                      <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
                          android:id="@+id/ccaDot"
                          android:layout_width="20dp"
@@ -162,13 +163,14 @@
                                 android:layout_marginTop="3dp"
                                 android:layout_centerHorizontal="true"
                                 android:src="@drawable/information_cca"/>
+
                             <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/information"
-                                android:text="Information"
-                                android:textColor="@color/white"
-                                android:layout_centerHorizontal="true"/>
+                                android:layout_centerHorizontal="true"
+                                android:text="EAP Information"
+                                android:textColor="@color/white" />
                         </RelativeLayout>
                     </LinearLayout>
                 </RelativeLayout>

@@ -17,6 +17,33 @@ public class CCAchoiceModel implements Serializable {
     String cca_item_end_time;
     Boolean disableCccaiem;
     String venue;
+    String venue2;
+    String description;
+    String description2;
+
+    public String getVenue2() {
+        return venue2;
+    }
+
+    public void setVenue2(String venue2) {
+        this.venue2 = venue2;
+    }
+
+    public String getDescription2() {
+        return description2;
+    }
+
+    public void setDescription2(String description2) {
+        this.description2 = description2;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getIsattending() {
         return isattending;

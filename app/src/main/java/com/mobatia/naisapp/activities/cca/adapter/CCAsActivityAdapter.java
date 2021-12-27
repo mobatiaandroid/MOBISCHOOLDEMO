@@ -4,6 +4,8 @@ import android.content.Context;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -143,6 +145,8 @@ public class CCAsActivityAdapter extends RecyclerView.Adapter<CCAsActivityAdapte
 
                         }
                     }
+
+                    Log.e("DESC VAL",mCCAchoiceModel1.get(0).getDescription());
 
                     mCCAsActivityAdapter1 = new CCAsChoiceListActivityAdapter(mContext, mCCAchoiceModel1, dayPosition, weekList, 0, recyclerWeek);
                     holder.recycler_review.setAdapter(mCCAsActivityAdapter1);

@@ -1215,9 +1215,10 @@ return versionName;
 						String status_code = secobj.getString(JTAG_STATUSCODE);
 						if (status_code.equalsIgnoreCase("303")) {
 							dialog.dismiss();
+							PreferenceManager.setIsNoticeHomeVisible(mActivity,false);
 							PreferenceManager.setUserId(mActivity, "");
 							ArrayList<StudentModel>mArray=new ArrayList<>();
-							PreferenceManager.setStudentArrayList(mArray,mActivity);
+							PreferenceManager              .setStudentArrayList(mArray,mActivity);
 							Intent mIntent = new Intent(mActivity, LoginActivity.class);
 							mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 							mActivity.startActivity(mIntent);

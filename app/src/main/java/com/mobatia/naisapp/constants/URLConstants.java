@@ -7,7 +7,8 @@ package com.mobatia.naisapp.constants;
  * @author RIJO K JOSE
  * 
  */
-public interface URLConstants {
+public interface URLConstants
+{
 
 
     //Dev Phase 4

@@ -890,6 +890,7 @@ public class BasketListActivity extends Activity implements URLConstants, Status
                                                                 SurveyAnswersModel nModel=new SurveyAnswersModel();
                                                                 nModel.setId(answerObject.optString("id"));
                                                                 nModel.setAnswer(answerObject.optString("answer"));
+                                                                nModel.setLabel(answerObject.optString("label"));
                                                                 nModel.setClicked(false);
                                                                 nModel.setClicked0(false);
                                                                 surveyAnswersArrayList.add(nModel);

@@ -6,6 +6,7 @@ public class SurveyAnswersModel implements Serializable {
 
     String id;
     String answer;
+    String label;
     boolean isClicked;
     boolean isClicked0;
     boolean isClicked1;
@@ -71,6 +72,14 @@ public class SurveyAnswersModel implements Serializable {
 
     public String getAnswer() {
         return answer;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public void setAnswer(String answer) {

@@ -315,6 +315,7 @@ public class SurveyFragment  extends Fragment implements
                                                    SurveyAnswersModel nModel=new SurveyAnswersModel();
                                                    nModel.setId(answerObject.optString("id"));
                                                    nModel.setAnswer(answerObject.optString("answer"));
+                                                   nModel.setLabel(answerObject.optString("label"));
                                                    if (questionsObject.optString("answer").equalsIgnoreCase(answerObject.optString("id")))
                                                     {
                                                      nModel.setClicked(true);

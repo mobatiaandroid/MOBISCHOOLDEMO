@@ -8,29 +8,36 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_margin="5dp"
-        android:background="@color/rel_one"
-        android:visibility="visible">
-        <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
-            android:id="@+id/answerTxt"
+        android:background="@color/white"
+        android:visibility="gone">
+        <RelativeLayout
+            android:id="@+id/txtRel"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
-            android:textColor="@color/white"
-            android:gravity="center_vertical"
-            android:paddingLeft="5dp"
-            android:background="@drawable/button_grey_with_teal"/>
-       <!-- <com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar
-            android:id="@+id/progress_bar"
-            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_height="44dp">
+
+            <ImageView
+                android:id="@+id/indicateImg"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/option_not_select" />
+
+            <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+                android:id="@+id/answerTxt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/indicateImg"
+                android:background="@drawable/button_grey_with_teal"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            android:indeterminate="false"
-            android:max="2"
-            android:progress="50"
-            app:isRounded="false"
-            app:backgroundColor="@color/white"
-            app:progressColor="@color/white" />-->
+            android:layout_height="2dp"
+            android:layout_below="@+id/txtRel"
+            android:background="@color/grey" />
     </RelativeLayout>
 
 
@@ -40,7 +47,7 @@
         android:layout_height="45dp"
         android:visibility="gone"
         android:layout_margin="5dp"
-        android:background="@color/rel_one">
+       android:background="@drawable/survey_num_bg">
         <LinearLayout
             android:id="@+id/smileyLinear"
             android:layout_width="match_parent"
@@ -59,50 +66,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:paddingLeft="5dp"
                 android:text="Excited"/>
         </LinearLayout>
-        <!-- <com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar
-             android:id="@+id/progress_bar"
-             style="?android:attr/progressBarStyleHorizontal"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:layout_centerHorizontal="true"
-             android:indeterminate="false"
-             android:max="2"
-             android:progress="50"
-             app:isRounded="false"
-             app:backgroundColor="@color/white"
-             app:progressColor="@color/white" />-->
-    </RelativeLayout>
 
-<!--    <RelativeLayout-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/smileyRelative"-->
-<!--        android:visibility="gone"-->
-<!--        android:gravity="center"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_centerInParent="true">-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical"-->
-<!--            android:gravity="center">-->
-<!--            <ImageView-->
-<!--                android:id="@+id/smileyImg"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:src="@drawable/emoji3"/>-->
-<!--            <TextView-->
-<!--                android:id="@+id/smileyTxt"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:gravity="center"-->
-<!--                android:text="Excited"/>-->
-<!--        </LinearLayout>-->
-<!--    </RelativeLayout>-->
+    </RelativeLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -116,19 +85,35 @@
             android:layout_height="wrap_content"
             android:src="@drawable/star"/>
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/numberRelative"
-        android:layout_width="25dp"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:gravity="center"
-        android:layout_height="45dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/curve_number_survey">
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/numberTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:gravity="center"
-            android:textColor="@color/black" />366
+            android:layout_centerInParent="true"
+            android:background="@drawable/rec_blue_border_white"
+            android:textColor="@color/black" />
+
+        <com.mobatia.naisapp.manager.CustomFontSansProTextBlackBold
+            android:id="@+id/rateType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/numberTxt"
+            android:layout_marginTop="25dp"
+            android:gravity="center_horizontal"
+            android:textSize="10sp" />
+
     </RelativeLayout>
 </RelativeLayout>

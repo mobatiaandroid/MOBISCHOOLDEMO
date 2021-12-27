@@ -232,6 +232,8 @@ public class CCAsReviewAfterSubmissionActivity extends Activity implements URLCo
                     mCCAModel.setCca_details_id(choice1.optString("cca_details_id"));
                     mCCAModel.setCca_item_start_time(choice1.optString("cca_item_start_time"));
                     mCCAModel.setCca_item_end_time(choice1.optString("cca_item_end_time"));
+                    mCCAModel.setVenue(choice1.optString("venue"));
+                    mCCAModel.setCca_item_description(choice1.optString("cca_item_description"));
                     mCCAModel.setAttending_status(choice1.optString("attending_status"));
                     JSONArray absentDaysChoice1 = choice1.optJSONArray("absentDays");
                     absentDaysChoice1Array = new ArrayList<>();
@@ -305,6 +307,8 @@ public class CCAsReviewAfterSubmissionActivity extends Activity implements URLCo
                     mCCAModel.setCca_item_start_time(choice2.optString("cca_item_start_time"));
                     mCCAModel.setCca_item_end_time(choice2.optString("cca_item_end_time"));
                     mCCAModel.setCca_details_id2(choice2.optString("cca_details_id"));
+                    mCCAModel.setCca_item_description_2(choice2.optString("cca_item_description"));
+                    mCCAModel.setVenue2(choice2.optString("venue"));
                     mCCAModel.setAttending_status2(choice2.optString("attending_status"));
 
                     JSONArray absentDaysChoice2 = choice2.optJSONArray("absentDays");

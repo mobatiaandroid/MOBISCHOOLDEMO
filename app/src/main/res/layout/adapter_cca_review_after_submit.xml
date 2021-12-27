@@ -32,8 +32,11 @@
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_margin="5dp"
-            android:background="@drawable/attendance_list"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/attendance_cca"
             android:visibility="visible" />
 
     </RelativeLayout>
@@ -72,28 +75,71 @@
                 android:text="Choice 1:"
                 android:textColor="#ff000000"
                 android:textSize="16sp" />
+
             <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
 
                 android:id="@+id/textViewCCAaDateItemChoice1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
                 android:layout_below="@+id/textViewCCAChoice1"
-                android:text="None"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_alignParentLeft="true"
-
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="5dp"
                 android:layout_toLeftOf="@+id/deleteChoice1"
+                android:text="None"
                 android:textColor="@color/dark_grey1"
                 android:textSize="14sp" />
+            <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+
+                android:id="@+id/locationTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewCCAaDateItemChoice1"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/deleteChoice1"
+                android:text="None"
+                android:textColor="@color/dark_grey1"
+                android:textSize="14sp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/locationTxt"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentLeft="true">
+                <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+                    android:id="@+id/descriptionTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="5dp"
+                    android:text="None"
+                    android:maxLength="55"
+                    android:textColor="@color/dark_grey1"
+                    android:textSize="14sp" />
+
+                <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+                    android:id="@+id/readMore1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/descriptionTxt"
+                    android:text="Read more"
+                    android:textSize="14sp"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/split_bg" />
+
+            </RelativeLayout>
+
             <ImageView
                 android:id="@+id/deleteChoice1"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_alignBaseline="@+id/textViewCCAChoice1"
                 android:layout_alignParentRight="true"
-
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/delete_red"
                 android:visibility="visible" />
@@ -146,13 +192,55 @@
                 android:text="None"
                 android:textColor="@color/dark_grey1"
                 android:textSize="14sp" />
+            <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+                android:id="@+id/location2Txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewCCAaDateItemChoice2"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/deleteChoice2"
+                android:text="None"
+                android:textColor="@color/dark_grey1"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/location2Txt"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentLeft="true">
+                <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+                    android:id="@+id/description2Txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="5dp"
+                    android:text="None"
+                    android:maxLines="1"
+                    android:layout_toLeftOf="@+id/readMore"
+                    android:textColor="@color/dark_grey1"
+                    android:textSize="14sp" />
+
+                <com.mobatia.naisapp.manager.CustomFontSansProTextWhiteWithoutColor
+                    android:id="@+id/readMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="Read more"
+                    android:textColor="@color/split_bg" />
+
+            </RelativeLayout>
+
             <ImageView
                 android:id="@+id/deleteChoice2"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_alignBaseline="@+id/textViewCCAChoice2"
                 android:layout_alignParentRight="true"
-
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/delete_red"
                 android:visibility="visible" />

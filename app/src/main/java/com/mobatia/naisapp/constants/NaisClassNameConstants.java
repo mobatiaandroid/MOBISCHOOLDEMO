@@ -22,7 +22,7 @@ public interface NaisClassNameConstants {
     String IB_PROGRAMME = "Sixth Form";
     String SPORTS = "Sports";
     String PERFORMING_ARTS = "Performing Arts";
-    String CCAS = "CCAs";
+    String CCAS = "EAPs";
     String DETAILS = "Details";
     String NAE_PROGRAMMES = "NAE Programmes";
     String SOCIAL_MEDIA = "Social Media";
